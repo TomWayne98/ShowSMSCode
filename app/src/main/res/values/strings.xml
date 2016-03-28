@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ShowSMSCode</string>
+
+
+    //Settings
+
+    <string name="pref_notification">Notifications</string>
+    <string name="pref_notification_summ">Show code in notification bar</string>
+    <string name="pref_overlayDelay">Overlay delay</string>
+    <string name="pref_overlayDelay_default">3000</string>
+    <string name="pref_overlayDelay_summ">How long will be code shown</string>
+
+
+</resources>
