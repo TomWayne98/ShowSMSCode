@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="22"
+    density="hdpi"
+    format="6"
+    timestamp="9725663010644" >
+
+    <task
+        name="javac"
+        duration="235" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="17" />
+    <task
+        name="verifier"
+        duration="3" />
+
+    <artifact
+        location="C:\Users\Pepa\GIT\ShowSMSCode\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0_55ff0a551e79949f51c4c072b037eb55b720a1fb\classes.dex"
+        type="DEX" />
+
+    <build timestamp="9161377983729" >
+        <artifact
+            location="C:\Users\Pepa\GIT\ShowSMSCode\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="9725663010644" >
+        <artifact
+            location="C:\Users\Pepa\GIT\ShowSMSCode\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0_55ff0a551e79949f51c4c072b037eb55b720a1fb\classes.dex"
+            type="DEX" />
+    </build>
+
+</instant-run>
