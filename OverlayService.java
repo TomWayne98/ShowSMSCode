@@ -26,10 +26,9 @@ public class OverlayService extends Service {
     private WindowManager windowManager;
     private TextView codeView;
 
-    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-    String i = sharedPref.getString(SettingsFragment.KEY_PREF_OVERLAY_DELAY, "");
 
-    int overlayDelay = Integer.valueOf(i);
+
+
 
     @Override public IBinder onBind(Intent intent) {
         // Not used
@@ -39,8 +38,9 @@ public class OverlayService extends Service {
     @Override public void onCreate() {
         super.onCreate();
 
-
-
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String i = sharedPref.getString(SettingsFragment.KEY_PREF_OVERLAY_DELAY, "");
+        int overlayDelay = Integer.valueOf(i);
 
         new Handler().postDelayed(new Runnable() {
             @Override
