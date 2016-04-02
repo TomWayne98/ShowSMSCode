@@ -33,7 +33,7 @@ public class NotificationServis extends IntentService {
         dataArray = bundle.getStringArray("key");
 
         String smsContent = dataArray[0];
-        String smsSender = dataArray[1];
+        String smsSender = dataArray[2];
 //sd
 
 

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -25,7 +26,8 @@ import cz.johrusk.showsmscode.receiver.SettingsFragment;
 public class OverlayService extends Service {
     private WindowManager windowManager;
     private TextView codeView;
-
+    public Bundle bundle;
+    public int overlayDelay;
 
 
 
@@ -35,12 +37,14 @@ public class OverlayService extends Service {
         return null;
     }
 
-    @Override public void onCreate() {
-        super.onCreate();
+    public int onStartCommand(Intent intent, int flags, int startId)
+    {
+        this.bundle = intent.getBundleExtra("bundle");
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String i = sharedPref.getString(SettingsFragment.KEY_PREF_OVERLAY_DELAY, "");
-        int overlayDelay = Integer.valueOf(i);
+        String[] dataArray;
+        dataArray = bundle.getStringArray("key");
+
+        String code = dataArray[0];
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -54,7 +58,7 @@ public class OverlayService extends Service {
 
         codeView = new TextView(this);
 
-        codeView.setText("123456789");
+        codeView.setText(code);
         codeView.setTextSize(80);
         codeView.setTextColor(Color.BLACK);
         codeView.setBackgroundColor(Color.WHITE);
@@ -65,14 +69,14 @@ public class OverlayService extends Service {
 
                 stopSelf();
             }
-         });
+        });
 
 
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.TYPE_PHONE,
-                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
+                WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
                 PixelFormat.TRANSLUCENT);
 
         params.gravity = Gravity.TOP | Gravity.LEFT;
@@ -80,6 +84,18 @@ public class OverlayService extends Service {
         params.y = 100;
 
         windowManager.addView(codeView, params);
+
+
+        //TODO decide if it's the best return statement;
+        return START_STICKY;
+    }
+
+    @Override public void onCreate() {
+        super.onCreate();
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String i = sharedPref.getString(SettingsFragment.KEY_PREF_OVERLAY_DELAY, "");
+        overlayDelay = Integer.valueOf(i);
 
 
     }
