@@ -10,5 +10,9 @@
     <string name="pref_overlayDelay_default">3000</string>
     <string name="pref_overlayDelay_summ">How long will be code shown</string>
 
+    //Which JSON to use (Assets/InternalStorage)
+
+    <string name="use_internal">0</string>
+
 
 </resources>

@@ -18,10 +18,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service android:name=".NotificationServis"/>
-        <service android:name=".OverlayService"/>
-        <activity android:name=".MainActivity">
+        <service android:name=".NotificationServis" />
+        <service android:name=".OverlayService" />
 
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,13 +30,14 @@
         </activity>
 
         <receiver android:name=".receiver.SmsRecieved">
-
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED">
-                </action>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
             </intent-filter>
-
         </receiver>
+
+        <service
+            android:name=".ClipService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

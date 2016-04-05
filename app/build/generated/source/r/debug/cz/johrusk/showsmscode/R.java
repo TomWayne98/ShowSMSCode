@@ -1790,6 +1790,7 @@ containing a value of this type.
         public static final int pref_overlayDelay_default=0x7f070018;
         public static final int pref_overlayDelay_summ=0x7f070019;
         public static final int status_bar_notification_info_overflow=0x7f070013;
+        public static final int use_internal=0x7f07001a;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f0a0086;

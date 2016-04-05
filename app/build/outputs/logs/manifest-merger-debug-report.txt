@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:2:1-42:12
+ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:2:1-43:12
 	package
 		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml
@@ -50,7 +50,7 @@ ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:13:5-7
 	android:name
 		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:13:22-75
 application
-ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:15:5-40:19
+ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:15:5-41:19
 MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\Pepa\GIT\ShowSMSCode\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:23.2.1] C:\Users\Pepa\GIT\ShowSMSCode\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:animated-vector-drawable:23.2.1] C:\Users\Pepa\GIT\ShowSMSCode\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\AndroidManifest.xml:7:5-20
@@ -69,17 +69,17 @@ MERGED from [com.android.support:support-v4:23.2.1] C:\Users\Pepa\GIT\ShowSMSCod
 	android:theme
 		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:20:9-40
 service#cz.johrusk.showsmscode.NotificationServis
-ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:21:9-54
+ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:21:9-55
 	android:name
 		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:21:18-52
 service#cz.johrusk.showsmscode.OverlayService
-ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:22:9-50
+ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:22:9-51
 	android:name
 		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:22:18-48
 activity#cz.johrusk.showsmscode.MainActivity
-ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:23:9-30:20
+ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:24:9-30:20
 	android:name
-		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:23:19-47
+		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:24:19-47
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:25:13-29:29
 action#android.intent.action.MAIN
@@ -91,15 +91,21 @@ ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:28:17-
 	android:name
 		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:28:27-74
 receiver#cz.johrusk.showsmscode.receiver.SmsRecieved
-ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:32:9-39:20
+ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:32:9-36:20
 	android:name
 		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:32:19-55
 intent-filter#android.provider.Telephony.SMS_RECEIVED
-ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:34:13-37:29
+ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:33:13-35:29
 action#android.provider.Telephony.SMS_RECEIVED
-ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:35:17-36:26
+ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:34:17-89
 	android:name
-		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:35:25-79
+		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:34:25-79
+service#cz.johrusk.showsmscode.ClipService
+ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:38:9-40:48
+	android:exported
+		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:40:13-37
+	android:name
+		ADDED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml:39:13-40
 uses-sdk
 INJECTED from C:\Users\Pepa\GIT\ShowSMSCode\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:appcompat-v7:23.2.1] C:\Users\Pepa\GIT\ShowSMSCode\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\AndroidManifest.xml:21:5-23:78
