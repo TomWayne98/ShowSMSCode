@@ -5,7 +5,7 @@
       "number": 999005,
       "unique": "CS-S24",
       "sender": "Česká Spořitelna",
-      "reg_ex": "code: (\\d+)"
+      "reg_ex": "code: (\\d+)",
       "alt_numbers": ["654321","16161616"]
      },
      {
