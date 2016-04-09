@@ -18,6 +18,14 @@
      },
       {
       "id": 3,
+      "number": 728089760,
+      "unique": "TEST",
+      "sender": "debug_test",
+      "reg_ex": "ticket: (\\d+)",
+       "alt_numbers": ["000000","1111111"]
+     },
+      {
+      "id": 4,
       "number": 654321,
       "unique": "Cinestar",
       "sender": "debug_test",
