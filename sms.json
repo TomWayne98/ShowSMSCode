@@ -16,6 +16,14 @@
       "reg_ex": "code: (\\d+)",
        "alt_numbers": ["654321","16161616"]
      }
+      {
+      "id": 3,
+      "number": 654321,
+      "unique": "Cinestar",
+      "sender": "debug_test",
+      "reg_ex": "ticket: (\\d+)",
+       "alt_numbers": ["654321","16161616"]
+     }
      
     ]
 }
