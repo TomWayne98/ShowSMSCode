@@ -1,0 +1,37 @@
+{
+  "sms": [
+    {
+      "id": 1,
+      "number": 999005,
+      "unique": "CS-S24",
+      "sender": "Česká Spořitelna",
+      "reg_ex": "code: (\\d+)",
+      "alt_numbers": ["654321","16161616"]
+     },
+     {
+      "id": 2,
+      "number": 123456,
+      "unique": "TEST",
+      "sender": "debug_test",
+      "reg_ex": "code: (\\d+)",
+       "alt_numbers": ["654321","16161616"]
+     },
+      {
+      "id": 3,
+      "number": 728089760,
+      "unique": "TEST",
+      "sender": "debug_test",
+      "reg_ex": "ticket: (\\d+)",
+       "alt_numbers": ["000000","1111111"]
+     },
+      {
+      "id": 4,
+      "number": 654321,
+      "unique": "Cinestar",
+      "sender": "debug_test",
+      "reg_ex": "ticket: (\\d+)",
+       "alt_numbers": ["654321","16161616"]
+     }
+     
+    ]
+}
