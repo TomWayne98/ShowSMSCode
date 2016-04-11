@@ -14,7 +14,7 @@
       "unique": "TEST",
       "sender": "debug_test",
       "reg_ex": "code: (\\d+)",
-       "alt_numbers": ["654321","16161616"]
+       "alt_numbers": ["733368395","16161616"]
      },
       {
       "id": 3,
