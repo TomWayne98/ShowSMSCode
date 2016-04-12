@@ -26,11 +26,27 @@
      },
       {
       "id": 4,
-      "number": 654321,
-      "unique": "Cinestar",
-      "sender": "debug_test",
-      "reg_ex": "ticket: (\\d+)",
-       "alt_numbers": ["654321","16161616"]
+      "number": 999020,
+      "unique": "CSOB",
+      "sender": "CSOB",
+      "reg_ex": "ticket: (\\...-...-...)",
+       "alt_numbers": ["654321"]
+     },
+      {
+      "id": 5,
+      "number": 999020,
+      "unique": "CSOB",
+      "sender": "CSOB",
+      "reg_ex": "ticket: (\\...-...-...)",
+       "alt_numbers": ["654321"]
+     },
+      {
+      "id": 6,
+      "number": 1024,
+      "unique": "Raiffeisenbank",
+      "sender": "Raiffeisenbank",
+      "reg_ex": "je: (\\d+)",
+       "alt_numbers": ["654321"]
      }
      
     ]
