@@ -34,14 +34,6 @@
      },
       {
       "id": 5,
-      "number": 999020,
-      "unique": "CSOB",
-      "sender": "CSOB",
-      "reg_ex": "ticket: (\\...-...-...)",
-       "alt_numbers": ["654321"]
-     },
-      {
-      "id": 6,
       "number": 1024,
       "unique": "Raiffeisenbank",
       "sender": "Raiffeisenbank",
