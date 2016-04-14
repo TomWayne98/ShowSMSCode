@@ -42,7 +42,7 @@
      },
       {
       "id": 6,
-      "number": O2 Active,
+      "number": "O2 Active",
       "unique": "m-platby",
       "sender": "02 Active",
       "reg_ex": "PIN: (\\......)",
