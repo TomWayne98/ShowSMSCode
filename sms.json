@@ -20,7 +20,7 @@
       "number": 999020,
       "unique": "CSOB",
       "sender": "CSOB",
-      "reg_ex": "kodem (\\...-...-...)"
+      "reg_ex": "kodem (...-...-...)"
      },
       {
       "id": 4,
