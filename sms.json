@@ -37,7 +37,7 @@
       "id": 1001,
       "ispublic":true,
       "number": "O2 Active",
-      "unique": "m-platby",
+      "unique": "Nesdelujte jine",
       "sender": "02 Active",
       "reg_ex": "PIN: (......)"
      },
