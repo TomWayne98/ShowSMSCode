@@ -64,7 +64,7 @@
       "unique": "Google",
       "sender": "Google",
       "reg_ex": "G-(......)",
-      "alt_numbers": ["InfoSMS"]
+      "alt_numbers": ["InfoSMS","Verify"]
      }
      
     ]
