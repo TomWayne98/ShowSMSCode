@@ -7,7 +7,7 @@
       "unique": "CS-S24",
       "sender": "Česká Spořitelna",
       "reg_ex": "code: (\\d+)",
-      "example: "CS-S24: Entered PLATBA 24 payment to account XXXXXX; amount 1234,00 CZK; variable symbol 12345678. Authorization SMS code: 123456789"
+      "example": "CS-S24: Entered PLATBA 24 payment to account XXXXXX; amount 1234,00 CZK; variable symbol 12345678. Authorization SMS code: 123456789"
      },
      {
       "id": 2,
@@ -17,7 +17,7 @@
       "sender": "debug_test",
       "reg_ex": "code: (\\d+)",
       "alt_numbers": ["733368395","728089760"],
-      "example: "TEST code: XXXXXX"
+      "example": "TEST code: XXXXXX"
      },
       {
       "id": 3,
