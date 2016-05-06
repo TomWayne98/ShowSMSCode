@@ -6,7 +6,8 @@
       "number": 999005,
       "unique": "CS-S24",
       "sender": "Česká Spořitelna",
-      "reg_ex": "code: (\\d+)"
+      "reg_ex": "code: (\\d+)",
+      "example: "CS-S24: Entered PLATBA 24 payment to account XXXXXX; amount 1234,00 CZK; variable symbol 12345678. Authorization SMS code: 123456789"
      },
      {
       "id": 2,
@@ -15,7 +16,8 @@
       "unique": "TEST",
       "sender": "debug_test",
       "reg_ex": "code: (\\d+)",
-      "alt_numbers": ["733368395","728089760"]
+      "alt_numbers": ["733368395","728089760"],
+      "example: "TEST code: XXXXXX"
      },
       {
       "id": 3,
@@ -23,7 +25,8 @@
       "number": 999020,
       "unique": "CSOB",
       "sender": "CSOB",
-      "reg_ex": "kodem (...-...-...)"
+      "reg_ex": "kodem (...-...-...)",
+      "example": "CSOB SMS klic: Prihlaseni do CSOB InternetBankingu 24 (trans. 213241654) potvrdte kodem f31-x29-zpk."
      },
       {
       "id": 4,
@@ -31,7 +34,8 @@
       "number": 1024,
       "unique": "Raiffeisenbank",
       "sender": "Raiffeisenbank",
-      "reg_ex": "je: (\\d+)"
+      "reg_ex": "je: (\\d+)",
+      "example": "Vazeny kliente, 3D secure kod pro Vasi internetovou transakci na castku: 100.00 CZK u obchodnika: XXX A.S. je: 1233465. Vase Raiffeisenbank"
      },
       {
       "id": 1001,
@@ -39,7 +43,9 @@
       "number": "O2 Active",
       "unique": "Nesdelujte jine",
       "sender": "02 Active",
-      "reg_ex": "PIN: (......)"
+      "reg_ex": "PIN: (......)",
+      "example": "Vazeny zakazniku, zasilame jednorazovy PIN k autorizaci m-platby pro SPOLECNOST s.a. na castku 89.0 Kc. PIN: AD7FAX. Nesdelujte jine osobe. Vase O2."
+
      },
       {
       "id": 1002,
@@ -47,7 +53,8 @@
       "number": "InfoSMS",
       "unique": "Wargaming",
       "sender": "WarGaming",
-      "reg_ex": "code: (.....)"
+      "reg_ex": "code: (.....)",
+      "example": "Confirmation code: 41366. Never give this code out. Wargaming.net"
      },
       {
       "id": 1003,
@@ -55,7 +62,8 @@
       "number": "Verify",
       "unique": "Blizzard",
       "sender": "Blizzard",
-      "reg_ex": "code is (......)"
+      "reg_ex": "code is (......)",
+      "example": "Your verification code is 176015 - Blizzard Entertainment"
      },
       {
       "id": 1004,
@@ -64,7 +72,8 @@
       "unique": "Google",
       "sender": "Google",
       "reg_ex": "G-(......)",
-      "alt_numbers": ["InfoSMS","Verify"]
+      "alt_numbers": ["InfoSMS","Verify"],
+      "example": "G-549121 je váš ověřovací kód Google."
      },
       {
       "id": 1005,
@@ -73,8 +82,10 @@
       "unique": "Netflix",
       "sender": "Netflix",
       "reg_ex": "code is (......)",
-      "alt_numbers": ["InfoSMS","Verify"]
+      "alt_numbers": ["InfoSMS","Verify"],
+      "example": "Your Netflix verification code is 074922"
      }
      
     ]
 }
+
