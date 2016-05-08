@@ -11,13 +11,13 @@
                     "endOffset": 112
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-land\\values-land.xml",
                     "position": {
-                        "startLine": 2,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 55,
+                        "startOffset": 229,
                         "endColumn": 61,
-                        "endOffset": 112
+                        "endOffset": 286
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 184
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-land\\values-land.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 117,
+                        "startOffset": 466,
                         "endColumn": 71,
-                        "endOffset": 184
+                        "endOffset": 533
                     }
                 }
             },
@@ -49,13 +49,13 @@
                     "endOffset": 254
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-land\\values-land.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 189,
+                        "startOffset": 722,
                         "endColumn": 69,
-                        "endOffset": 254
+                        "endOffset": 787
                     }
                 }
             },
@@ -68,13 +68,13 @@
                     "endOffset": 318
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-land\\values-land.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 259,
+                        "startOffset": 967,
                         "endColumn": 63,
-                        "endOffset": 318
+                        "endOffset": 1026
                     }
                 }
             },
@@ -87,13 +87,13 @@
                     "endOffset": 389
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-land\\values-land.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 323,
+                        "startOffset": 1215,
                         "endColumn": 70,
-                        "endOffset": 389
+                        "endOffset": 1281
                     }
                 }
             },
@@ -106,13 +106,34 @@
                     "endOffset": 457
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-land\\values-land.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-land\\values-land.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 394,
+                        "startOffset": 1286,
                         "endColumn": 67,
-                        "endOffset": 457
+                        "endOffset": 1349
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 462,
+                    "endLine": 11,
+                    "endColumn": 12,
+                    "endOffset": 639
+                },
+                "from": {
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\values-land\\values-land.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 224,
+                        "endLine": 7,
+                        "endColumn": 12,
+                        "endOffset": 401
                     }
                 }
             }

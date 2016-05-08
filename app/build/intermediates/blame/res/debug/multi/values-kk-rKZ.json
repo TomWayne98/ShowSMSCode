@@ -11,13 +11,13 @@
                     "endOffset": 162
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 2,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 55,
+                        "startOffset": 233,
                         "endColumn": 111,
-                        "endOffset": 162
+                        "endOffset": 340
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 270
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 167,
+                        "startOffset": 345,
                         "endColumn": 107,
-                        "endOffset": 270
+                        "endOffset": 448
                     }
                 }
             },
@@ -49,13 +49,13 @@
                     "endOffset": 393
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 4,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 275,
+                        "startOffset": 453,
                         "endColumn": 122,
-                        "endOffset": 393
+                        "endOffset": 571
                     }
                 }
             },
@@ -68,13 +68,13 @@
                     "endOffset": 496
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 398,
+                        "startOffset": 576,
                         "endColumn": 102,
-                        "endOffset": 496
+                        "endOffset": 674
                     }
                 }
             },
@@ -87,13 +87,13 @@
                     "endOffset": 606
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 6,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 501,
+                        "startOffset": 679,
                         "endColumn": 109,
-                        "endOffset": 606
+                        "endOffset": 784
                     }
                 }
             },
@@ -106,13 +106,13 @@
                     "endOffset": 691
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 611,
+                        "startOffset": 789,
                         "endColumn": 84,
-                        "endOffset": 691
+                        "endOffset": 869
                     }
                 }
             },
@@ -125,13 +125,13 @@
                     "endOffset": 797
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 696,
+                        "startOffset": 874,
                         "endColumn": 105,
-                        "endOffset": 797
+                        "endOffset": 975
                     }
                 }
             },
@@ -144,13 +144,13 @@
                     "endOffset": 916
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 802,
+                        "startOffset": 980,
                         "endColumn": 118,
-                        "endOffset": 916
+                        "endOffset": 1094
                     }
                 }
             },
@@ -163,13 +163,13 @@
                     "endOffset": 997
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 921,
+                        "startOffset": 1099,
                         "endColumn": 80,
-                        "endOffset": 997
+                        "endOffset": 1175
                     }
                 }
             },
@@ -182,13 +182,13 @@
                     "endOffset": 1077
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 1002,
+                        "startOffset": 1180,
                         "endColumn": 79,
-                        "endOffset": 1077
+                        "endOffset": 1255
                     }
                 }
             },
@@ -201,13 +201,13 @@
                     "endOffset": 1158
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 1082,
+                        "startOffset": 1260,
                         "endColumn": 80,
-                        "endOffset": 1158
+                        "endOffset": 1336
                     }
                 }
             },
@@ -220,13 +220,13 @@
                     "endOffset": 1261
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1163,
+                        "startOffset": 1341,
                         "endColumn": 102,
-                        "endOffset": 1261
+                        "endOffset": 1439
                     }
                 }
             },
@@ -239,13 +239,13 @@
                     "endOffset": 1366
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1266,
+                        "startOffset": 1444,
                         "endColumn": 104,
-                        "endOffset": 1366
+                        "endOffset": 1544
                     }
                 }
             },
@@ -258,13 +258,13 @@
                     "endOffset": 1464
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1371,
+                        "startOffset": 1549,
                         "endColumn": 97,
-                        "endOffset": 1464
+                        "endOffset": 1642
                     }
                 }
             },
@@ -277,13 +277,13 @@
                     "endOffset": 1571
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1469,
+                        "startOffset": 1647,
                         "endColumn": 106,
-                        "endOffset": 1571
+                        "endOffset": 1749
                     }
                 }
             },
@@ -296,13 +296,13 @@
                     "endOffset": 1680
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 1576,
+                        "startOffset": 1754,
                         "endColumn": 108,
-                        "endOffset": 1680
+                        "endOffset": 1858
                     }
                 }
             },
@@ -315,13 +315,13 @@
                     "endOffset": 1780
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 20,
                         "startColumn": 4,
-                        "startOffset": 1685,
+                        "startOffset": 1863,
                         "endColumn": 99,
-                        "endOffset": 1780
+                        "endOffset": 1958
                     }
                 }
             },
@@ -334,13 +334,13 @@
                     "endOffset": 1895
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 21,
                         "startColumn": 4,
-                        "startOffset": 1785,
+                        "startOffset": 1963,
                         "endColumn": 114,
-                        "endOffset": 1895
+                        "endOffset": 2073
                     }
                 }
             },
@@ -353,13 +353,13 @@
                     "endOffset": 1994
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 22,
                         "startColumn": 4,
-                        "startOffset": 1900,
+                        "startOffset": 2078,
                         "endColumn": 98,
-                        "endOffset": 1994
+                        "endOffset": 2172
                     }
                 }
             },
@@ -372,13 +372,13 @@
                     "endOffset": 2095
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-kk-rKZ\\values-kk-rKZ.xml",
                     "position": {
-                        "startLine": 21,
+                        "startLine": 23,
                         "startColumn": 4,
-                        "startOffset": 1999,
+                        "startOffset": 2177,
                         "endColumn": 100,
-                        "endOffset": 2095
+                        "endOffset": 2273
                     }
                 }
             }

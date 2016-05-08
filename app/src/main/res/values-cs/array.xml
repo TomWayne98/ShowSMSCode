@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="pref_overlayDelay_entries">
+        <item>3 sekund</item>
+        <item>5 sekund</item>
+        <item>10 sekund</item>
+        <item>15 sekund</item>
+        <item>30 sekund</item>
+
+    </string-array>
+
+    <string-array name="pref_overlayDelay_values">
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+
+    </string-array>
+    <string-array name="notification_didyouknow">
+        <item>Pomocí aplikace lze přidat vlastní sms vzor?</item>
+        <item>Každý kód se zkopíruje do schránky</item>
+        <!--Tepmporary doesn't work - clicklistenter is not working.-->
+        <!--<item>until_tap</item>-->
+    </string-array>
+</resources>

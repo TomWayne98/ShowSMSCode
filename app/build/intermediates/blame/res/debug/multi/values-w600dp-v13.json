@@ -11,13 +11,13 @@
                     "endOffset": 114
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-w600dp-v13\\values-w600dp-v13.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-w600dp\\values-w600dp.xml",
                     "position": {
-                        "startLine": 2,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 55,
+                        "startOffset": 232,
                         "endColumn": 63,
-                        "endOffset": 114
+                        "endOffset": 291
                     }
                 }
             },
@@ -30,13 +30,13 @@
                     "endOffset": 169
                 },
                 "from": {
-                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.1\\res\\values-w600dp-v13\\values-w600dp-v13.xml",
+                    "file": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-w600dp\\values-w600dp.xml",
                     "position": {
-                        "startLine": 3,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 119,
+                        "startOffset": 296,
                         "endColumn": 54,
-                        "endOffset": 169
+                        "endOffset": 346
                     }
                 }
             }

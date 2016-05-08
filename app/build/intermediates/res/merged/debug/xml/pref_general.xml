@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sfragment">
 
     <CheckBoxPreference
         android:key="pref_notification"
@@ -14,5 +15,16 @@
         android:entries="@array/pref_overlayDelay_entries"
         android:entryValues="@array/pref_overlayDelay_values"
         android:defaultValue="@string/pref_overlayDelay_default" />
+    <Preference
+        android:selectable="true"
+        android:enabled="true"
+        android:key="pref_version_key"
+        android:title="@string/versionDB_title"
+        android:summary= "@string/versionDB"
+        android:onClick="UpdateDB"
+        />
+
+
+
 
 </PreferenceScreen>

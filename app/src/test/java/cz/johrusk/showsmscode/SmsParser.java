@@ -7,18 +7,24 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Created by Pepa on 02.04.2016.
  */
-public class SmsParser extends InstrumentationTestCase {
-
-    public Context c = getInstrumentation().getContext();
+@RunWith(MockitoJUnitRunner.class)
+public class SmsParser{
+    @Mock
+    public Context c;
     public static final String LOG_TAG = MainActivity.class.getName();
 
 
@@ -35,28 +41,49 @@ public class SmsParser extends InstrumentationTestCase {
     }
 
 
-    public String loadJSONFromAsset() {
-        String json = null;
-        try {
-            InputStream is = c.getAssets().open("SMSJson.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
+//    public String loadJSONFromAsset() {
+
+//        String json = null;
+//        try {
+//            try {
+//                InputStream is = c.getAssets().open("SMSJson.json");
+//
+//
+//            int size = is.available();
+//            byte[] buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            json = new String(buffer, "UTF-8");
+//        } catch (IOException ex) {
+//            ex.printStackTrace();
+//            return null;
+//        }
+//        return json;
+//        }
+//        catch (NullPointerException n){
+//            throw new RuntimeException("Null poitttnter exception");}
+//    }
+
+    private String readResult(InputStream is) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        BufferedReader r = new BufferedReader(new InputStreamReader(is, "utf-8"), 1000);
+        String l = null;
+        while ((l = r.readLine()) != null) {
+            sb.append(l);
         }
-        return json;
+
+        return sb.toString();
     }
 
 
 
-        public String[] getSmsContent ( long number, String smsText) {
+    public String[] getSmsContent ( long number, String smsText) {
             String[] results = new String[5];
+            InputStream is = null;
             try {
-                JSONObject obj = new JSONObject(loadJSONFromAsset());
+                is = ClassLoader.getSystemResourceAsStream("assets/SMSJson.json");
+                String strg = readResult(is);
+                JSONObject obj = new JSONObject(strg);
                 JSONArray m_jArry = obj.getJSONArray("sms");
 
 
@@ -86,7 +113,7 @@ public class SmsParser extends InstrumentationTestCase {
                     }
                 }
 
-            } catch (JSONException e) {
+            } catch (IOException | JSONException e) {
                 Log.e("ShowSMSApp", "received sms cannot be parsed because of " + e.getMessage());
             }
 

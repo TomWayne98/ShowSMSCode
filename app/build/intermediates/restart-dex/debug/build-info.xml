@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86"
-    api-level="22"
-    density="xxhdpi"
-    format="6"
-    timestamp="86322523111689" >
+    abi="x86_64,x86"
+    api-level="23"
+    density="420dpi"
+    format="7"
+    timestamp="126266414599112" >
 
     <task
         name="javac"
-        duration="1258" />
+        duration="1289" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="430" />
+        duration="326" />
     <task
         name="verifier"
-        duration="82" />
+        duration="90" />
 
     <artifact
         location="C:\Users\Pepa\GIT\ShowSMSCode\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="86322523111689" >
+    <build timestamp="126266414599112" >
         <artifact
             location="C:\Users\Pepa\GIT\ShowSMSCode\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />

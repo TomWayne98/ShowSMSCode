@@ -2,5 +2,13 @@
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\xml\\pref_general.xml",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\xml\\pref_general.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\xml\\tags.xml",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\xml\\tags.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\xml\\backup_config.xml",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\xml\\backup_config.xml"
     }
 ]

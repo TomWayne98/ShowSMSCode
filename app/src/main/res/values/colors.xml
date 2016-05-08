@@ -3,4 +3,15 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+
+    <color name="intro_slide_1">#1565c0</color>
+    <color name="intro_slide_2">#304ffe</color>
+    <color name="intro_slide_3">#304ffe</color>
+    <color name="intro_slide_4">#ef5d2e</color>
+    <color name="intro_slide_5">#c92fff</color>
+    <color name="intro_toolbar">#8c9eff</color>
 </resources>

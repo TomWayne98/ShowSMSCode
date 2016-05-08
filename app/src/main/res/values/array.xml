@@ -8,15 +8,23 @@
         <item>10 seconds</item>
         <item>15 seconds</item>
         <item>30 seconds</item>
-        <item>Until tap</item>
+        <!--<item>Until tap</item>-->
     </string-array>
 
     <string-array name="pref_overlayDelay_values">
-        <item>3000</item>
-        <item>5000</item>
-        <item>10000</item>
-        <item>15000</item>
-        <item>30000</item>
-        <item>until_tap</item>
+        <item>3</item>
+        <item>5</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <!--Tepmporary doesn't work - clicklistenter is not working.-->
+        <!--<item>until_tap</item>-->
+    </string-array>
+
+    <string-array name="notification_didyouknow">
+        <item>You can add your own sms to database via you app?</item>
+        <item>We automaticly copy each code to clipboard</item>
+        <!--Tepmporary doesn't work - clicklistenter is not working.-->
+        <!--<item>until_tap</item>-->
     </string-array>
 </resources>
