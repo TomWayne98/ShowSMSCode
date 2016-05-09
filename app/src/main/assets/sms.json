@@ -3,6 +3,7 @@
     {
       "id": 1,
       "ispublic":true,
+      "example":"CS-S24: Entered PLATBA 24 payment to account 0-6276462/0800; amount 6685,00 CZK; variable symbol 676856413. Authorization SMS code: 88336829",
       "number": 999005,
       "unique": "CS-S24",
       "sender": "Česká Spořitelna",
@@ -11,6 +12,7 @@
      {
       "id": 2,
       "ispublic":false,
+      "example":"DEBUG",
       "number": 123456,
       "unique": "TEST",
       "sender": "debug_test",
@@ -20,6 +22,7 @@
       {
       "id": 3,
       "ispublic":true,
+      "example":"CSOB SMS klic: Prihlaseni do CSOB InternetBankingu 24 (trans. 364319819) potvrdte kodem f11-x29-zpk.",
       "number": 999020,
       "unique": "CSOB",
       "sender": "CSOB",
@@ -28,6 +31,7 @@
       {
       "id": 4,
       "ispublic":true,
+      "example":"Vazeny kliente, 3D secure kod pro Vasi internetovou transakci na castku: 100.00 CZK u obchodnika: GOPAY s.r.o. je: 820205. Vase Raiffeisenbank",
       "number": 1024,
       "unique": "Raiffeisenbank",
       "sender": "Raiffeisenbank",
@@ -36,6 +40,7 @@
       {
       "id": 1001,
       "ispublic":true,
+      "example":"Vazeny zakazniku, zasilame jednorazovy PIN k autorizaci m-platby pro Audioteka s.a. na castku 1.0 Kc. PIN: 777DKE. Nesdelujte jine osobe. Vase O2.",
       "number": "O2 Active",
       "unique": "m-platby",
       "sender": "02 Active",
@@ -44,6 +49,7 @@
       {
       "id": 1002,
       "ispublic":true,
+      "example":"Confirmation code: 41366. Never give this code out. Wargaming.net",
       "number": "InfoSMS",
       "unique": "Wargaming",
       "sender": "WarGaming",
@@ -52,6 +58,7 @@
       {
       "id": 1003,
       "ispublic":true,
+      "example":"Your verification code is 176015 - Blizzard Entertainment",
       "number": "Verify",
       "unique": "Blizzard",
       "sender": "Blizzard",
@@ -60,6 +67,7 @@
       {
       "id": 1004,
       "ispublic":true,
+      "example":"G-549121 is your Google verification code.",
       "number": "Google",
       "unique": "Google",
       "sender": "Google",
@@ -69,6 +77,7 @@
       {
       "id": 1005,
       "ispublic":true,
+      "example":"Your Netflix verification code is 074922",
       "number": "InfoSMS",
       "unique": "Netflix",
       "sender": "Netflix",
