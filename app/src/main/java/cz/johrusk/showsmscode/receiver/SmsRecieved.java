@@ -234,7 +234,7 @@ public class SmsRecieved extends BroadcastReceiver {
     public String loadJSONFromAsset() {
         String json = null;
         try {
-            InputStream is = c.getAssets().open("SMSJson.json");
+            InputStream is = c.getAssets().open("sms.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);

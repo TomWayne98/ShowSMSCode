@@ -275,8 +275,8 @@ public IBinder onBind(Intent intent) {return binder;}
             String JsonStr = null;
             String dUrl = null;
 
-            final String VERSION_URL = "https://raw.githubusercontent.com/JosefHruska/ShowSMSCode/master/version.json";
-            final String SMS_URL = "https://raw.githubusercontent.com/JosefHruska/ShowSMSCode/master/sms.json";
+            final String VERSION_URL = "https://rawgit.com/JosefHruska/ShowSMSCode/master/app/src/main/assets/version.json";
+            final String SMS_URL = "https://rawgit.com/JosefHruska/ShowSMSCode/master/app/src/main/assets/sms.json";
 
             if (par == 0 || par == 2) {dUrl = VERSION_URL;}
             else if (par == 1) {dUrl = SMS_URL;}
