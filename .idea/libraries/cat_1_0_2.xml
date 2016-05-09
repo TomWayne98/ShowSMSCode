@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="cat-1.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/net.vrallev.android/cat/1.0.2/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/net.vrallev.android/cat/1.0.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.vrallev.android/cat/1.0.2/5bbc8609ae0163d8b9c3effeabbe15f98904525c/cat-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

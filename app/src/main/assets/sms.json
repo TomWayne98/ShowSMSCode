@@ -2,61 +2,79 @@
   "sms": [
     {
       "id": 1,
+      "ispublic":true,
       "number": 999005,
       "unique": "CS-S24",
       "sender": "Česká Spořitelna",
       "reg_ex": "code: (\\d+)"
-    },
-    {
+     },
+     {
       "id": 2,
+      "ispublic":false,
       "number": 123456,
       "unique": "TEST",
       "sender": "debug_test",
       "reg_ex": "code: (\\d+)",
       "alt_numbers": ["733368395","728089760"]
-    },
-    {
+     },
+      {
       "id": 3,
+      "ispublic":true,
       "number": 999020,
       "unique": "CSOB",
       "sender": "CSOB",
-      "reg_ex": "kodem (\\...-...-...)"
-    },
-    {
+      "reg_ex": "kodem (...-...-...)"
+     },
+      {
       "id": 4,
+      "ispublic":true,
       "number": 1024,
       "unique": "Raiffeisenbank",
       "sender": "Raiffeisenbank",
       "reg_ex": "je: (\\d+)"
-    },
-    {
+     },
+      {
       "id": 1001,
+      "ispublic":true,
       "number": "O2 Active",
       "unique": "m-platby",
       "sender": "02 Active",
-      "reg_ex": "PIN: (\\......)"
-    },
-    {
+      "reg_ex": "PIN: (......)"
+     },
+      {
       "id": 1002,
+      "ispublic":true,
       "number": "InfoSMS",
       "unique": "Wargaming",
       "sender": "WarGaming",
       "reg_ex": "code: (.....)"
-    },
-    {
+     },
+      {
       "id": 1003,
+      "ispublic":true,
       "number": "Verify",
       "unique": "Blizzard",
       "sender": "Blizzard",
       "reg_ex": "code is (......)"
-    },
-    {
+     },
+      {
       "id": 1004,
+      "ispublic":true,
       "number": "Google",
       "unique": "Google",
       "sender": "Google",
-      "reg_ex": "G-(......)"
-    }
-
-  ]
+      "reg_ex": "G-(......)",
+      "alt_numbers": ["InfoSMS"]
+     },
+      {
+      "id": 1005,
+      "ispublic":true,
+      "number": "InfoSMS",
+      "unique": "Netflix",
+      "sender": "Netflix",
+      "reg_ex": "code is (......)",
+      "alt_numbers": ["Netflix"]
+     }
+     
+    ]
 }
