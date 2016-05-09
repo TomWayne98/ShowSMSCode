@@ -1,7 +1,19 @@
 [
     {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_tab_contacts.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_tab_contacts.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
@@ -12,24 +24,28 @@
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_commit_search_api_mtrl_alpha.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_screen_lock_portrait.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_screen_lock_portrait.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_navigate_next_white_24dp.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.github.paolorotolo\\appintro\\3.4.0\\res\\drawable-hdpi-v4\\ic_navigate_next_white_24dp.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\copy.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\copy.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_rating_star_on_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_explore.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_explore.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
@@ -40,28 +56,24 @@
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_search_default_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_done_white_24px.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.github.paolorotolo\\appintro\\3.4.0\\res\\drawable-hdpi-v4\\ic_done_white_24px.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\eyw.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\eyw.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_rating_star_off_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_name.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_action_name.png"
-    },
-    {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ab_share_pack_mtrl_alpha.9.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_pressed_holo_light.9.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_navigate_next_white_24dp.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.github.paolorotolo\\appintro\\3.4.0\\res\\drawable-hdpi-v4\\ic_navigate_next_white_24dp.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
@@ -72,104 +84,108 @@
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_primary_mtrl_alpha.9.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_notifications_active.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_notifications_active.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_security.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_security.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_tab_call.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_tab_call.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\lock.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\lock.png"
-    },
-    {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_find_in_page.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_find_in_page.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_notifications_active.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_notifications_active.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_library_add.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_library_add.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\thumbup.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\thumbup.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\imediately.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\imediately.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\imediately.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\imediately.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_off_mtrl_alpha.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\eyw.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\eyw.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_000.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_stay_current_portrait.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_stay_current_portrait.png"
-    },
-    {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_track_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\adddb.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\adddb.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\copy.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\copy.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_000.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_cut_mtrl_alpha.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_switch_track_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_search_api_mtrl_alpha.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\adddb.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\adddb.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_name.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_action_name.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_mtrl_alpha.png",
@@ -184,12 +200,16 @@
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_go_search_api_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_tab_call.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_tab_call.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\complete.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\complete.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png",
@@ -200,8 +220,8 @@
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_tab_contacts.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_tab_indicator_mtrl_alpha.9.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_focused_holo.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_focused_holo.9.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_focused_holo.9.png",
@@ -210,6 +230,278 @@
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_longpressed_holo.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_voice_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_voice_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_sms.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_sms.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_sms.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_sms.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_screen_lock_portrait.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_screen_lock_portrait.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\complete.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\complete.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_selector_disabled_holo_light.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_navigate_next_white_24dp.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.github.paolorotolo\\appintro\\3.4.0\\res\\drawable-hdpi-v4\\ic_navigate_next_white_24dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_content_copy.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_content_copy.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\thumbup.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\thumbup.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_explore.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_explore.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_security.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_security.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_rating_star_on_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_explore.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_explore.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\code.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\code.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\eyw.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\eyw.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_action_name.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_action_name.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_tab_favourite.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_tab_favourite.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_go_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_go_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_stay_current_portrait.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_stay_current_portrait.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_done_white_24px.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.github.paolorotolo\\appintro\\3.4.0\\res\\drawable-hdpi-v4\\ic_done_white_24px.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_security.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_security.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\lock.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\lock.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_find_in_page.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_find_in_page.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\thumbup.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\thumbup.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_clear_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_clear_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_find_in_page.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_find_in_page.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_arrow_forward_white_24px.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.github.paolorotolo\\appintro\\3.4.0\\res\\drawable-hdpi-v4\\ic_arrow_forward_white_24px.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_stay_current_portrait.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_stay_current_portrait.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_ab_back_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_commit_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\adddb.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\adddb.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_account_balance_wallet.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_account_balance_wallet.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_library_add.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_library_add.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_screen_lock_portrait.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_screen_lock_portrait.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\complete.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\complete.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\lock.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\lock.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
@@ -244,31 +536,11 @@
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\code.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
-    },
-    {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_popup_background_mtrl_mult.9.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_popup_background_mtrl_mult.9.png"
-    },
-    {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_voice_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_sms.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\src\\main\\res\\drawable-hdpi\\ic_sms.png"
-    },
-    {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_ic_menu_selectall_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png",
         "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png",
-        "source": "C:\\Users\\Pepa\\GIT\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_list_pressed_holo_dark.9.png"
+        "merged": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\Pepa\\Documents\\INBOX\\GIT-SHOWSMS\\ShowSMS\\ShowSMSCode\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-hdpi\\abc_switch_track_mtrl_alpha.9.png"
     }
 ]

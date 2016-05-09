@@ -339,7 +339,7 @@
     <string name="btn_simple_tabs" translatable="false">Simple Tabs</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="checkOverlay">I want to see code over screen</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">467e4d7b-1023-4b61-a984-77038ee8bd4d</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">78917f31-983e-4904-8396-9c87caeb66ab</string>
     <string name="comming_soon" translatable="false">Comming soon !</string>
     <string name="creditsA_Title" translatable="false">About App</string>
     <string name="define_appintro"/>
