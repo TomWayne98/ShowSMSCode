@@ -4,7 +4,7 @@ How to add new sms to DB
 
   1) At first you have to add informations about sms to sms.json
       
-      a) You have to fill in all subjects ("id","ispublic","example","number","unique","sender","reg_ex","alt_numbers").<
+      a) You have to fill in all subjects ("id","ispublic","example","number","unique","sender","reg_ex","alt_numbers").
       
       b) Every paramater except alt_numbers have to be filled.
       
