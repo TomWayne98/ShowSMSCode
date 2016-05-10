@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="x86_64,x86"
+    abi="x86_64"
     api-level="23"
     density="420dpi"
     format="7"
-    timestamp="126266414599112" >
+    timestamp="272472887914834" >
 
     <task
         name="javac"
-        duration="1289" />
+        duration="1551" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="326" />
+        duration="2338" />
     <task
         name="verifier"
-        duration="90" />
+        duration="279" />
 
     <artifact
-        location="C:\Users\Pepa\GIT\ShowSMSCode\app\build\outputs\apk\app-debug.apk"
+        location="C:\Users\Pepa\Documents\INBOX\GIT-SHOWSMS\ShowSMS\ShowSMSCode\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
-    <build timestamp="126266414599112" >
+    <build timestamp="272472887914834" >
         <artifact
-            location="C:\Users\Pepa\GIT\ShowSMSCode\app\build\outputs\apk\app-debug.apk"
+            location="C:\Users\Pepa\Documents\INBOX\GIT-SHOWSMS\ShowSMS\ShowSMSCode\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
 

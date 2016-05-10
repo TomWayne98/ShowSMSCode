@@ -465,7 +465,7 @@ public class MainActivity extends AppCompatActivity implements UpdateServiceInte
             case PERM_SHOW_WINDOWS: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                } else {
+                } else if(Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(this)) {
                     sentPermissionNotif(getString(R.string.NS_notif_Draw_over_permission),true);
                 }
                 return;

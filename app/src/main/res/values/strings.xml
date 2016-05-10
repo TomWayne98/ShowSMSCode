@@ -69,7 +69,7 @@
     <string name="action_craditsA_appVerTitle">App Version:</string>
     <string name="action_craditsA_appDBTitle">DB:</string>
     <string name="NS_database_update">Database Update</string>
-    <string name="NS_notif_cantwork">Hey, i cant work correctly</string>
+    <string name="NS_notif_cantwork">Hey, I can\'t work correctly</string>
     <string name="NS_notif_SMS_receive_permission">SMS Receive permission</string>
     <string name="NS_notif_Draw_over_permission">"draw over other apps" permission</string>
     <string name="NS_notif_SMS_read_permission">SMS Read permission</string>

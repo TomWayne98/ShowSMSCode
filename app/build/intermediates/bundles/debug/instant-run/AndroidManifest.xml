@@ -50,6 +50,9 @@
         <activity android:name="cz.johrusk.showsmscode.Settings_activity" />
         <activity android:name="cz.johrusk.showsmscode.AboutActivity" />
         <activity android:name="cz.johrusk.showsmscode.Credits" />
+        <activity
+            android:name="cz.johrusk.showsmscode.Intro_Activity"
+            android:label="@string/app_intro" />
 
         <receiver android:name="cz.johrusk.showsmscode.receiver.SmsRecieved" >
             <intent-filter>

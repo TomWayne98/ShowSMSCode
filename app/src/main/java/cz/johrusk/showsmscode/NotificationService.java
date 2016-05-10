@@ -106,7 +106,8 @@ public class NotificationService extends IntentService {
                 (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_sms)
                         .setContentTitle(smsSender)
-                        .setContentText(smsContent);
+                        .setContentText(smsContent)
+                        .setAutoCancel(true);
 
                         //.setSubText("Heya..........................")
 

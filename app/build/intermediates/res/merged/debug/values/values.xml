@@ -300,7 +300,7 @@
     <string name="NS_notif_Phone_state_permission">Phone state permission</string>
     <string name="NS_notif_SMS_read_permission">SMS Read permission</string>
     <string name="NS_notif_SMS_receive_permission">SMS Receive permission</string>
-    <string name="NS_notif_cantwork">Hey, i cant work correctly</string>
+    <string name="NS_notif_cantwork">Hey, I can\'t work correctly</string>
     <string name="NS_notif_permission_actionIntent">Allow</string>
     <string name="NS_notif_permission_title">Please. Give me</string>
     <string name="abc_action_bar_home_description">Navigate home</string>
@@ -339,7 +339,7 @@
     <string name="btn_simple_tabs" translatable="false">Simple Tabs</string>
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="checkOverlay">I want to see code over screen</string>
-    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">78917f31-983e-4904-8396-9c87caeb66ab</string>
+    <string name="com.crashlytics.android.build_id" ns1:ignore="UnusedResources,TypographyDashes" translatable="false">3f048e19-1517-4e75-b7b7-117f2b2828e7</string>
     <string name="comming_soon" translatable="false">Comming soon !</string>
     <string name="creditsA_Title" translatable="false">About App</string>
     <string name="define_appintro"/>
