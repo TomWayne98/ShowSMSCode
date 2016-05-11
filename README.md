@@ -1,7 +1,7 @@
 # ShowSMSCode
 
- ![Screenshot of the app](meta/screenshots/screenshot-small.png)
- ![Screenshot of the app](meta/screenshots/screenshot-wear.png)
+ ![Screenshot of the app](http://imgur.com/V5yGmxP)
+ ![Screenshot of the app](http://imgur.com/nK6FZmG)
 
 Features:
 
