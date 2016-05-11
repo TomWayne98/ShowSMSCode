@@ -25,7 +25,7 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 
   c) What does parameters means:
   Paramaters | Description
-  ------------  -------------
+  ------------ | -------------
    **id:** |it has to be higher than last sms patern in DB. If a number of sender isn't in number format (+420132456789; 724007007)            it'snecessary to use number higher than 1000.<br>
    **ispublic:** |use true if it supposed to be shown in overview list (in app) otherwise use false (used just for debug)<br>
    **example:**
