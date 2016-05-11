@@ -17,7 +17,7 @@ Features:
 
 ## How to add new SMS pattern to app.
 
- ** 1) At first you have to add informations about sms to sms.json **
+### 1) At first you have to add informations about sms to sms.json 
 
   a) You have to fill in all subjects ("id","ispublic","example","number","unique","sender","reg_ex","alt_numbers").
 
@@ -25,7 +25,7 @@ Features:
 
   c) What does parameters means:
 
-   ***id:** 
+   **id:** 
    it has to be higher than last sms patern in DB. If a number of sender isn't in number format (+420132456789; 724007007)    it'snecessary to use number higher than 1000.
    **ispublic:**
     use true if it supposed to be shown in overview list (in app) otherwise use false (used just for debug)
@@ -56,5 +56,5 @@ Features:
   ```
 
 
-** 2) Finally you just need to increase a version number in version.json. ** 
+### 2) Finally you just need to increase a version number in version.json. ** 
   Application updates DB only when the version in repo is higher than local
