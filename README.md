@@ -25,16 +25,17 @@ Features:
 
   c) What does parameters means:
 
-    id: it has to be higher than last sms patern in DB. If a number of sender isn't in number format (+420132456789; 724007007)     it's necessary to use number higher than 1000.
-    ispublic: use true if it supposed to be shown in overview list (in app) otherwise use false (used just for debug)
-    example: it example of sms which is provided in overview list when you tap on sender.
-    number: it number of sender ( +420132456789; 724007007; InfoSMS; Verify ).
-    unique: it text which have to be contained in SMS body. Otherwise it can't be reckognized.
-    sender: this text is used as title of notifications.
-    reg_ex: it's a regular expression to identify sms.
-    alt_numbers: if the sender use more number you can add them in array.
+   *id: it has to be higher than last sms patern in DB. If a number of sender isn't in number format (+420132456789; 724007007)         it's necessary to use number higher than 1000.
+   *ispublic: use true if it supposed to be shown in overview list (in app) otherwise use false (used just for debug)
+   *example: it example of sms which is provided in overview list when you tap on sender.
+   *number: it number of sender ( +420132456789; 724007007; InfoSMS; Verify ).    
+   *unique: it text which have to be contained in SMS body. Otherwise it can't be reckognized.
+   *sender: this text is used as title of notifications.
+   *reg_ex: it's a regular expression to identify sms.
+   *alt_numbers: if the sender use more number you can add them in array.
 
   d) example:
+  ```javascript
      {
     "id": 1002,
     "ispublic":true,
@@ -44,6 +45,7 @@ Features:
     "sender": "WarGaming",
     "reg_ex": "code: (.....)"
   }
+  ```
 
 
 ** 2) Finally you just need to increase a version number in version.json. ** 
