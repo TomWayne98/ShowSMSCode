@@ -59,3 +59,9 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 
 ### 2) When you are done, you just need to increase a version number in version.json. 
   Application updates DB only when the version in repo is higher than local
+```javascript
+{
+  "version": 32,
+  "news": "Netflix Authorization"
+}
+```
