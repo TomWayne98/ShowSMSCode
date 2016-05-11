@@ -3,10 +3,6 @@
  ![Screenshot of the app](meta/screenshots/screenshot-small.png)
  ![Screenshot of the app](meta/screenshots/screenshot-wear.png)
 
-Install it:
-
-<a href="https://play.google.com/store/apps/details?id=eu.inmite.apps.smsjizdenka&hl=en"><img src="http://www.android.com/images/brand/get_it_on_play_logo_small.png" alt="Get it on Google Play" /></a>
-
 Features:
 
 - security codes which you received via SMS are showed over entire screen
@@ -26,7 +22,7 @@ Features:
   c) What does parameters means:
 
    **id:** 
-   it has to be higher than last sms patern in DB. If a number of sender isn't in number format (+420132456789; 724007007) <br>   it'snecessary to use number higher than 1000.<br>
+   it has to be higher than last sms patern in DB. If a number of sender isn't in number format (+420132456789; 724007007) <br>             it'snecessary to use number higher than 1000.<br>
    **ispublic:**
     use true if it supposed to be shown in overview list (in app) otherwise use false (used just for debug)<br>
    **example:**
@@ -56,5 +52,5 @@ Features:
   ```
 
 
-### 2) Finally you just need to increase a version number in version.json. 
+### 2) When you are done, you just need to increase a version number in version.json. 
   Application updates DB only when the version in repo is higher than local
