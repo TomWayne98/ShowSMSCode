@@ -17,7 +17,7 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 
 ## How to add new SMS pattern to app.
 
-### 1) At first you have to add informations about sms to sms.json 
+#### 1) At first you have to add informations about sms to sms.json 
 
   a) You have to fill in all subjects ("id","ispublic","example","number","unique","sender","reg_ex","alt_numbers").
 
@@ -57,7 +57,7 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
   ```
 
 
-### 2) When you are done, you just need to increase a version number in version.json. 
+#### 2) When you are done, you just need to increase a version number in version.json. 
 
  **version:** 
    Version number <br>
