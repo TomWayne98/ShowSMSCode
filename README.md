@@ -2,8 +2,11 @@
 
  ![Screenshot of the app](http://imgur.com/V5yGmxP)
  ![Screenshot of the app](http://imgur.com/nK6FZmG)
+##What is it?
+ShowSMSCode is simply android app. Its main function is to check whether incoming SMS contain a code which is user supposed to use. If is SMS reckognized, code is showed over entire screen and user can easily transcribe it. There are also other handy fetature...
 
-Features:
+
+####Features:
 
 - security codes which you received via SMS are showed over entire screen
 - code is ready to paste imediatelly
@@ -33,7 +36,7 @@ Features:
     it text which have to be contained in SMS body. Otherwise it can't be reckognized.<br>
    **sender:**
     this text is used as title of notifications.<br>
-   reg_ex:
+   **reg_ex:**
     it's a regular expression to identify sms.<br>
    **alt_numbers:**
     if the sender use more number you can add them in array.
