@@ -33,6 +33,7 @@ captures/
 *.iml
 
 .idea/
+app/build/
 
 # Keystore files
 *.jks

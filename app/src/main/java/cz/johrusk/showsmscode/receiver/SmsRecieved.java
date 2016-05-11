@@ -39,6 +39,7 @@ import cz.johrusk.showsmscode.MainActivity;
 import cz.johrusk.showsmscode.NotificationService;
 import cz.johrusk.showsmscode.OverlayService;
 import cz.johrusk.showsmscode.fragment.SettingsFragment;
+import io.fabric.sdk.android.Fabric;
 
 /**
  * This class check received SMS.
@@ -52,7 +53,7 @@ public class SmsRecieved extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context c, Intent intent) {
-
+        Fabric.with(c, new Crashlytics());
         this.c = c;
 
 
@@ -89,8 +90,8 @@ public class SmsRecieved extends BroadcastReceiver {
                             code = matcher.group(1); // Access a submatch group; String can't do this.
                             Log.d(LOG_TAG, "code is: " + code);
                         }
-                        Answers.getInstance().logCustom(new CustomEvent("SMS from DB received")
-                                .putCustomAttribute("Code / Sender", code + "  " + smsOnList[1]));
+//                        Answers.getInstance().logCustom(new CustomEvent("SMS from DB received")
+//                                .putCustomAttribute("Code / Sender", code + "  " + smsOnList[1]));
                         if (code != "" && code != null) {
                             String type = "notifCode";
                             Bundle bundle = new Bundle();

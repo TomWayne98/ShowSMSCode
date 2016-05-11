@@ -50,6 +50,7 @@
         <receiver android:name=".receiver.SmsRecieved">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
             </intent-filter>
         </receiver>
 
