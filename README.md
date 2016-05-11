@@ -59,11 +59,11 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 
 ### 2) When you are done, you just need to increase a version number in version.json. 
 
-```javascript
  **version:** 
    Version number <br>
  **news:** 
   You can add the description of SMS which you add. It will be showed as notification after update.<br>
+```javascript
 {
   "version": 32,
   "news": "Netflix Authorization"
