@@ -58,7 +58,7 @@ import cz.johrusk.showsmscode.fragment.TwoFragment;
  * @since 2016-04-09
  */
 
-public class MainActivity extends AppCompatActivity implements UpdateServiceInterface {
+public class MainActivity extends AppCompatActivity {
 
     static Context context;
     private UpdateService updateService;
@@ -94,9 +94,10 @@ public class MainActivity extends AppCompatActivity implements UpdateServiceInte
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        JobManager.create(this).addJobCreator(new DemoJobCreator());
         super.onCreate(savedInstanceState);
 
-        JobManager.create(this).addJobCreator(new DemoJobCreator());
+
         Fabric.with(this, new Crashlytics());
         MainActivity.context = getApplicationContext();
 
@@ -105,22 +106,28 @@ public class MainActivity extends AppCompatActivity implements UpdateServiceInte
         Crashlytics.setUserName(crashlytics_id);
         Crashlytics.log(crashlytics_id);
 
-        setContentView(R.layout.activity_icon_text_tabs);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+        setContentView(R.layout.new_main_activity);
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        setupTabIcons();
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitleTextColor(getResources().getColor(R.color.textColorPrimary));
+        setSupportActionBar(toolbar);
+
+//        viewPager = (ViewPager) findViewById(R.id.viewpager);
+//        setupViewPager(viewPager);
+//
+//        tabLayout = (TabLayout) findViewById(R.id.tabs);
+//        tabLayout.setupWithViewPager(viewPager);
+//        setupTabIcons();
 
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
 
+        //TODO- set back correct methods
 
         // Schedule all jobs
-        scheduleJob(UPDATE_24H); // Basic DB update
-        scheduleWeeklyNotifJob(UPDATE_WEEK); // This job sends notification which hints about features which app provides
+        scheduleJob(UPDATE_DEBUG); // Basic DB update
+        scheduleWeeklyNotifJob(UPDATE_DEBUG); // This job sends notification which hints about features which app provides
 
         //  This is thread which runs first run intro
         Thread t = new Thread(new Runnable() {
@@ -153,10 +160,9 @@ public class MainActivity extends AppCompatActivity implements UpdateServiceInte
     @Override
     protected void onStart() {
         super.onStart();
+        Log.d("TEST","ONSTART -----");
         // TODO - check whether it solved the bug (JOBMANAGER);
-        JobManager.create(this);
-        Intent intent = new Intent(this, UpdateService.class);
-        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+       // JobManager.create(this);
         Intent updtintent = new Intent(context, UpdateService.class);
         startService(updtintent);
 
@@ -195,34 +201,24 @@ public class MainActivity extends AppCompatActivity implements UpdateServiceInte
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        // Unbind from the service
-        if (bound) {
-            unbindService(serviceConnection);
-            bound = false;
-            updateService.setCallbacks(null);
-        }
-    }
+    protected void onDestroy() {
+        Log.d("DEBUG","ONDESTROY");
+        super.onDestroy();
 
-    public ServiceConnection serviceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            UpdateService.LocalBinder binder = (UpdateService.LocalBinder) service;
-            updateService = binder.getService();
-            bound = true;
-            updateService.setCallbacks(MainActivity.this);
-        }
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            bound = false;
-        }
-    };
+    }
 
     @Override
-    public void startOneTimeUpdate() {
-        //scheduleOneTimeJob(1);
-    }
+    protected void onStop() {
+        Log.d("DEBUG","OnSTOP");
+
+        JobManager.instance().cancelAll();
+        super.onStop();
+        // Unbind from the service
+
+
+        }
+
+
 
     /**
      * This method checks whether is Overlay permission granted (Android 6.0+)
@@ -341,7 +337,6 @@ public class MainActivity extends AppCompatActivity implements UpdateServiceInte
         if (JobManager.instance().getAllJobRequestsForTag(DemoJob.TAG).isEmpty()) {
             int jobId = new JobRequest.Builder(DemoJob.TAG)
                     .setPeriodic(60_000L * period)
-                    //.setPeriodic(60_000L)
                     .setPersisted(true)
                     .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
                     .build()

@@ -18,10 +18,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
-import com.evernote.android.job.Job;
-import com.evernote.android.job.JobCreator;
-import com.evernote.android.job.JobManager;
-import com.evernote.android.job.JobRequest;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,13 +33,15 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import es.dmoral.prefs.Prefs;
+
 
 public class UpdateService extends Service {
 
 
     public final String LOG_TAG = UpdateService.class.getName();
 
-    private UpdateServiceInterface serviceCallbacks;
+
     JobParameters params;
     UpdateTask updateTask;
     public Context context = this;
@@ -79,8 +78,7 @@ public IBinder onBind(Intent intent) {return binder;}
         }
         return START_NOT_STICKY;
     }
-    public void setCallbacks(UpdateServiceInterface callbacks) {
-        serviceCallbacks = callbacks;}
+
 
     public Boolean isConnected() {
         ConnectivityManager cm =
@@ -162,11 +160,11 @@ public IBinder onBind(Intent intent) {return binder;}
         int offlineVer = jarray.getInt("version");
         Log.d(LOG_TAG,"offline version is :" + offlineVer);
 //        setPrefVersion(offlineVer);
-        SharedPreferences sharedPref =  c.getSharedPreferences(
-                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(getString(R.string.versionDB), offlineVer);
-        editor.commit();
+//        SharedPreferences sharedPref =  c.getSharedPreferences(
+//                getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sharedPref.edit();
+//        editor.putInt(getString(R.string.versionDB), offlineVer);
+//        editor.commit();
         Log.d(LOG_TAG,"versionDB was updated to: " + offlineVer);
 
         return offlineVer;
@@ -214,6 +212,7 @@ public IBinder onBind(Intent intent) {return binder;}
 
         if (sms_file.exists() && version_file.exists()) {
             Crashlytics.log("sms.txt and version.txt exists in internal storage");
+            Log.d(LOG_TAG,"sms.txt and version.txt exists in internal storage");
             int localVer = localCheckVersion();
 
             JSONObject jarray = new JSONObject(onlineVerStr);
@@ -244,6 +243,8 @@ public IBinder onBind(Intent intent) {return binder;}
             locObj = new JSONObject(loadJSONFromAsset());
             localVer = locObj.getInt("version");
             Log.d(LOG_TAG,"Local version is: " + String.valueOf(localVer));
+            Prefs.with(c).writeInt("DBVersion",localVer);
+
 
             if (localVer == onlineVer) {
                 Log.d(LOG_TAG,"Version of JSON in Assets is same as online version");
@@ -384,9 +385,5 @@ public IBinder onBind(Intent intent) {return binder;}
 
     }
 
-    public void postponeUpdate() {
-        if (serviceCallbacks != null) {
-                    serviceCallbacks.startOneTimeUpdate();
-                }
-    }
+
 }

@@ -15,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -196,34 +198,26 @@ public class FiveFragment extends Fragment {
     }
 
     public String loadSMS() throws JSONException {
-        String ret = "";
 
-        try {
-            InputStream inputStream = getContext().openFileInput("sms.txt");
-
-            if (inputStream != null) {
-                InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
-                StringBuilder stringBuilder = new StringBuilder();
-
-                while ((receiveString = bufferedReader.readLine()) != null) {
-                    stringBuilder.append(receiveString);
-                }
-
-                inputStream.close();
-                ret = stringBuilder.toString();
+            String json = null;
+            try {
+                InputStream is = getContext().getAssets().open("sms.json");
+                int size = is.available();
+                byte[] buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                json = new String(buffer, "UTF-8");
+            } catch (IOException ex) {
+                Crashlytics.logException(ex);
+                return null;
             }
-        } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
+            Log.d(LOG_TAG,"loadJSONFromAssets returns:" + json);
+            Crashlytics.log("loadJSONFromAssets returns:" + json);
+            return json;
         }
-        Log.d(LOG_TAG, "readFormFile return: " + ret);
-        return ret;
     }
 
-}
+
 
 
 

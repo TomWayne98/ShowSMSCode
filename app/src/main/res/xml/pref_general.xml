@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/sfragment">
 
     <CheckBoxPreference
@@ -18,10 +19,10 @@
     <Preference
         android:selectable="true"
         android:enabled="true"
-        android:key="pref_version_key"
+        android:key="pref_versionUpdate"
         android:title="@string/versionDB_title"
         android:summary= "@string/versionDB"
-        android:onClick="UpdateDB"
+        android:onClick="OnClick"
         />
 
 
