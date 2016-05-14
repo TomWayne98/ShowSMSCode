@@ -59,6 +59,7 @@ public IBinder onBind(Intent intent) {return binder;}
     @Override
     public int onStartCommand (Intent intent, int flags, int startId)
     {
+
         Crashlytics.log("UpdateService - StartCommand");
         if (isConnected()) {
             updateTask = new UpdateTask(context);

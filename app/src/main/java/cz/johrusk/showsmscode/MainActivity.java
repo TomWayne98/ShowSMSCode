@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements UpdateServiceInte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         JobManager.create(this).addJobCreator(new DemoJobCreator());
         Fabric.with(this, new Crashlytics());
         MainActivity.context = getApplicationContext();
@@ -152,6 +153,8 @@ public class MainActivity extends AppCompatActivity implements UpdateServiceInte
     @Override
     protected void onStart() {
         super.onStart();
+        // TODO - check whether it solved the bug (JOBMANAGER);
+        JobManager.create(this);
         Intent intent = new Intent(this, UpdateService.class);
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
         Intent updtintent = new Intent(context, UpdateService.class);

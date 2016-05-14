@@ -33,6 +33,17 @@
             android:name=".UpdateService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
+        <service
+            android:name=".SmsUploadService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+               <category android:name="android.intent.category.DEFAULT"/>
+                <!--<data android:mimeType="text/plain"/>-->
+            </intent-filter>
+        </service>
+
+
 
         <activity android:name=".MainActivity">
             <intent-filter>
