@@ -57,7 +57,7 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 
    **id:** 
 
-   If sender is typical number use unique number higher than 0 otherwise use number higher than 1000. <br>
+    If sender is typical number use unique number higher than 0 otherwise use number higher than 1000. <br>
 
    **ispublic:** 
 
