@@ -89,7 +89,7 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 
 
 
-  d) example:
+  d) here is an example of SMS pattern:
 
  
 
@@ -110,6 +110,8 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
     "reg_ex": "code: (.....)"
 
   }
+  
+  e) you can use simple UnitTest for testing SMS pattern.([location](https://github.com/JosefHruska/ShowSMSCode/tree/master/app/src/test/java/cz/johrusk/showsmscode)
 
   
 
