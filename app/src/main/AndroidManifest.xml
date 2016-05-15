@@ -23,7 +23,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/MyMaterialTheme">
+        android:theme="@style/MyMaterialTheme"
+        android:name=".core.App" >>
         <service android:name=".service.Notification_service" />
         <service android:name=".service.Overlay_service" />
         <service
@@ -49,7 +50,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.Settings_activity"></activity>
-        <activity android:name=".Credits"></activity>
 
         <receiver android:name=".receiver.Sms_reciever">
             <intent-filter>

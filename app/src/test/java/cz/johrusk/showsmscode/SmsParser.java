@@ -20,14 +20,12 @@ import java.util.regex.Pattern;
 import cz.johrusk.showsmscode.activity.Main_activity;
 
 /**
- * Created by Pepa on 02.04.2016.
+ * Helper class for SMS pattern testing
  */
 @RunWith(MockitoJUnitRunner.class)
 public class SmsParser {
     @Mock
     public Context c;
-
-
 
     public static String TestSMSPattern(String msg_content, String unique, String paternString) {
         Pattern patern = Pattern.compile(paternString);

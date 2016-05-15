@@ -10,35 +10,25 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
-import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.CustomEvent;
-import com.evernote.android.job.Job;
-import com.evernote.android.job.JobCreator;
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 
 import cz.johrusk.showsmscode.R;
+import cz.johrusk.showsmscode.core.JobClass;
 import cz.johrusk.showsmscode.service.SimulateSMS_service;
-import cz.johrusk.showsmscode.service.Notification_service;
 import cz.johrusk.showsmscode.service.Update_service;
-import io.fabric.sdk.android.Fabric;
 
 /**
  * The ShowSMSCode app find codes in incoming messages. Codes are showed via notification, overlaywindow or Android wear device.
@@ -77,11 +67,6 @@ public class Main_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Main_activity.context = getApplicationContext();
-
-//      JobManager init
-        JobManager.create(this).addJobCreator(new DemoJobCreator());
-//       Fabric init
-        Fabric.with(this, new Crashlytics());
         String crashlytics_id = String.valueOf(android.os.Build.MANUFACTURER + android.os.Build.MODEL);
         Crashlytics.setUserName(crashlytics_id);
         Crashlytics.log(crashlytics_id);
@@ -94,10 +79,8 @@ public class Main_activity extends AppCompatActivity {
         toolbar.setTitle(R.string.app_name);
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColorPrimary));
         setSupportActionBar(toolbar);
-
-        //TODO- set back correct methods
-        // Schedule all jobs
-        scheduleJob(UPDATE_DEBUG); // Basic DB update
+//        Schedule Job
+        scheduleJob(UPDATE_24H); // Basic DB update
     }
 
 
@@ -149,14 +132,13 @@ public class Main_activity extends AppCompatActivity {
         Log.d(LOG_TAG, "ONDESTROY");
         super.onDestroy();
     }
+
     @Override
     protected void onStop() {
         Log.d(LOG_TAG, "ONSTOP");
-        JobManager.instance().cancelAll();
+        //JobManager.instance().cancelAll();
         super.onStop();
     }
-
-
 
 
     @Override
@@ -197,52 +179,9 @@ public class Main_activity extends AppCompatActivity {
         }
     }
 
-
-    public class DemoJobCreator implements JobCreator {
-
-        @Override
-        public Job create(String tag) {
-            switch (tag) {
-
-                case DemoJob.TAG:
-                    return new DemoJob();
-                case DemoJob.TAG_WEEKLY:
-                    return new DemoJob();
-                default:
-                    return null;
-            }
-        }
-    }
-
-
-    public class DemoJob extends Job {
-
-
-        public static final String TAG = "job_demo_tag";
-        public static final String TAG_WEEKLY = "job_weekly_tag";
-
-        @Override
-        @NonNull
-        protected Result onRunJob(Params params) {
-            // run your job
-            if (params.getTag().equals(TAG_WEEKLY)) {
-                Bundle bundle = new Bundle();
-                String type = "notifWeekly";
-                bundle.putStringArray("key", new String[]{null, null, type, type});
-                Intent notifWeeklyIntent2 = new Intent(context, Notification_service.class);
-                notifWeeklyIntent2.putExtras(bundle);
-                startService(notifWeeklyIntent2);
-            } else if (params.getTag().equals(TAG)) {
-                Intent updtintent = new Intent(context, Update_service.class);
-                startService(updtintent);
-            }
-            return Result.SUCCESS;
-        }
-    }
-
     private void scheduleWeeklyNotifJob(long period) {
-        if (JobManager.instance().getAllJobRequestsForTag(DemoJob.TAG_WEEKLY).isEmpty()) {
-            int job = new JobRequest.Builder(DemoJob.TAG_WEEKLY)
+        if (JobManager.instance().getAllJobRequestsForTag(JobClass.TAG_WEEKLY).isEmpty()) {
+            int job = new JobRequest.Builder(JobClass.TAG_WEEKLY)
                     .setPeriodic(60_000L * period)
                     .setPersisted(true)
                     .build()
@@ -252,8 +191,8 @@ public class Main_activity extends AppCompatActivity {
 
     private void scheduleJob(long period) {
 
-        if (JobManager.instance().getAllJobRequestsForTag(DemoJob.TAG).isEmpty()) {
-            int jobId = new JobRequest.Builder(DemoJob.TAG)
+        if (JobManager.instance().getAllJobRequestsForTag(JobClass.TAG).isEmpty()) {
+            int jobId = new JobRequest.Builder(JobClass.TAG)
                     .setPeriodic(60_000L * period)
                     .setPersisted(true)
                     .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
@@ -261,6 +200,7 @@ public class Main_activity extends AppCompatActivity {
                     .schedule();
         }
     }
+
     public void checkPermissionState() {
         Boolean isOK = true;
         ImageView iv_state = (ImageView) findViewById(R.id.iv_state);
@@ -274,25 +214,28 @@ public class Main_activity extends AppCompatActivity {
             isOK = false;
         }
         if (ContextCompat.checkSelfPermission(Main_activity.context,
-                Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {isOK = false;}
+                Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {
+            isOK = false;
+        }
         if (ContextCompat.checkSelfPermission(Main_activity.context,
-                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {isOK = false;}
+                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            isOK = false;
+        }
         //TODO - Change to false
-        if (isOK == false)
-        {
-                iv_state.setColorFilter(Color.YELLOW);
-                tv_state.setText(R.string.MA_text_state_needperm);
-                tv_state.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent myAppSettings = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
-                        myAppSettings.addCategory(Intent.CATEGORY_DEFAULT);
-                        myAppSettings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(myAppSettings);
-                    }
-                });
-            }
-        if(Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(context)) {
+        if (isOK == false) {
+            iv_state.setColorFilter(Color.YELLOW);
+            tv_state.setText(R.string.MA_text_state_needperm);
+            tv_state.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent myAppSettings = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
+                    myAppSettings.addCategory(Intent.CATEGORY_DEFAULT);
+                    myAppSettings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(myAppSettings);
+                }
+            });
+        }
+        if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(context)) {
             iv_state.setColorFilter(Color.YELLOW);
             tv_state.setText(R.string.MA_text_state_needperm);
             tv_state.setOnClickListener(new View.OnClickListener() {
@@ -301,7 +244,7 @@ public class Main_activity extends AppCompatActivity {
                     Intent myAppSettings = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
                     myAppSettings.addCategory(Intent.CATEGORY_DEFAULT);
                     myAppSettings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivityForResult(myAppSettings,1234 );
+                    startActivityForResult(myAppSettings, 1234);
                 }
             });
 
@@ -316,9 +259,7 @@ public class Main_activity extends AppCompatActivity {
 
 
             });
-        }
-        else if (isOK == true && (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(context)))
-        {
+        } else if (isOK == true && (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(context))) {
             iv_state.setColorFilter(getResources().getColor(R.color.color_state));
             tv_state.setText(R.string.MA_text_state);
             tv_state.setOnClickListener(new View.OnClickListener() {
@@ -329,25 +270,28 @@ public class Main_activity extends AppCompatActivity {
         }
     }
 
-    public void AddToGit(View view){
+    public void AddToGit(View view) {
         String url = "https://github.com/JosefHruska/ShowSMSCode";
         Intent showGithub = new Intent(Intent.ACTION_VIEW);
         showGithub.setData(Uri.parse(url));
         startActivity(showGithub);
     }
-    public void ReportIssue(View view){
+
+    public void ReportIssue(View view) {
         String url = "https://github.com/JosefHruska/ShowSMSCode";
         Intent ReportIssue = new Intent(Intent.ACTION_VIEW);
         ReportIssue.setData(Uri.parse(url));
         startActivity(ReportIssue);
     }
-    public void OpenSourceCode(View view){
+
+    public void OpenSourceCode(View view) {
         String url = "https://github.com/JosefHruska/ShowSMSCode";
         Intent OpenSourceCode = new Intent(Intent.ACTION_VIEW);
         OpenSourceCode.setData(Uri.parse(url));
         startActivity(OpenSourceCode);
     }
-    public void AboutAuthor(View view){
+
+    public void AboutAuthor(View view) {
         String url = "https://github.com/JosefHruska/ShowSMSCode";
         Intent AboutAuthor = new Intent(Intent.ACTION_VIEW);
         AboutAuthor.setData(Uri.parse(url));
@@ -395,7 +339,7 @@ public class Main_activity extends AppCompatActivity {
             case PERM_SHOW_WINDOWS: {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                } else if(Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(this)) {
+                } else if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(this)) {
                 }
                 return;
             }

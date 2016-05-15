@@ -33,7 +33,7 @@ public class TestNewSMSHere {
         String pattern = "code is: (\\d+)";//Regular expression to find a code
         String expectedResult = "123456";// Code which should be find
 
-        // It return code which you expect. 
+        // It return code which you expect.
         String code = SmsParser.TestSMSPattern(msg_content,unique,pattern);
         Assert.assertEquals(expectedResult, code);
     }
