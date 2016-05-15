@@ -111,7 +111,7 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 
   }
   
-  e) you can use simple UnitTest for testing SMS pattern.([location](https://github.com/JosefHruska/ShowSMSCode/tree/master/app/src/test/java/cz/johrusk/showsmscode)
+  e) you can use simple UnitTest for testing SMS pattern.([location](https://github.com/JosefHruska/ShowSMSCode/tree/master/app/src/test/java/cz/johrusk/showsmscode))
 
   
 
