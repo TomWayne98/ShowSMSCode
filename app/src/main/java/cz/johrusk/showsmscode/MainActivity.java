@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +29,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
@@ -91,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
     };
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         JobManager.create(this).addJobCreator(new DemoJobCreator());
@@ -112,7 +114,10 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColorPrimary));
+
         setSupportActionBar(toolbar);
+
+
 
 //        viewPager = (ViewPager) findViewById(R.id.viewpager);
 //        setupViewPager(viewPager);
@@ -127,32 +132,32 @@ public class MainActivity extends AppCompatActivity {
 
         // Schedule all jobs
         scheduleJob(UPDATE_DEBUG); // Basic DB update
-        scheduleWeeklyNotifJob(UPDATE_DEBUG); // This job sends notification which hints about features which app provides
+       // scheduleWeeklyNotifJob(UPDATE_DEBUG); // This job sends notification which hints about features which app provides
 
-        //  This is thread which runs first run intro
-        Thread t = new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                SharedPreferences getPrefs = PreferenceManager
-                        .getDefaultSharedPreferences(getBaseContext());
-
-                boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
-
-                if (isFirstStart) {
-
-                    //  Launch app intro
-                    Intent i = new Intent(MainActivity.this, Intro_Activity.class);
-                    startActivity(i);
-                    //  Make a new preferences editor
-                    SharedPreferences.Editor e = getPrefs.edit();
-                    //  Edit preference to make it false because we don't want this to run again
-                    e.putBoolean("firstStart", false);
-                    e.apply();
-                }
-            }
-        });
-        t.start();
+//        //  This is thread which runs first run intro
+//        Thread t = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//                SharedPreferences getPrefs = PreferenceManager
+//                        .getDefaultSharedPreferences(getBaseContext());
+//
+//                boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
+//
+//                if (isFirstStart) {
+//
+//                    //  Launch app intro
+//                    Intent i = new Intent(MainActivity.this, Intro_Activity.class);
+//                    startActivity(i);
+//                    //  Make a new preferences editor
+//                    SharedPreferences.Editor e = getPrefs.edit();
+//                    //  Edit preference to make it false because we don't want this to run again
+//                    e.putBoolean("firstStart", false);
+//                    e.apply();
+//                }
+//            }
+//        });
+//        t.start();
 
     }
 
@@ -160,25 +165,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("TEST","ONSTART -----");
+        Log.d("TEST", "ONSTART -----");
         // TODO - check whether it solved the bug (JOBMANAGER);
-       // JobManager.create(this);
+        // JobManager.create(this);
         Intent updtintent = new Intent(context, UpdateService.class);
         startService(updtintent);
-
+        checkPermissionState();
 
 
         if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{Manifest.permission.READ_SMS},
-//                    PERM_SMS_READ);
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_SMS},
+                    PERM_SMS_READ);
         }
         if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{Manifest.permission.RECEIVE_SMS},
-//                    PERM_SMS_RECIEVE);
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.RECEIVE_SMS},
+                    PERM_SMS_RECIEVE);
         }
         if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {
@@ -188,9 +193,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{Manifest.permission.READ_PHONE_STATE},
-//                    PERM_READ_P_STATE);
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_PHONE_STATE},
+                    PERM_READ_P_STATE);
         }
         if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.SYSTEM_ALERT_WINDOW) != PackageManager.PERMISSION_GRANTED) {
@@ -202,26 +207,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        Log.d("DEBUG","ONDESTROY");
+        Log.d("DEBUG", "ONDESTROY");
         super.onDestroy();
 
     }
 
     @Override
     protected void onStop() {
-        Log.d("DEBUG","OnSTOP");
+        Log.d("DEBUG", "OnSTOP");
 
         JobManager.instance().cancelAll();
         super.onStop();
         // Unbind from the service
 
 
-        }
-
+    }
 
 
     /**
      * This method checks whether is Overlay permission granted (Android 6.0+)
+     *
      * @param view
      */
     public void checkOverlayPermission(View view) {
@@ -238,12 +243,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1234 && Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(this)) {
-                Toast toast = Toast.makeText(context, R.string.toast_overlay_allowed, Toast.LENGTH_LONG);
-                toast.show();
 
             } else {
-                Toast toast = Toast.makeText(context, R.string.toast_overlay_denied, Toast.LENGTH_LONG);
-                toast.show();
+
+
             }
         }
     }
@@ -262,10 +265,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent settingsIntent = new Intent(context, Settings_activity.class);
                 startActivity(settingsIntent);// User chose the "Settings" item, show the app settings UI...
                 return true;
-//            case R.id.action_about:
-//                Intent aboutIntent = new Intent(context, AboutActivity.class);
-//                startActivity(aboutIntent);// User chose the "Settings" item, show the app settings UI...
-//                return true;
+            case R.id.action_simulateSMS:
+                Intent simulateIntent = new Intent(context, SimulateSMS.class);
+                startService(simulateIntent);// User chose the "Settings" item, show the app settings UI...
+                return true;
 //            case R.id.action_credits:
 //                Intent creditsIntent = new Intent(context, Credits.class);
 //                startActivity(creditsIntent);// User chose the "Settings" item, show the app settings UI...
@@ -305,16 +308,14 @@ public class MainActivity extends AppCompatActivity {
         @NonNull
         protected Result onRunJob(Params params) {
             // run your job
-            if (params.getTag().equals(TAG_WEEKLY))
-            {
+            if (params.getTag().equals(TAG_WEEKLY)) {
                 Bundle bundle = new Bundle();
                 String type = "notifWeekly";
-                bundle.putStringArray("key", new String[]{null, null, type,type});
-                Intent notifWeeklyIntent2 = new Intent(context,NotificationService.class);
+                bundle.putStringArray("key", new String[]{null, null, type, type});
+                Intent notifWeeklyIntent2 = new Intent(context, NotificationService.class);
                 notifWeeklyIntent2.putExtras(bundle);
                 startService(notifWeeklyIntent2);
-            }
-            else if (params.getTag().equals(TAG)){
+            } else if (params.getTag().equals(TAG)) {
                 Intent updtintent = new Intent(context, UpdateService.class);
                 startService(updtintent);
             }
@@ -343,29 +344,120 @@ public class MainActivity extends AppCompatActivity {
                     .schedule();
         }
     }
+    public void checkPermissionState() {
+        Boolean isOK = true;
+        ImageView iv_state = (ImageView) findViewById(R.id.iv_state);
+        TextView tv_state = (TextView) findViewById(R.id.tv_state);
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
+                Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+            isOK = false;
+        }
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
+                Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
+            isOK = false;
+        }
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
+                Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {isOK = false;}
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
+                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {isOK = false;}
+        //TODO - Change to false
+        if (isOK == false)
+        {
+                iv_state.setColorFilter(Color.YELLOW);
+                tv_state.setText(R.string.MA_text_state_needperm);
+                tv_state.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent myAppSettings = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
+                        myAppSettings.addCategory(Intent.CATEGORY_DEFAULT);
+                        myAppSettings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(myAppSettings);
+                    }
+                });
+            }
+        if(Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(context)) {
+            iv_state.setColorFilter(Color.YELLOW);
+            tv_state.setText(R.string.MA_text_state_needperm);
+            tv_state.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent myAppSettings = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
+                    myAppSettings.addCategory(Intent.CATEGORY_DEFAULT);
+                    myAppSettings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivityForResult(myAppSettings,1234 );
+                }
+            });
+
+        }
+        if (isOK == true && Build.VERSION.SDK_INT < 23) {
+            iv_state.setColorFilter(getResources().getColor(R.color.color_state));
+            tv_state.setText(R.string.MA_text_state);
+            tv_state.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                }
+
+
+            });
+        }
+        else if (isOK == true && (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(context)))
+        {
+            iv_state.setColorFilter(getResources().getColor(R.color.color_state));
+            tv_state.setText(R.string.MA_text_state);
+            tv_state.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                }
+            });
+        }
+    }
+
 
     /**
      * This method send a SMS pattern written by user to Crashlitics. This pattern is supposed to be added to SMS DB
+     *
      * @param view
      */
-    public void sendSMS(View view)
-    {
+    public void sendSMS(View view) {
         EditText senderText = (EditText) findViewById(R.id.edit_text_sender);
         EditText smsBodyText = (EditText) findViewById(R.id.edit_text_body);
         String smsBodyTextStr = smsBodyText.getText().toString();
         String senderTextStr = senderText.getText().toString();
 
         Answers.getInstance().logCustom(new CustomEvent("SMS Sended")
-                .putCustomAttribute("Sender " + "/ SMS Body", smsBodyTextStr + " / "+ senderTextStr));
-        Crashlytics.log(1,"TEST","Sender text: "+ senderTextStr + "SMS Body: " + smsBodyTextStr);
-        Crashlytics.log("SMS pattern sended " + "(Sender text: "+ senderTextStr + "SMS Body: " + smsBodyTextStr + ")");
+                .putCustomAttribute("Sender " + "/ SMS Body", smsBodyTextStr + " / " + senderTextStr));
+        Crashlytics.log(1, "TEST", "Sender text: " + senderTextStr + "SMS Body: " + smsBodyTextStr);
+        Crashlytics.log("SMS pattern sended " + "(Sender text: " + senderTextStr + "SMS Body: " + smsBodyTextStr + ")");
         Toast.makeText(context, "SMS pattern sended", Toast.LENGTH_LONG).show();
 
         senderText.setText("");
         smsBodyText.setText("");
 
     }
-
+    public void AddToGit(View view){
+        String url = "https://github.com/JosefHruska/ShowSMSCode";
+        Intent showGithub = new Intent(Intent.ACTION_VIEW);
+        showGithub.setData(Uri.parse(url));
+        startActivity(showGithub);
+    }
+    public void ReportIssue(View view){
+        String url = "https://github.com/JosefHruska/ShowSMSCode";
+        Intent ReportIssue = new Intent(Intent.ACTION_VIEW);
+        ReportIssue.setData(Uri.parse(url));
+        startActivity(ReportIssue);
+    }
+    public void OpenSourceCode(View view){
+        String url = "https://github.com/JosefHruska/ShowSMSCode";
+        Intent OpenSourceCode = new Intent(Intent.ACTION_VIEW);
+        OpenSourceCode.setData(Uri.parse(url));
+        startActivity(OpenSourceCode);
+    }
+    public void AboutAuthor(View view){
+        String url = "https://github.com/JosefHruska/ShowSMSCode";
+        Intent AboutAuthor = new Intent(Intent.ACTION_VIEW);
+        AboutAuthor.setData(Uri.parse(url));
+        startActivity(AboutAuthor);
+    }
     /**
      * This method set icons for tabs in mainActivity
      */
@@ -428,7 +520,7 @@ public class MainActivity extends AppCompatActivity {
 //                    Toast.makeText(this, R.string.MA_Toast_permallowed, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, R.string.MA_Toast_permdenied, Toast.LENGTH_SHORT).show();
-                    sentPermissionNotif(getString(R.string.NS_notif_SMS_receive_permission),false);
+                    //sentPermissionNotif(getString(R.string.NS_notif_SMS_receive_permission),false);
                 }
                 return;
             }
@@ -439,7 +531,7 @@ public class MainActivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(this, R.string.MA_Toast_permdenied, Toast.LENGTH_SHORT).show();
-                    sentPermissionNotif(getString(R.string.NS_notif_SMS_receive_permission),false);
+                    //sentPermissionNotif(getString(R.string.NS_notif_SMS_receive_permission),false);
                 }
                 return;
             }
@@ -449,7 +541,7 @@ public class MainActivity extends AppCompatActivity {
 //                    Toast.makeText(this, R.string.MA_Toast_permallowed, Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, R.string.MA_Toast_permdenied, Toast.LENGTH_SHORT).show();
-                    sentPermissionNotif(getString(R.string.NS_notif_SMS_read_permission),false);
+                   // sentPermissionNotif(getString(R.string.NS_notif_SMS_read_permission),false);
                 }
                 return;
             }
@@ -464,7 +556,7 @@ public class MainActivity extends AppCompatActivity {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 } else if(Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(this)) {
-                    sentPermissionNotif(getString(R.string.NS_notif_Draw_over_permission),true);
+                    //sentPermissionNotif(getString(R.string.NS_notif_Draw_over_permission),true);
                 }
                 return;
             }

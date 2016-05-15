@@ -8,7 +8,7 @@
     <color name="windowBackground">#FFFFFF</color>
     <color name="navigationBarColor">#000000</color>
 
-    <color name="intro_slide_1">#1565c0</color>
+    <color name="color_state">#7fa87f</color>
     <color name="intro_slide_2">#304ffe</color>
     <color name="intro_slide_3">#304ffe</color>
     <color name="intro_slide_4">#ef5d2e</color>

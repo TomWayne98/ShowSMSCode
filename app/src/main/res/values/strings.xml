@@ -22,7 +22,7 @@
     <string name="pref_version_value" translatable="false">0</string>
     <string name="preference_file_key" translatable="false">pref_key</string>
     <string name="versionDB" translatable="false">0</string>
-    <string name="versionDB_title">Database Version</string>
+    <string name="versionDB_title">Update database manually</string>
 
 
     <!--Which JSON to use (Assets/InternalStorage)-->
@@ -110,6 +110,18 @@
     <string name="tab_functions">Features</string>
     <string name="tab_1_tv_OverlayNotAllowed">Tap me to allow showing code on over screen</string>
     <string name="notif_newsDB">News in DB: </string>
+    <string name="SF_summary_text">"Actual version: "</string>
+    <string name="SF_delay_summary_seconds">" seconds"</string>
+    <string name="action_simulateSMS">Simulate SMS</string>
+    <string name="MA_text_notRecognized">SMS not recognized?</string>
+    <string name="MA_text_addToGithub">Add it to Github</string>
+    <string name="MA_text_reportIssue">Report issue</string>
+    <string name="MA_text_openSourceCode">Open - source code</string>
+    <string name="MA_text_Aboutauthor">Author: Josef Hruška</string>
+    <string name="MA_text_state">App listens\n for verification\n SMS messages</string>
+    <string name="MA_text_authorname">Everything is OK</string>
+    <string name="MA_text_state_needperm">App needs\n permission.</string>
+
 
     <item type="id" name="textAddit" />
     <item type="id" name="active" />

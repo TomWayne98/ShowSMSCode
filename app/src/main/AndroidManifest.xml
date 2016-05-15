@@ -34,6 +34,10 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
         <service
+            android:name=".SimulateSMS"
+            android:exported="false"
+           ></service>
+        <service
             android:name=".SmsUploadService"
             android:exported="true" >
             <intent-filter>
@@ -45,7 +49,9 @@
 
 
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+           >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

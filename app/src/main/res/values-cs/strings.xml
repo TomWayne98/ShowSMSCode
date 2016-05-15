@@ -66,4 +66,6 @@
     <string name="tab_listSMS">Seznam</string>
     <string name="tab_1_tv_OverlayNotAllowed">Tapni na mě a povol překreslení kódu na obrazovku</string>
     <string name="notif_newsDB">Nově v DB:</string>
+    <string name="SF_summary_text">Aktuální verze:</string>
+    <string name="SF_delay_summary_seconds">sekund</string>
 </resources>

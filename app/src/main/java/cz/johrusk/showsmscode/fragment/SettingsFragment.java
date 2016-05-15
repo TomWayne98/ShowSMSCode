@@ -42,13 +42,13 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         String str = String.valueOf(DBVersion);
         sharedpreferences = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         Preference pref = findPreference(KEY_PREF_VERSION);
-        pref.setSummary(str);
+        pref.setSummary(getResources().getString(R.string.SF_summary_text) + str );
         pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
                 Intent intent = new Intent(c,UpdateService.class);
                 c.startService(intent);
-                Toast.makeText(c,"Manual update started",Toast.LENGTH_SHORT);
+                Toast.makeText(c,"Manual update started",Toast.LENGTH_SHORT).show();
                 return false;
             }
         });
@@ -90,14 +90,11 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         if (key.equals(KEY_PREF_OVERLAY_DELAY)) {
             Preference overlayDelayPref = findPreference(key);
             // Set summary to be the user-description for the selected value
-            overlayDelayPref.setSummary(sharedPreferences.getString(key, ""));
+            overlayDelayPref.setSummary(sharedPreferences.getString(key, "") + c.getString(R.string.SF_delay_summary_seconds));
 
         }
-        if(key.equals(KEY_PREF_VERSION)){
-            Intent intent = new Intent(c,UpdateService.class);
-            c.startService(intent);
-            Toast.makeText(c,"Manual update started",Toast.LENGTH_SHORT);
-        }
+
+
     }
 
     Preference myPref = (Preference) findPreference("pref_version_key");

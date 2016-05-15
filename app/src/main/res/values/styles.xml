@@ -16,6 +16,17 @@
 
         </style>
 
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/textColorPrimary</item>
+    </style>
+    <style name="MainActivityTheme" parent="android:Widget.TextView">
+        <item name="android:textSize">24sp</item>
+        <item name="android:actionMenuTextAppearance">@style/MainActivityTheme.Menu</item>
+
+    </style>
+    <style name="MainActivityTheme.Menu" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Menu">
+        <item name="android:textSize">12sp</item>
+    </style>
         <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
             <item name="windowNoTitle">true</item>
             <item name="windowActionBar">false</item>

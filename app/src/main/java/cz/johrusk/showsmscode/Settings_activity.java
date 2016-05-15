@@ -24,6 +24,7 @@ public class Settings_activity extends AppCompatActivity {
             setSupportActionBar(toolb);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
 
             FrameLayout frame = (FrameLayout) findViewById(R.id.frame_content);
             // Display the fragment as the main content.

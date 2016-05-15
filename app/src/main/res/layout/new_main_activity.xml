@@ -3,18 +3,97 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:weightSum="7"
+   >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-
         app:layout_scrollFlags="scroll|enterAlways"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         android:navigationContentDescription="@string/app_name"
         />
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:weightSum="3"
+        android:orientation="horizontal"
+        android:theme="@style/MainActivityTheme"
+        >
+        <ImageView
+            android:id="@+id/iv_state"
+            android:layout_width="wrap_content"
+            android:layout_height="117dp"
+            android:src="@drawable/ic_check_circle"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:tint="@color/abc_search_url_text_normal"
+            android:layout_weight="1.11"
+            android:layout_marginLeft="20dp"/>
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/MA_text_state"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:layout_gravity="center_vertical"
+        android:minLines="3"
+        android:maxLines="3" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:theme="@style/MainActivityTheme">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MA_text_notRecognized"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MA_text_addToGithub"
+            android:clickable="true"
+            android:onClick="AddToGit"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:theme="@style/MainActivityTheme"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MA_text_Aboutauthor"
+            android:onClick="AboutAuthor"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MA_text_openSourceCode"
+            android:clickable="true"
+            android:onClick="OpenSourceCode"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/MA_text_reportIssue"
+            android:clickable="true"
+            android:onClick="ReportIssue"
+            android:gravity="center"
+            />
+    </LinearLayout>
+
 
 
 </LinearLayout>
