@@ -27,21 +27,21 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
   
  
    **id:** 
-   if sender is typical number use unique number higher than 0 otherwise use number higher than 1000. <br>
+   If sender is typical number use unique number higher than 0 otherwise use number higher than 1000. <br>
    **ispublic:** 
-     use true if it supposed to be shown in overview list (in app) otherwise use false (used just for debug)<br>
+     Use true if it supposed to be shown in overview list (in app) otherwise use false (used just for debug).<br>
    **example:**
-    it example of sms which is provided in overview list when you tap on sender.<br>
+    It is example of sms which is provided in overview list when you tap on sender.<br>
    **number:**
-    it number of sender ( +420132456789; 724007007; InfoSMS; Verify ).    <br>
+    It is number of sender ( +420132456789; 724007007; InfoSMS; Verify ).<br>
    **unique:**
-    it text which have to be contained in SMS body. Otherwise it can't be recognized.<br>
+    It is text which have to be contained in SMS body. Otherwise it can't be recognized.<br>
    **sender:**
-    this text is used as title of notifications.<br>
+    This text is used as title of notifications.<br>
    **reg_ex:**
-    it's a regular expression to identify sms.<br>
+    It's a regular expression to identify sms.<br>
    **alt_numbers:**
-    if the sender use more number you can add them in array.
+    If the sender use more number you can add them in array.
 
   d) example:
   ```javascript
@@ -60,9 +60,9 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 #### 2) When you are done, you just need to increase a version number in version.json. 
 
  **version:** 
-   Version number <br>
+   Version number, <br>
  **news:** 
-  You can add the description of SMS which you add. It will be showed as notification after update.<br>
+  You can add the description of SMS which you add. It will be showed as notification after update<br>
 ```javascript
 {
   "version": 32,
