@@ -11,7 +11,6 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 
 
 ![Screenshot of the app](http://i.imgur.com/V5yGmxP.png?1)
-
 ![Screenshot of the app](http://i.imgur.com/LN9KW8B.png?3)
 
 
@@ -92,7 +91,7 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
 
   d) example:
 
-  javascript
+ 
 
      {
 
