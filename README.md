@@ -5,7 +5,7 @@
 ShowSMSCode is simply android app. Its main function is to check whether incoming SMS contain a code which is user supposed to use. If is SMS recognized, code is showed over entire screen and user can easily transcribe it. There are also other handy fetature...
 
 ![Screenshot of the app](http://i.imgur.com/V5yGmxP.png?1)
-![Screenshot of the app](http://i.imgur.com/GGd2sk0.png)
+![Screenshot of the app](http://i.imgur.com/GGd2sk0.png?1)
 
 ####Features:
 
