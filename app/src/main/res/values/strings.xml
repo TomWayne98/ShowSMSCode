@@ -1,17 +1,5 @@
 <resources>
     <string name="app_name">ShowSMSCode</string>
-
-    //UI
-    <string name="tab_name_show">SHOW</string>
-    <string name="tab_name_copy">COPY</string>
-    <string name="tab_name_notify">NOTIFY</string>
-    <string name="tab_1_tv_1">Code will be showed over entire screen even when is phone locked</string>
-    <string name="tab_1_tv_2">Code will be showed on your android wear device</string>
-    <string name="tab_2_tv_1">Code will be pasted to clipboard.</string>
-    <string name="tab_3_tv_1">Code will be also showed as a notification</string>
-
-    <string name="comming_soon" translatable="false">Comming soon !</string>
-
     <!--Settings-->
     <string name="pref_notification">Notifications</string>
     <string name="pref_notification_summ">Show code in notification bar</string>
@@ -24,95 +12,18 @@
     <string name="versionDB" translatable="false">0</string>
     <string name="versionDB_title">Update database manually</string>
 
-
     <!--Which JSON to use (Assets/InternalStorage)-->
     <string name="use_internal" translatable="false">0</string>
 
     <!--Menu-->
     <string name="action_settings">Settings</string>
-    <string name="action_about">About</string>
-    <!--Tabs-->
-    <string name="one" translatable="false">ONE</string>
-    <string name="two" translatable="false">TWO</string>
-    <string name="three" translatable="false">THREE</string>
-
-    <string name="title_activity_scrollable_tabs" translatable="false">Scrollable Tabs</string>
-    <string name="title_activity_simple_tabs" translatable="false">Simple Tabs</string>
-    <string name="btn_simple_tabs" translatable="false">Simple Tabs</string>
-    <string name="btn_scrollable_tabs" translatable="false">Scrollable Tabs</string>
-    <string name="btn_icon_text_tabs" translatable="false">Icon &amp; Text Tabs</string>
-    <string name="btn_icon_tabs" translatable="false">Only Icon Tabs</string>
-    <string name="btn_pinned_top_tabs" translatable="false">Pinned To Top Tabs</string>
-    <string name="title_activity_icon_text_tabs" translatable="false">Icon and Text Tabs</string>
-    <string name="title_activity_icon_tabs" translatable="false">Icon Tabs</string>
-    <string name="btn_custom_icon_tabs" translatable="false">Custom View Icon &amp; Text</string>
-    <string name="title_activity_custom_view_icon_text_tabs" translatable="false">Custom View Icon &amp; Text</string>
-    <string name="title_activity_pinned_top_tabs" translatable="false">Pin Top Tabs</string>
-    <string name="title_activity_main2" translatable="false">Main2Activity</string>
-    <string name="checkOverlay">I want to see code over screen</string>
-
-
-    <string name="hello_world" translatable="false">Hello world!</string>
-    <string name="map">Map</string>
-    <string name="action_sms_list">SMS Database</string>
-    <string name="sms_list_title">List of SMS in Database</string>
-    <string name="sms_add_title">Add new SMS to Database</string>
-
-    <!--Toasts-->
-    <string name="toast_overlay_allowed">It\'s a shame. I can\'t show you that code over your screen! :(</string>
-    <string name="toast_overlay_denied">Good job! Now I can show you that code.</string>
-    <string name="MA_Toast_permdenied">App won\'t work without this permission</string>
-    <string name="MA_Toast_permallowed">Permision granted</string>
-    <string name="creditsA_Title" translatable="false">About App</string>
-    <string name="action_craditsA_menu">About</string>
-
+    <string name="action_simulateSMS">Simulate SMS</string>
     <string name="action_craditsA_appVerTitle">App Version:</string>
-    <string name="action_craditsA_appDBTitle">DB:</string>
     <string name="NS_database_update">Database Update</string>
-    <string name="NS_notif_cantwork">Hey, I can\'t work correctly</string>
-    <string name="NS_notif_SMS_receive_permission">SMS Receive permission</string>
-    <string name="NS_notif_Draw_over_permission">"draw over other apps" permission</string>
-    <string name="NS_notif_SMS_read_permission">SMS Read permission</string>
-    <string name="NS_notif_Phone_state_permission">Phone state permission</string>
-    <string name="NS_notif_permission_title">Please. Give me</string>
-    <string name="NS_notif_permission_actionIntent">Allow</string>
-    <string name="AA_not_available">Not available</string>
-    <string name="text_of_sms">Text of SMS</string>
-    <string name="AA_btn_send">Send</string>
-    <string name="AA_edittxt_hint">SMS</string>
-    <string name="AA_edittxt_hint_sender">Sender</string>
-    <string name="NS_didyouknow_title">Did you know</string>
-    <string name="CA_db_placeholder">actual</string>
-    <string name="app_intro">Introduction</string>
-
-    <string name="intro_title_1">Hello !</string>
-    <string name="intro_title_2">Do you like to look for codes in your SMS?</string>
-    <string name="intro_title_3">I can recognize SMS containing code!</string>
-    <string name="intro_title_4">Then I will show that code directly!</string>
-    <string name="intro_title_5">And even more!</string>
-    <string name="intro_title_6">You are the boss...</string>
-    <string name="intro_title_7">Do you wanna see that code?</string>
-    <string name="intro_title_8">I don\'t know everything...</string>
-    <string name="intro_title_9">That\'s all for now</string>
-
-
-    <string name="intro_text_1">Let me show you what can I do for you.</string>
-    <string name="intro_text_2">I don\'t think so. I will manage it for you!</string>
-    <string name="intro_text_3">(f.e. SMS from Banks, Operators, Two-factor authentications etc.) </string>
-    <string name="intro_text_4">I can wake up your phone and show it over entire screen.</string>
-    <string name="intro_text_5">Code will be also sent as notification and copied so you can imediately paste it. </string>
-    <string name="intro_text_6">You should give me a permission to read SMS and check when they are delivered. It makes sense, right?</string>
-    <string name="intro_text_7">You should also allow me to show that code over the screen. I can work without it, but... ...not so well.</string>
-    <string name="intro_text_8">If I don\'t recognize some SMS you can send it to my DB via this app.</string>
-    <string name="intro_text_9">I will let you know about new features soon!</string>
-    <string name="tab_listSMS">List</string>
-    <string name="tab_addSMS">Add</string>
-    <string name="tab_functions">Features</string>
-    <string name="tab_1_tv_OverlayNotAllowed">Tap me to allow showing code on over screen</string>
-    <string name="notif_newsDB">News in DB: </string>
     <string name="SF_summary_text">"Actual version: "</string>
     <string name="SF_delay_summary_seconds">" seconds"</string>
-    <string name="action_simulateSMS">Simulate SMS</string>
+
+    <!--MainActivity text-->
     <string name="MA_text_notRecognized">SMS not recognized?</string>
     <string name="MA_text_addToGithub">Add it to Github</string>
     <string name="MA_text_reportIssue">Report issue</string>
@@ -121,7 +32,11 @@
     <string name="MA_text_state">App listens\n for verification\n SMS messages</string>
     <string name="MA_text_authorname">Everything is OK</string>
     <string name="MA_text_state_needperm">App needs\n permission.</string>
+    <string name="SF_notification_summary_allowed">Allowed</string>
+    <string name="SF_notification_summary_denied">Denied</string>
 
+    <!--Notifikace-->
+    <string name="notif_newsDB">News in DB: </string>
 
     <item type="id" name="textAddit" />
     <item type="id" name="active" />

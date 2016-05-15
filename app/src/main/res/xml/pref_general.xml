@@ -24,8 +24,4 @@
         android:summary= "@string/versionDB"
         android:onClick="OnClick"
         />
-
-
-
-
 </PreferenceScreen>

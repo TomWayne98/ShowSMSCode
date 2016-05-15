@@ -2,7 +2,7 @@
 
  
 ##What is it?
-ShowSMSCode is simply android app. Its main function is to check whether incoming SMS contain a code which is user supposed to use. If is SMS reckognized, code is showed over entire screen and user can easily transcribe it. There are also other handy fetature...
+ShowSMSCode is simply android app. Its main function is to check whether incoming SMS contain a code which is user supposed to use. If is SMS recognized, code is showed over entire screen and user can easily transcribe it. There are also other handy fetature...
 
 ![Screenshot of the app](http://i.imgur.com/V5yGmxP.png?1)
 ![Screenshot of the app](http://i.imgur.com/nK6FZmG.png?1)
@@ -35,7 +35,7 @@ ShowSMSCode is simply android app. Its main function is to check whether incomin
    **number:**
     it number of sender ( +420132456789; 724007007; InfoSMS; Verify ).    <br>
    **unique:**
-    it text which have to be contained in SMS body. Otherwise it can't be reckognized.<br>
+    it text which have to be contained in SMS body. Otherwise it can't be recognized.<br>
    **sender:**
     this text is used as title of notifications.<br>
    **reg_ex:**

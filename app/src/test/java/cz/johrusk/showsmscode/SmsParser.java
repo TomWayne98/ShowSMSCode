@@ -1,7 +1,6 @@
 package cz.johrusk.showsmscode;
 
 import android.content.Context;
-import android.test.InstrumentationTestCase;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -18,6 +17,8 @@ import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import cz.johrusk.showsmscode.activity.Main_activity;
+
 /**
  * Created by Pepa on 02.04.2016.
  */
@@ -25,7 +26,7 @@ import java.util.regex.Pattern;
 public class SmsParser{
     @Mock
     public Context c;
-    public static final String LOG_TAG = MainActivity.class.getName();
+    public static final String LOG_TAG = Main_activity.class.getName();
 
 
     public Sms parse(long number, String smsText){

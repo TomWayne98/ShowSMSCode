@@ -1,71 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+   <!--Menu-->
+    <string name="action_settings">Nastavení</string>
+    <string name="action_simulateSMS">Simulovat SMS</string>
+
+    <!--Nastavení-->
+    <string name="versionDB_title">Verze databáze</string>
+    <string name="action_craditsA_appVerTitle">Verze:</string>
+    <string name="notif_newsDB">Nově v DB:</string>
+    <string name="SF_summary_text">Aktuální verze:</string>
+    <string name="SF_delay_summary_seconds">sekund</string>
     <string name="app_name">UkažSMSKód</string>
     <string name="pref_notification">Notifikace</string>
     <string name="pref_notification_summ">Ukázat kód v notifikační liště</string>
     <string name="pref_overlayDelay">Doba zobrazení</string>
     <string name="pref_overlayDelay_summ">Jak dlouho bude kód zonbrazen</string>
-    <string name="tab_1_tv_1">Kód bude zobrazen přes celou obrazovku i když je zařízení zamčené</string>
-    <string name="tab_1_tv_2">Kód se zobrazí na vašem Android Wear zařízení</string>
-    <string name="tab_3_tv_1">Kód se zobrazí jako notifikace</string>
-    <string name="tab_2_tv_1">Kód se zkopíruje do schránky</string>
-    <string name="action_settings">Nastavení</string>
-    <string name="tab_name_copy">Zkopíruji</string>
-    <string name="tab_name_notify">Notifikuji</string>
-    <string name="tab_name_show">Ukážu</string>
-    <string name="action_about">O aplikaci</string>
-    <string name="checkOverlay">Chci vidět kód na obrazovce</string>
-    <string name="map">Mapa</string>
-    <string name="sms_add_title">Přidej novou SMS do databáze</string>
-    <string name="sms_list_title">Seznam SMS v databázi</string>
-    <string name="versionDB_title">Verze databáze</string>
-    <string name="action_sms_list">SMS databáze</string>
-    <string name="toast_overlay_allowed">Škoda. Teď ti nemohu ukázat kód na obrazovce.</string>
-    <string name="toast_overlay_denied">Skvěle. Teď ti ten kód mohu ukázat.</string>
-    <string name="MA_Toast_permallowed">Povolení uděleno</string>
-    <string name="MA_Toast_permdenied">Aplikace nemůže bez tohoho povolení řádně pracovat</string>
-    <string name="action_craditsA_appDBTitle">Databáze:</string>
-    <string name="action_craditsA_appVerTitle">Verze:</string>
-    <string name="action_craditsA_menu">O aplikaci</string>
+
+    <!--MainActivity texts-->
+    <string name="MA_text_Aboutauthor">Autor: Josef Hruška</string>
+    <string name="MA_text_addToGithub">Přidej ji na Github</string>
+    <string name="MA_text_state_needperm">Appka potřebuje\n povolení</string>
+    <string name="MA_text_state">Applikace sleduje\n SMS</string>
+    <string name="MA_text_reportIssue">Nahlásit problém</string>
+    <string name="MA_text_openSourceCode">Otevřený zdrojový kód</string>
+    <string name="MA_text_notRecognized">SMS nebyla rozeznána?</string>
+    <string name="MA_text_authorname">Všechno je OK</string>
+
+    <!--Notifikace-->
     <string name="NS_database_update">Nově v databázi</string>
-    <string name="NS_notif_cantwork">Nepracuji správně</string>
-    <string name="NS_notif_SMS_read_permission">povolení pro čtění SMS</string>
-    <string name="NS_notif_SMS_receive_permission">povolení pro obdržení SMS</string>
-    <string name="NS_notif_Draw_over_permission">"povolení pro překreslení"</string>
-    <string name="NS_notif_permission_actionIntent">Povolit</string>
-    <string name="NS_notif_permission_title">Prosím, dej mi</string>
-    <string name="AA_not_available">Není dostupné</string>
-    <string name="NS_notif_Phone_state_permission">povolení pro stav telefonu</string>
-    <string name="text_of_sms">Text SMS</string>
-    <string name="AA_btn_send">Odeslat</string>
-    <string name="AA_edittxt_hint">Text SMS</string>
-    <string name="AA_edittxt_hint_sender">odesílatel (např. O2 Active / 999002)</string>
-    <string name="NS_didyouknow_title">Víš, že...</string>
-    <string name="CA_db_placeholder">aktuální</string>
-    <string name="app_intro">Úvod</string>
-    <string name="intro_text_1">Podívej se, co dovedu !</string>
-    <string name="intro_text_2">Asi ne, že?</string>
-    <string name="intro_text_3">Rozeznán kódy v příchozích SMS. ( Od operátora, banky nebo dvoufázové ochrany. ) </string>
-    <string name="intro_text_4">Kód uvidíš přes celou obrazovku i když byl zamčený.</string>
-    <string name="intro_text_5">Kód se ti zobrazí jako notifikace a bude zkopírovaný, tak ho jednoduše vlož.</string>
-    <string name="intro_text_6">Ke zjištění kódů potřebuji povolení ke čtení a kontrole přijetí SMS. To dává smysl, že?</string>
-    <string name="intro_text_7">Pro probuzení telefonu je třeba povolit také překreslení ostatních aplikací.</string>
-    <string name="intro_text_8">Nerozpoznané SMS stačí zaslat do databáze prostřednictvím aplikace.</string>
-    <string name="intro_text_9">Dám ti vědět o nových funkcích.</string>
-    <string name="intro_title_1">Ahoj !</string>
-    <string name="intro_title_2">Rád hledáš zdlouhavě kódy v SMSkách?</string>
-    <string name="intro_title_3">Já je najdu za tebe!</string>
-    <string name="intro_title_4">Hned ti je ukážu přes celou obrazovku!</string>
-    <string name="intro_title_5">A to není vše...</string>
-    <string name="intro_title_6">A teď povolení...</string>
-    <string name="intro_title_7">a ještě jedno...</string>
-    <string name="intro_title_8">Ani já neznám všechny SMS z hlavy. Ehm... Databáze.</string>
-    <string name="intro_title_9">To je zatím vše.</string>
-    <string name="tab_addSMS">Přidat</string>
-    <string name="tab_functions">Funkce</string>
-    <string name="tab_listSMS">Seznam</string>
-    <string name="tab_1_tv_OverlayNotAllowed">Tapni na mě a povol překreslení kódu na obrazovku</string>
-    <string name="notif_newsDB">Nově v DB:</string>
-    <string name="SF_summary_text">Aktuální verze:</string>
-    <string name="SF_delay_summary_seconds">sekund</string>
+    <string name="SF_notification_summary_allowed">Povoleny</string>
+    <string name="SF_notification_summary_denied">Zakázány</string>
 </resources>

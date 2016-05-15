@@ -55,7 +55,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/MA_text_notRecognized"/>
+            android:text="@string/MA_text_notRecognized"
+            android:paddingBottom="12dp"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,13 +78,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/MA_text_Aboutauthor"
-            android:onClick="AboutAuthor"/>
+            android:onClick="AboutAuthor"
+            android:paddingBottom="12dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/MA_text_openSourceCode"
             android:clickable="true"
             android:onClick="OpenSourceCode"
+            android:paddingBottom="12dp"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -91,6 +96,7 @@
             android:clickable="true"
             android:onClick="ReportIssue"
             android:gravity="center"
+            android:paddingBottom="12dp"
             />
     </LinearLayout>
 

@@ -24,32 +24,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
-        <service android:name=".NotificationService" />
-        <service android:name=".OverlayService" />
+        <service android:name=".service.Notification_service" />
+        <service android:name=".service.Overlay_service" />
         <service
-            android:name=".ClipService"
+            android:name=".service.Clip_service"
             android:exported="false"></service>
         <service
-            android:name=".UpdateService"
+            android:name=".service.Update_service"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"></service>
         <service
-            android:name=".SimulateSMS"
+            android:name=".service.SimulateSMS_service"
             android:exported="false"
            ></service>
-        <service
-            android:name=".SmsUploadService"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-               <category android:name="android.intent.category.DEFAULT"/>
-                <!--<data android:mimeType="text/plain"/>-->
-            </intent-filter>
-        </service>
 
 
-
-        <activity android:name=".MainActivity"
+        <activity android:name=".activity.Main_activity"
            >
 
             <intent-filter>
@@ -58,13 +48,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Settings_activity"></activity>
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".activity.Settings_activity"></activity>
         <activity android:name=".Credits"></activity>
-        <activity android:name=".Intro_Activity"
-            android:label="@string/app_intro" />
 
-        <receiver android:name=".receiver.SmsRecieved">
+        <receiver android:name=".receiver.Sms_reciever">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
                 <action android:name="android.intent.action.BOOT_COMPLETED"></action>
