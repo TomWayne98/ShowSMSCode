@@ -1,28 +1,24 @@
 package cz.johrusk.showsmscode;
 
-import android.util.Log;
-
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 /**
  * Class for testing new SMS patterns
  */
 
 @RunWith(MockitoJUnitRunner.class)
-public class ExampleUnitTest{
+public class TestNewSMSHere {
 
     static SmsParser smsParser;
 
     @BeforeClass
     public static void setup() {smsParser = new SmsParser();}
-
 
     /**
      * Write method for testing SMS patterns here.
@@ -31,13 +27,14 @@ public class ExampleUnitTest{
 
     @Test
     public void ExampleForTesting(){
-        //SMS Body
-        String msg_content = ("Hello world. Your code is: 123456 ");
+
+        String msg_content = ("Hello world. Your code is: 123456 "); //SMS Body
         String unique = "Hello world";//Unique code which has to be included in SMS
-        String patern = "code is: (\\d+)";//Regular expression to find a code
+        String pattern = "code is: (\\d+)";//Regular expression to find a code
         String expectedResult = "123456";// Code which should be find
 
-        String code = SmsParser.TestSMSPattern(msg_content,unique,patern);
+        // It return code which you expect. 
+        String code = SmsParser.TestSMSPattern(msg_content,unique,pattern);
         Assert.assertEquals(expectedResult, code);
     }
 
