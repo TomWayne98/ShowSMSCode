@@ -18,6 +18,7 @@ import com.crashlytics.android.Crashlytics;
 import java.util.Random;
 
 import cz.johrusk.showsmscode.R;
+import cz.johrusk.showsmscode.activity.Main_activity;
 
 
 public class Notification_service extends IntentService {
@@ -45,13 +46,15 @@ public class Notification_service extends IntentService {
         String smsSender = null;
         String[] notifWeeklyArr = getResources().getStringArray(R.array.notification_didyouknow);
 
-        Intent myAppSettings = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
-        myAppSettings.addCategory(Intent.CATEGORY_DEFAULT);
-        myAppSettings.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        Intent appIntent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
+        appIntent.addCategory(Intent.CATEGORY_DEFAULT);
+        appIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         int nID = 0;
         switch (notifType) {
             case "notifCode":
+                appIntent = new Intent(this, Main_activity.class);
                 smsContent = dataArray[0];
                 smsSender = dataArray[2];
                 nID = 1;
@@ -68,8 +71,8 @@ public class Notification_service extends IntentService {
 
         }
 
-        PendingIntent permissionIntent =
-                PendingIntent.getActivity(this, 0, myAppSettings, 0);
+        PendingIntent startAppIntent =
+                PendingIntent.getActivity(this, 0, appIntent, 0);
 
         // Create a big text style for the second page
         android.support.v4.app.NotificationCompat.BigTextStyle secondPageStyle = new NotificationCompat.BigTextStyle();
@@ -88,15 +91,15 @@ public class Notification_service extends IntentService {
         NotificationCompat.Builder notifBuilder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_sms)
-                        .setContentTitle(smsSender)
-                        .setContentText(smsContent)
+                        .setContentTitle(smsContent)
+                        .setContentText(smsSender)
                         .setAutoCancel(true);
 
                         //.setSubText("Heya..........................")
 
-                if (notifType.equals("notifPermission")) {
+                if (notifType.equals("notifCode")) {
 //                    notifBuilder.addAction(R.drawable.ic_security, getString(R.string.NS_notif_permission_actionIntent), permissionIntent);
-                      notifBuilder.setContentIntent(permissionIntent);
+                      notifBuilder.setContentIntent(startAppIntent);
                 }
 
 

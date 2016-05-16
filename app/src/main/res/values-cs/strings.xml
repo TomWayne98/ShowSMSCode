@@ -7,8 +7,7 @@
 
     <!--Nastavení-->
     <string name="versionDB_title">Verze databáze</string>
-    <string name="action_craditsA_appVerTitle">Verze:</string>
-    <string name="notif_newsDB">Nově v DB:</string>
+ <string name="notif_newsDB">Nově v DB:</string>
     <string name="SF_summary_text">Aktuální verze:</string>
     <string name="SF_delay_summary_seconds">sekund</string>
     <string name="app_name">UkažSMSKód</string>
@@ -25,9 +24,8 @@
     <string name="MA_text_reportIssue">Nahlásit problém</string>
     <string name="MA_text_openSourceCode">Otevřený zdrojový kód</string>
     <string name="MA_text_notRecognized">SMS nebyla rozeznána?</string>
-    <string name="MA_text_authorname">Všechno je OK</string>
 
-    <!--Notifikace-->
+ <!--Notifikace-->
     <string name="NS_database_update">Nově v databázi</string>
     <string name="SF_notification_summary_allowed">Povoleny</string>
     <string name="SF_notification_summary_denied">Zakázány</string>

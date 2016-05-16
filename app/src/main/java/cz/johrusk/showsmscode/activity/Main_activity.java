@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
@@ -79,6 +81,16 @@ public class Main_activity extends AppCompatActivity {
         toolbar.setTitle(R.string.app_name);
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColorPrimary));
         setSupportActionBar(toolbar);
+//        Underline text
+        // TODO - add LinkedIn profile
+        TextView author = (TextView) findViewById(R.id.MA_tv_author);
+        TextView sourceCode = (TextView) findViewById(R.id.MA_tv_sourceCode);
+        TextView reportIssue = (TextView) findViewById(R.id.MA_tv_reportIssue);
+
+        author.setPaintFlags(author.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+        sourceCode.setPaintFlags(sourceCode.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+        reportIssue.setPaintFlags(reportIssue.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+
 //        Schedule Job
         scheduleJob(UPDATE_24H); // Basic DB update
     }
@@ -113,12 +125,12 @@ public class Main_activity extends AppCompatActivity {
                     new String[]{Manifest.permission.RECEIVE_BOOT_COMPLETED},
                     PERM_RECEIVE_BOOT);
         }
-        if (ContextCompat.checkSelfPermission(Main_activity.context,
-                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_PHONE_STATE},
-                    PERM_READ_P_STATE);
-        }
+//        if (ContextCompat.checkSelfPermission(Main_activity.context,
+//                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+//            ActivityCompat.requestPermissions(this,
+//                    new String[]{Manifest.permission.READ_PHONE_STATE},
+//                    PERM_READ_P_STATE);
+//        }
         if (ContextCompat.checkSelfPermission(Main_activity.context,
                 Manifest.permission.SYSTEM_ALERT_WINDOW) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
@@ -136,7 +148,6 @@ public class Main_activity extends AppCompatActivity {
     @Override
     protected void onStop() {
         Log.d(LOG_TAG, "ONSTOP");
-        //JobManager.instance().cancelAll();
         super.onStop();
     }
 
@@ -147,8 +158,6 @@ public class Main_activity extends AppCompatActivity {
             if (!Settings.canDrawOverlays(this)) {
 
             } else {
-
-
             }
         }
     }
@@ -203,6 +212,7 @@ public class Main_activity extends AppCompatActivity {
 
     public void checkPermissionState() {
         Boolean isOK = true;
+        LinearLayout ll_state = (LinearLayout) findViewById(R.id.ll_state);
         ImageView iv_state = (ImageView) findViewById(R.id.iv_state);
         TextView tv_state = (TextView) findViewById(R.id.tv_state);
         if (ContextCompat.checkSelfPermission(Main_activity.context,
@@ -217,15 +227,15 @@ public class Main_activity extends AppCompatActivity {
                 Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {
             isOK = false;
         }
-        if (ContextCompat.checkSelfPermission(Main_activity.context,
-                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-            isOK = false;
-        }
+//        if (ContextCompat.checkSelfPermission(Main_activity.context,
+//                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+//            isOK = false;
+//        }
         //TODO - Change to false
         if (isOK == false) {
             iv_state.setColorFilter(Color.YELLOW);
             tv_state.setText(R.string.MA_text_state_needperm);
-            tv_state.setOnClickListener(new View.OnClickListener() {
+            ll_state.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent myAppSettings = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
@@ -238,7 +248,7 @@ public class Main_activity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(context)) {
             iv_state.setColorFilter(Color.YELLOW);
             tv_state.setText(R.string.MA_text_state_needperm);
-            tv_state.setOnClickListener(new View.OnClickListener() {
+            ll_state.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent myAppSettings = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
@@ -252,7 +262,7 @@ public class Main_activity extends AppCompatActivity {
         if (isOK == true && Build.VERSION.SDK_INT < 23) {
             iv_state.setColorFilter(getResources().getColor(R.color.color_state));
             tv_state.setText(R.string.MA_text_state);
-            tv_state.setOnClickListener(new View.OnClickListener() {
+            ll_state.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                 }
@@ -262,7 +272,7 @@ public class Main_activity extends AppCompatActivity {
         } else if (isOK == true && (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(context))) {
             iv_state.setColorFilter(getResources().getColor(R.color.color_state));
             tv_state.setText(R.string.MA_text_state);
-            tv_state.setOnClickListener(new View.OnClickListener() {
+            ll_state.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                 }
@@ -278,7 +288,7 @@ public class Main_activity extends AppCompatActivity {
     }
 
     public void ReportIssue(View view) {
-        String url = "https://github.com/JosefHruska/ShowSMSCode";
+        String url = "https://github.com/JosefHruska/ShowSMSCode/issues";
         Intent ReportIssue = new Intent(Intent.ACTION_VIEW);
         ReportIssue.setData(Uri.parse(url));
         startActivity(ReportIssue);

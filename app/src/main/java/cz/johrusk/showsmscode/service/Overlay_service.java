@@ -31,6 +31,7 @@ public class Overlay_service extends Service {
     public static final String LOG_TAG = Main_activity.class.getName();
     private WindowManager windowManager;
     private TextView codeView;
+    private TextView senderView;
     public Bundle bundle;
     public int overlayDelay;
 
@@ -52,6 +53,7 @@ public class Overlay_service extends Service {
         String[] dataArray;
         dataArray = bundle.getStringArray("key");
         String code = dataArray[0];
+        String sender = dataArray[2];
         String s = "until_tap";
 
         //má tam být if (!s.equals(overlayDelay)) ale until_tap se zatím nepoužívá
@@ -68,8 +70,16 @@ public class Overlay_service extends Service {
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
         //add TextView which contain show in SMS
+        senderView = new TextView(this);
+        senderView.setText(sender);
+        senderView.setTextSize(40);
+        senderView.setTextColor(Color.BLACK);
+        senderView.setGravity(Gravity.CENTER | Gravity.TOP);
+
+
         codeView = new TextView(this);
-        codeView.setGravity(Gravity.CENTER);
+        codeView.setGravity( Gravity.CENTER | Gravity.BOTTOM);
+        codeView.setPadding(0,100,0,0);
         codeView.setText(code);
         codeView.setTextSize(80);
         codeView.setTextColor(Color.BLACK);
@@ -77,7 +87,7 @@ public class Overlay_service extends Service {
         codeView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(LOG_TAG,"Windows tappped");
+                Log.d(LOG_TAG,"Window tappped");
                 stopSelf();
             }
         });
@@ -85,16 +95,17 @@ public class Overlay_service extends Service {
 
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
-                WindowManager.LayoutParams.MATCH_PARENT,
+                WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
                 WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON,
                 PixelFormat.TRANSLUCENT);
 
-        params.gravity = Gravity.CENTER | Gravity.LEFT;
+        params.gravity = Gravity.CENTER | Gravity.TOP;
         params.x = 0;
-        params.y = 200;
+        params.y = 0;
 
         windowManager.addView(codeView, params);
+        windowManager.addView(senderView, params);
 
 
         return START_STICKY;
@@ -105,7 +116,7 @@ public class Overlay_service extends Service {
       Boolean isTap = true;
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String i = sharedPref.getString(Settings_fragment.KEY_PREF_OVERLAY_DELAY, "");
-String tap = "until_tap";
+        String tap = "until_tap";
 
         if  (!tap.equals(String.valueOf(i))){
             overlayDelay = Integer.valueOf(i) * 1000;
@@ -123,6 +134,7 @@ String tap = "until_tap";
     public void onDestroy() {
         super.onDestroy();
         if (codeView != null) windowManager.removeView(codeView);
+        if (senderView != null) windowManager.removeView(senderView);
     }
 }
 
