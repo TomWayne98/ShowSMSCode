@@ -42,7 +42,7 @@
       "ispublic":true,
       "example":"Vazeny zakazniku, zasilame jednorazovy PIN k autorizaci m-platby pro Audioteka s.a. na castku 1.0 Kc. PIN: 777DKE. Nesdelujte jine osobe. Vase O2.",
       "number": "O2 Active",
-      "unique": "m-platby",
+      "unique": "na castku",
       "sender": "02 Active",
       "reg_ex": "PIN: (......)"
      },
