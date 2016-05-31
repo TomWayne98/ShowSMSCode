@@ -14,6 +14,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.view.View.OnClickListener;
 
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
@@ -26,7 +27,6 @@ import cz.johrusk.showsmscode.fragment.Settings_fragment;
  */
 
 
-
 public class Overlay_service extends Service {
     public static final String LOG_TAG = Main_activity.class.getName();
     private WindowManager windowManager;
@@ -34,19 +34,16 @@ public class Overlay_service extends Service {
     private TextView senderView;
     public Bundle bundle;
     public int overlayDelay;
+    private View.OnClickListener clicklistener;
 
 
-
-
-
-
-    @Override public IBinder onBind(Intent intent) {
+    @Override
+    public IBinder onBind(Intent intent) {
         // Not used
         return null;
     }
 
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
+    public int onStartCommand(Intent intent, int flags, int startId) {
         this.bundle = intent.getBundleExtra("bundle");
 
 
@@ -64,7 +61,13 @@ public class Overlay_service extends Service {
         Answers.getInstance().logCustom(new CustomEvent("Overlay delay")
                 .putCustomAttribute("Length of overlaying", overlayDelay));
 
-
+        clicklistener = new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(LOG_TAG, "Window tappped");
+                stopSelf();
+            }
+        };
 
         Log.d("OverLayService", "StartOk");
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
@@ -76,21 +79,15 @@ public class Overlay_service extends Service {
         senderView.setTextColor(Color.BLACK);
         senderView.setGravity(Gravity.CENTER | Gravity.TOP);
 
-
         codeView = new TextView(this);
-        codeView.setGravity( Gravity.CENTER | Gravity.BOTTOM);
-        codeView.setPadding(0,100,0,0);
+        codeView.setGravity(Gravity.CENTER | Gravity.BOTTOM);
+        codeView.setPadding(0, 100, 0, 0);
         codeView.setText(code);
+        codeView.setClickable(true);
         codeView.setTextSize(80);
         codeView.setTextColor(Color.BLACK);
         codeView.setBackgroundColor(Color.WHITE);
-        codeView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(LOG_TAG,"Window tappped");
-                stopSelf();
-            }
-        });
+        codeView.setOnClickListener(clicklistener);
 
 
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
@@ -111,25 +108,24 @@ public class Overlay_service extends Service {
         return START_STICKY;
     }
 
-    @Override public void onCreate() {
+    @Override
+    public void onCreate() {
         super.onCreate();
-      Boolean isTap = true;
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String i = sharedPref.getString(Settings_fragment.KEY_PREF_OVERLAY_DELAY, "");
         String tap = "until_tap";
-
-        if  (!tap.equals(String.valueOf(i))){
+        if (!tap.equals(String.valueOf(i))) {
             overlayDelay = Integer.valueOf(i) * 1000;
-            Log.d(LOG_TAG,"Handler started");
+            Log.d(LOG_TAG, "Handler started");
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     stopSelf();
                 }
             }, overlayDelay);
-
         }
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

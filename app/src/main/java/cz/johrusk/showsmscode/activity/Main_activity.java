@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -31,9 +32,12 @@ import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.core.JobClass;
 import cz.johrusk.showsmscode.service.SimulateSMS_service;
 import cz.johrusk.showsmscode.service.Update_service;
+import cz.johrusk.showsmscode.service.WatchListener_service;
+import pl.tajchert.buswear.EventBus;
+
 
 /**
- * The ShowSMSCode app find codes in incoming messages. Codes are showed via notification, overlaywindow or Android wear device.
+ * The ShowSMSCode app find codes in incoming messages. Codes are showed via notification, overlaywindow or android wear device.
  * Code is also sent to clipboard.
  *
  * @author Josef Hruska
@@ -68,6 +72,7 @@ public class Main_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         Main_activity.context = getApplicationContext();
         String crashlytics_id = String.valueOf(android.os.Build.MANUFACTURER + android.os.Build.MODEL);
         Crashlytics.setUserName(crashlytics_id);
@@ -83,13 +88,17 @@ public class Main_activity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 //        Underline text
         // TODO - add LinkedIn profile
+        TextView notRecognized = (TextView) findViewById(R.id.MA_tv_notRecognized);
+        TextView addToGit = (TextView) findViewById(R.id.MA_tv_addToGit);
         TextView author = (TextView) findViewById(R.id.MA_tv_author);
         TextView sourceCode = (TextView) findViewById(R.id.MA_tv_sourceCode);
         TextView reportIssue = (TextView) findViewById(R.id.MA_tv_reportIssue);
 
-        author.setPaintFlags(author.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
-        sourceCode.setPaintFlags(sourceCode.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
-        reportIssue.setPaintFlags(reportIssue.getPaintFlags()| Paint.UNDERLINE_TEXT_FLAG);
+        addToGit.setPaintFlags(reportIssue.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        author.setPaintFlags(author.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        sourceCode.setPaintFlags(sourceCode.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        reportIssue.setPaintFlags(reportIssue.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
 
 //        Schedule Job
         scheduleJob(UPDATE_24H); // Basic DB update
@@ -99,12 +108,13 @@ public class Main_activity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        EventBus.getDefault().post("text", this);
         Log.d(LOG_TAG, "ONSTART -----");
-        // TODO - check whether it solved the bug (JOBMANAGER);
-        // JobManager.create(this);
         Intent updtintent = new Intent(context, Update_service.class);
         startService(updtintent);
         checkPermissionState();
+        Intent ListenIntent = new Intent(context, WatchListener_service.class);
+        startService(ListenIntent);
 
 
         if (ContextCompat.checkSelfPermission(Main_activity.context,
@@ -125,12 +135,6 @@ public class Main_activity extends AppCompatActivity {
                     new String[]{Manifest.permission.RECEIVE_BOOT_COMPLETED},
                     PERM_RECEIVE_BOOT);
         }
-//        if (ContextCompat.checkSelfPermission(Main_activity.context,
-//                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{Manifest.permission.READ_PHONE_STATE},
-//                    PERM_READ_P_STATE);
-//        }
         if (ContextCompat.checkSelfPermission(Main_activity.context,
                 Manifest.permission.SYSTEM_ALERT_WINDOW) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
@@ -141,13 +145,13 @@ public class Main_activity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        Log.d(LOG_TAG, "ONDESTROY");
+        Log.d(LOG_TAG, "MainActivity state: onDestroy");
         super.onDestroy();
     }
 
     @Override
     protected void onStop() {
-        Log.d(LOG_TAG, "ONSTOP");
+        Log.d(LOG_TAG, "MainActivity state: onStop");
         super.onStop();
     }
 
@@ -157,7 +161,6 @@ public class Main_activity extends AppCompatActivity {
         if (requestCode == 1234 && Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(this)) {
 
-            } else {
             }
         }
     }
@@ -184,20 +187,10 @@ public class Main_activity extends AppCompatActivity {
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
-
         }
     }
 
-    private void scheduleWeeklyNotifJob(long period) {
-        if (JobManager.instance().getAllJobRequestsForTag(JobClass.TAG_WEEKLY).isEmpty()) {
-            int job = new JobRequest.Builder(JobClass.TAG_WEEKLY)
-                    .setPeriodic(60_000L * period)
-                    .setPersisted(true)
-                    .build()
-                    .schedule();
-        }
-    }
-
+    // Scheduled Job which updates DB every day(default) eventually as soon as is connection available
     private void scheduleJob(long period) {
 
         if (JobManager.instance().getAllJobRequestsForTag(JobClass.TAG).isEmpty()) {
@@ -210,6 +203,10 @@ public class Main_activity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method checks if are all permissions granted
+     * eventually it change state indicator to yellow (green circle)
+     */
     public void checkPermissionState() {
         Boolean isOK = true;
         LinearLayout ll_state = (LinearLayout) findViewById(R.id.ll_state);
@@ -227,11 +224,7 @@ public class Main_activity extends AppCompatActivity {
                 Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {
             isOK = false;
         }
-//        if (ContextCompat.checkSelfPermission(Main_activity.context,
-//                Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
-//            isOK = false;
-//        }
-        //TODO - Change to false
+
         if (isOK == false) {
             iv_state.setColorFilter(Color.YELLOW);
             tv_state.setText(R.string.MA_text_state_needperm);
@@ -266,8 +259,6 @@ public class Main_activity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                 }
-
-
             });
         } else if (isOK == true && (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(context))) {
             iv_state.setColorFilter(getResources().getColor(R.color.color_state));
@@ -281,7 +272,7 @@ public class Main_activity extends AppCompatActivity {
     }
 
     public void AddToGit(View view) {
-        String url = "https://github.com/JosefHruska/ShowSMSCode";
+        String url = "https://github.com/JosefHruska/ShowSMSCode/wiki/How-to-add-new-SMS-pattern";
         Intent showGithub = new Intent(Intent.ACTION_VIEW);
         showGithub.setData(Uri.parse(url));
         startActivity(showGithub);
@@ -302,14 +293,14 @@ public class Main_activity extends AppCompatActivity {
     }
 
     public void AboutAuthor(View view) {
-        String url = "https://github.com/JosefHruska/ShowSMSCode";
+        String url = "https://www.linkedin.com/in/josefhruska";
         Intent AboutAuthor = new Intent(Intent.ACTION_VIEW);
         AboutAuthor.setData(Uri.parse(url));
         startActivity(AboutAuthor);
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], int[] grantResults) {
 
 
         /**

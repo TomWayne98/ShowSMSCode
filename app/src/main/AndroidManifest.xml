@@ -28,16 +28,28 @@
         <service android:name=".service.Overlay_service" />
         <service
             android:name=".service.Clip_service"
-            android:exported="false"></service>
+            android:exported="false" />
         <service
             android:name=".service.Update_service"
             android:exported="true"
-            android:permission="android.permission.BIND_JOB_SERVICE"></service>
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".service.WearService"
+            android:exported="false" />
         <service
             android:name=".service.SimulateSMS_service"
-            android:exported="false"
-           ></service>
+            android:exported="false" />
+        <service
+            android:name=".service.WatchListener_service"
+            android:exported="true"
+            android:enabled="true"
+            >
+            <intent-filter>
+                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
+                <data android:scheme="wear" android:host="*"  />
+            </intent-filter>
 
+        </service>
 
         <activity android:name=".activity.Main_activity"
            >
@@ -48,12 +60,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Settings_activity"></activity>
+        <activity android:name=".activity.Settings_activity" />
 
-        <receiver android:name=".receiver.Sms_reciever">
+        <receiver android:name=".receiver.Sms_reciever"
+            android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"></action>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 

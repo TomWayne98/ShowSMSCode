@@ -19,10 +19,4 @@
         <item>30</item>
 
     </string-array>
-    <string-array name="notification_didyouknow">
-        <item>Pomocí aplikace lze přidat vlastní sms vzor?</item>
-        <item>Každý kód se zkopíruje do schránky</item>
-        <!--Tepmporary doesn't work - clicklistenter is not working.-->
-        <!--<item>until_tap</item>-->
-    </string-array>
 </resources>

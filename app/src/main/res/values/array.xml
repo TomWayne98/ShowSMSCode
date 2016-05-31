@@ -21,10 +21,4 @@
         <!--<item>until_tap</item>-->
     </string-array>
 
-    <string-array name="notification_didyouknow">
-        <item>You can add your own sms to database via you app?</item>
-        <item>We automaticly copy each code to clipboard</item>
-        <!--Tepmporary doesn't work - clicklistenter is not working.-->
-        <!--<item>until_tap</item>-->
-    </string-array>
 </resources>

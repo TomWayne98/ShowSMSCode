@@ -12,10 +12,11 @@ import io.fabric.sdk.android.Fabric;
  */
 public class App extends Application {
     private static App app;
-    public static App get()
-    {
+
+    public static App get() {
         return app;
     }
+
     @Override
     public void onCreate() {
         app = this;
@@ -24,4 +25,6 @@ public class App extends Application {
         JobManager.create(this).addJobCreator(new JobCreator());
         Fabric.with(this, new Crashlytics());
     }
+
+
 }

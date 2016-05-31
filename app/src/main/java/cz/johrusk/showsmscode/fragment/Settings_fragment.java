@@ -27,7 +27,8 @@ public class Settings_fragment extends PreferenceFragment implements SharedPrefe
 
     Context c;
 
-    public Settings_fragment() {}
+    public Settings_fragment() {
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -92,5 +93,6 @@ public class Settings_fragment extends PreferenceFragment implements SharedPrefe
             overlayDelayPref.setSummary(sharedPreferences.getString(key, "") + c.getString(R.string.SF_delay_summary_seconds));
         }
     }
+
     Preference myPref = (Preference) findPreference("pref_version_key");
 }

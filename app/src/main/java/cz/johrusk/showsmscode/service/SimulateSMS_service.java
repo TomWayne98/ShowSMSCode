@@ -13,26 +13,29 @@ import android.util.Log;
 import cz.johrusk.showsmscode.activity.Main_activity;
 import cz.johrusk.showsmscode.fragment.Settings_fragment;
 
+
+
 /**
- * Created by Pepa on 14.05.2016.
+ * This method simulates what happen when user receive SMS which is contained in SMS.
  */
 public class SimulateSMS_service extends IntentService {
     final static String LOG_TAG = Main_activity.class.getSimpleName();
 
 
-
-    public SimulateSMS_service(){
+    public SimulateSMS_service() {
         super("SimulateSMS_service");
-}
+    }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         Context c = getApplicationContext();
         String type = "notifCode";
         Bundle bundle = new Bundle();
-        String codePHLD = "R2D2";
-        String senderPHLD = "Skynet";
-        bundle.putStringArray("key", new String[]{codePHLD,"true", senderPHLD, type});
+        String codePHLD = "C0DE";
+
+        String senderPHLD = "Sender";
+        bundle.putStringArray("key", new String[]{codePHLD, "true", senderPHLD, type});
+        Log.d(LOG_TAG,"TEST");
 
 
 
@@ -49,20 +52,22 @@ public class SimulateSMS_service extends IntentService {
             Intent overlayIntent = new Intent(c, Overlay_service.class);
             overlayIntent.putExtra("bundle", bundle);
             c.startService(overlayIntent);
-            Log.d(LOG_TAG,"Overlay intent started");
-        } else if (Build.VERSION.SDK_INT < 23)
-        {
+            Log.d(LOG_TAG, "Overlay intent started");
+        } else if (Build.VERSION.SDK_INT < 23) {
             Intent overlayIntent = new Intent(c, Overlay_service.class);
             overlayIntent.putExtra("bundle", bundle);
             c.startService(overlayIntent);
-            Log.d(LOG_TAG,"Overlay intent started (SDK is lower than 23)");
-        }
-        else{
+            Log.d(LOG_TAG, "Overlay intent started (SDK is lower than 23)");
+        } else {
             Log.d(LOG_TAG, "Permission for overlay is not granted");
         }
-        //Starts IntentService which sets sms code to clipboard;
+        //Starts IntentService which sets sms code to clipboard
         Intent clipIntent = new Intent(c, Clip_service.class);
         clipIntent.putExtra("code", codePHLD);
         c.startService(clipIntent);
+
+        Intent wearIntent = new Intent(c, WearService.class);
+        wearIntent.putExtras(bundle);
+        c.startService(wearIntent);
     }
 }

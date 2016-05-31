@@ -10,19 +10,29 @@ buildscript {
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 
+
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    maven { url "https://jitpack.io" }
+
 }
 android {
+    signingConfigs {
+        config {
+            keyAlias 'JoHrusk'
+            keyPassword 'ApkFobia64'
+            storeFile file('C:/Users/Pepa/OneDrive/Osobní/keystores/key1.jks')
+            storePassword 'KeyFobia64'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "24.0.0 rc2"
-
     defaultConfig {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 7
-        versionName "Alpha 0.7.0"
+        versionCode 12
+        versionName "0.12"
 
 
     }
@@ -30,6 +40,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
@@ -38,14 +49,19 @@ android {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.evernote:android-job:1.0.4'
-    compile 'com.android.support:appcompat-v7:23.1.0'
-    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+    compile 'com.google.android.gms:play-services-wearable:7.8.0'
+    compile 'pl.tajchert:buswear:0.9.5'
     compile 'com.github.GrenderG:Prefs:1.1'
+    compile 'com.github.AndroidDeveloperLB:AutoFitTextView:2'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
         transitive = true;
     }
+    wearApp project(':myapplication')
+
 }

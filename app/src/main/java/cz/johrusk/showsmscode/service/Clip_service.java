@@ -18,14 +18,11 @@ public class Clip_service extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         String str = intent.getStringExtra("code");
-        CharSequence code = str;
 
         ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
-        ClipData clip = ClipData.newPlainText("code",code);
+        ClipData clip = ClipData.newPlainText("code", str);
         clipboard.setPrimaryClip(clip);
     }
-
-
 
 
 }

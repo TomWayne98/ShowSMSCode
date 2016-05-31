@@ -35,6 +35,7 @@ import cz.johrusk.showsmscode.service.Clip_service;
 import cz.johrusk.showsmscode.service.Notification_service;
 import cz.johrusk.showsmscode.service.Overlay_service;
 import cz.johrusk.showsmscode.fragment.Settings_fragment;
+import cz.johrusk.showsmscode.service.WearService;
 import io.fabric.sdk.android.Fabric;
 
 /**
@@ -99,36 +100,37 @@ public class Sms_reciever extends BroadcastReceiver {
                                 notifIntent.putExtras(bundle);
                                 c.startService(notifIntent);
                             }
+
+                            Intent wearIntent = new Intent(c, WearService.class);
+                            wearIntent.putExtras(bundle);
+                            c.startService(wearIntent);
+
                             if (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(c)) {
                                 // Starts service for showing a code on the screen
                                 Intent overlayIntent = new Intent(c, Overlay_service.class);
                                 overlayIntent.putExtra("bundle", bundle);
                                 c.startService(overlayIntent);
-                                Log.d(LOG_TAG,"Overlay intent started");
-                            } else if (Build.VERSION.SDK_INT < 23)
-                            {
+                                Log.d(LOG_TAG, "Overlay intent started");
+                            } else if (Build.VERSION.SDK_INT < 23) {
                                 Intent overlayIntent = new Intent(c, Overlay_service.class);
                                 overlayIntent.putExtra("bundle", bundle);
                                 c.startService(overlayIntent);
-                                Log.d(LOG_TAG,"Overlay intent started (SDK is lower than 23)");
-                            }
-                                else{
+                                Log.d(LOG_TAG, "Overlay intent started (SDK is lower than 23)");
+                            } else {
                                 Log.d(LOG_TAG, "Permission for overlay is not granted");
                             }
-                                //Starts IntentService which sets sms code to clipboard;
-                                Intent clipIntent = new Intent(c, Clip_service.class);
-                                clipIntent.putExtra("code", code);
-                                c.startService(clipIntent);
-                            } else {
-                                Answers.getInstance().logCustom(new CustomEvent("Code is null/\"\"")
-                                        .putCustomAttribute("Sender / SMS Body", message.getDisplayMessageBody() + "  " + message.getDisplayOriginatingAddress()));
-                            }
+                            //Starts IntentService which sets sms code to clipboard;
+                            Intent clipIntent = new Intent(c, Clip_service.class);
+                            clipIntent.putExtra("code", code);
+                            c.startService(clipIntent);
+                        } else {
+                            Answers.getInstance().logCustom(new CustomEvent("Code is null/\"\"")
+                                    .putCustomAttribute("Sender / SMS Body", message.getDisplayMessageBody() + "  " + message.getDisplayOriginatingAddress()));
+                        }
                     }
                 }
             }
-        } catch (ParseException e) {
-            Crashlytics.logException(e);
-        } catch (JSONException e) {
+        } catch (ParseException | JSONException e) {
             Crashlytics.logException(e);
         }
     }
@@ -296,11 +298,10 @@ public class Sms_reciever extends BroadcastReceiver {
      * @return
      */
     public Boolean numberOrName(String msg_sender_number) {
-        String num = msg_sender_number;
 
         Pattern p = Pattern.compile("[^0123456789+]");
         Log.d(LOG_TAG, p.toString());
-        Matcher m = p.matcher(num);
+        Matcher m = p.matcher(msg_sender_number);
 
         if (m.find()) {
             Log.d(LOG_TAG, "Sender adress is a name");

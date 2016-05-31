@@ -146,5 +146,14 @@ public class TestNewSMSHere {
         String code = SmsParser.TestSMSPattern(msg_content,unique,patern);
         Assert.assertEquals(expectedResult, code);
     }
+    @Test
+    public void Liftago() {
+        String msg_content = ("Overovaci kod Liftago pro base telefonni cislo je: 9738. Platnost kodu vyprsi za 30 minut.");
+        String unique = "Liftago";
+        String patern = "cislo je: (....)";
+        String expectedResult = "9738";
 
+        String code = SmsParser.TestSMSPattern(msg_content, unique, patern);
+        Assert.assertEquals(expectedResult, code);
+    }
 }

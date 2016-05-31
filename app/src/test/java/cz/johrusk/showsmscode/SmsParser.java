@@ -1,23 +1,13 @@
 package cz.johrusk.showsmscode;
 
 import android.content.Context;
-import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import cz.johrusk.showsmscode.activity.Main_activity;
 
 /**
  * Helper class for SMS pattern testing
