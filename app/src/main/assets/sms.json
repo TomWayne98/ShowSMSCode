@@ -84,6 +84,16 @@
       "sender": "Netflix",
       "reg_ex": "code is (......)",
       "alt_numbers": ["Netflix"]
+     },
+      {
+      "id": 1006,
+      "ispublic":true,
+      "example":"Overovaci kod Liftago pro base telefonni cislo je: 9738. Platnost kodu vyprsi za 30 minut.",
+      "number": "Info",
+      "unique": "Liftago",
+      "sender": "Liftago",
+      "reg_ex": "cislo je: (....)",
+      "alt_numbers": ["Liftago"]
      }
      
     ]

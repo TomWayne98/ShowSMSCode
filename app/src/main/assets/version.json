@@ -1,4 +1,12 @@
 {
+<<<<<<< HEAD
   "version": 33,
   "news": "Netflix Authorization"
+||||||| merged common ancestors
+  "version": 32,
+  "news": "Netflix Authorization"
+=======
+  "version": 34,
+  "news": "Liftago sign up"
+>>>>>>> origin/master
 }
