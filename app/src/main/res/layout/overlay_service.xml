@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
+
+    android:layout_margin="8dp"
+    android:id="@+id/overlay_layout"
+    android:background="@color/textColorPrimary"
+    android:elevation="8dp">
+
+    <me.grantland.widget.AutofitTextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:text="Sender"
+        android:maxLines="2"
+        autofit:minTextSize="16sp"
+        android:textSize="24sp"
+        android:textColor="@color/bright_foreground_inverse_material_dark"
+        />
+
+    <me.grantland.widget.AutofitTextView
+        android:textColor="@color/bright_foreground_inverse_material_dark"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="Creepadasdasdasdasda4"
+        android:maxLines="2"
+        autofit:minTextSize="16sp"
+        android:textSize="80sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

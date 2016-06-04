@@ -23,6 +23,7 @@ public class Settings_fragment extends PreferenceFragment implements SharedPrefe
     public static final String KEY_PREF_OVERLAY_DELAY = "pref_overlayDelay";
     public static final String KEY_PREF_NOTIFICATION = "pref_notification";
     public static final String KEY_PREF_VERSION = "pref_versionUpdate";
+    public static final String KEY_PREF_WEAR_DEVICE = "pref_wear_device_active";
     SharedPreferences sharedpreferences;
 
     Context c;
@@ -40,7 +41,8 @@ public class Settings_fragment extends PreferenceFragment implements SharedPrefe
         String str = String.valueOf(DBVersion);
         sharedpreferences = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         Preference pref = findPreference(KEY_PREF_VERSION);
-        pref.setSummary(getResources().getString(R.string.SF_summary_text) + str);
+        pref.setSummary(getResources().getString(R.string.SF_summary_text));
+        pref.setTitle(getResources().getString(R.string.versionDB_title) + str);
         pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {

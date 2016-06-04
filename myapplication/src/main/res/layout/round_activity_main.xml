@@ -9,20 +9,21 @@
 
     <TextView
         android:textColor="@color/black"
+        android:text="@string/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sender"
+        android:layout_below="@+id/text"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:textColor="@color/black"
         android:id="@+id/text"
         android:textSize="40sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/hello_round"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/hello_round" />
-
-    <TextView
-        android:textColor="@color/black"
-        android:text="@string/textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/text"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/sender" />
+         />
 </RelativeLayout>

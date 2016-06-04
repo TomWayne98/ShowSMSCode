@@ -31,8 +31,8 @@ android {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 12
-        versionName "0.12"
+        versionCode 13
+        versionName "0.13"
 
 
     }
@@ -56,7 +56,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-wearable:7.8.0'
     compile 'pl.tajchert:buswear:0.9.5'
     compile 'com.github.GrenderG:Prefs:1.1'
-    compile 'com.github.AndroidDeveloperLB:AutoFitTextView:2'
+    compile 'me.grantland:autofittextview:0.2.+'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {

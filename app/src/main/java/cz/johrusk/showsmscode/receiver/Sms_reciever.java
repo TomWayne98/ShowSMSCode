@@ -57,7 +57,7 @@ public class Sms_reciever extends BroadcastReceiver {
         //Check whether is sending of notification allowed in settings (default value is true)
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(c);
         Boolean sendNotification = sharedPref.getBoolean(Settings_fragment.KEY_PREF_NOTIFICATION, true);
-
+        Boolean showOnWearDevice = sharedPref.getBoolean(Settings_fragment.KEY_PREF_WEAR_DEVICE, true);
 
         Log.i(LOG_TAG, "OnRecieveStarted");
         SmsMessage[] messages = getMessages(intent);
@@ -100,10 +100,12 @@ public class Sms_reciever extends BroadcastReceiver {
                                 notifIntent.putExtras(bundle);
                                 c.startService(notifIntent);
                             }
-
-                            Intent wearIntent = new Intent(c, WearService.class);
-                            wearIntent.putExtras(bundle);
-                            c.startService(wearIntent);
+                            // It send a content which can be displayed on wear device. (If it is allowed in prefs...)
+                            if (showOnWearDevice) {
+                                Intent wearIntent = new Intent(c, WearService.class);
+                                wearIntent.putExtras(bundle);
+                                c.startService(wearIntent);
+                            }
 
                             if (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(c)) {
                                 // Starts service for showing a code on the screen

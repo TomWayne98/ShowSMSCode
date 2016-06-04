@@ -3,7 +3,6 @@ package cz.johrusk.showsmscode.service;
 import android.app.Service;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,16 +10,19 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.TextView;
-import android.view.View.OnClickListener;
 
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 
+import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.activity.Main_activity;
 import cz.johrusk.showsmscode.fragment.Settings_fragment;
+import me.grantland.widget.AutofitTextView;
 
 /**
  * This class show code in windows which overlay entire screen
@@ -32,6 +34,9 @@ public class Overlay_service extends Service {
     private WindowManager windowManager;
     private TextView codeView;
     private TextView senderView;
+    private AutofitTextView foo;
+    private LayoutInflater layoutInf;
+    private View layout;
     public Bundle bundle;
     public int overlayDelay;
     private View.OnClickListener clicklistener;
@@ -47,6 +52,8 @@ public class Overlay_service extends Service {
         this.bundle = intent.getBundleExtra("bundle");
 
 
+        layoutInf = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        layout = layoutInf.inflate(R.layout.overlay_service,null);
         String[] dataArray;
         dataArray = bundle.getStringArray("key");
         String code = dataArray[0];
@@ -69,29 +76,15 @@ public class Overlay_service extends Service {
             }
         };
 
+
+
         Log.d("OverLayService", "StartOk");
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
-        //add TextView which contain show in SMS
-        senderView = new TextView(this);
-        senderView.setText(sender);
-        senderView.setTextSize(40);
-        senderView.setTextColor(Color.BLACK);
-        senderView.setGravity(Gravity.CENTER | Gravity.TOP);
-
-        codeView = new TextView(this);
-        codeView.setGravity(Gravity.CENTER | Gravity.BOTTOM);
-        codeView.setPadding(0, 100, 0, 0);
-        codeView.setText(code);
-        codeView.setClickable(true);
-        codeView.setTextSize(80);
-        codeView.setTextColor(Color.BLACK);
-        codeView.setBackgroundColor(Color.WHITE);
-        codeView.setOnClickListener(clicklistener);
 
 
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.MATCH_PARENT,
+                900,
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.TYPE_SYSTEM_OVERLAY,
                 WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON,
@@ -101,9 +94,13 @@ public class Overlay_service extends Service {
         params.x = 0;
         params.y = 0;
 
-        windowManager.addView(codeView, params);
-        windowManager.addView(senderView, params);
 
+        codeView = (TextView) layout.findViewById(R.id.textView2);
+        senderView = (TextView) layout.findViewById(R.id.textView);
+
+        codeView.setText(sender);
+        senderView.setText(code);
+        windowManager.addView(layout, params);
 
         return START_STICKY;
     }
@@ -129,8 +126,10 @@ public class Overlay_service extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (codeView != null) windowManager.removeView(codeView);
-        if (senderView != null) windowManager.removeView(senderView);
+//        if (codeView != null) windowManager.removeView(codeView);
+//        if (senderView != null) windowManager.removeView(senderView);
+        if (layout != null) windowManager.removeView(layout);
+
     }
 }
 

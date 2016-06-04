@@ -3,19 +3,25 @@
     <!--Settings-->
     <string name="pref_notification">Notifications</string>
     <string name="pref_notification_summ">Show code in notification bar</string>
-    <string name="pref_overlayDelay">Overlay delay</string>
+    <string name="pref_wear_active_title">Wear connection</string>
+    <string name="pref_wear_active_summ">Show code on connected wear device</string>
     <string name="pref_overlayDelay_default" translatable="false">5</string>
-    <string name="pref_overlayDelay_summ">How long will be code shown</string>
+    <string name="pref_overlayDelay_summ">5 seconds</string>
+    <string name="pref_overlayDelay_title">How long is code displayed</string>
     <string name="preference_file_key" translatable="false">pref_key</string>
     <string name="versionDB" translatable="false">0</string>
-    <string name="versionDB_title">Update database manually</string>
+    <string name="versionDB_title">SMS definitions v. </string>
+    <string name="pref_group_SMS_database">SMS database</string>
+    <string name="pref_group_wear">Wear device</string>
+    <string name="pref_group_phone">This device</string>
+    <string name="pref_update_toast">Manual update started</string>
 
     <!--Which JSON to use (Assets/InternalStorage)-->
 
     <!--Menu-->
     <string name="action_settings">Settings</string>
     <string name="action_simulateSMS">Simulate SMS</string>
-    <string name="SF_summary_text">"Actual version: "</string>
+    <string name="SF_summary_text">"Tap to update ticket definitions"</string>
     <string name="SF_delay_summary_seconds">" seconds"</string>
 
     <!--MainActivity text-->
@@ -28,6 +34,7 @@
     <string name="MA_text_state_needperm">App needs\n permission.</string>
     <string name="SF_notification_summary_allowed">Allowed</string>
     <string name="SF_notification_summary_denied">Denied</string>
+
 
     <!--Notifikace-->
 

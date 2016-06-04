@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
 >
-
+    <PreferenceCategory
+        android:title="@string/pref_group_phone">
     <CheckBoxPreference
         android:key="pref_notification"
         android:title="@string/pref_notification"
         android:summary="@string/pref_notification_summ"
         android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/pref_group_wear">
+    <CheckBoxPreference
+        android:key="pref_wear_device_active"
+        android:title="@string/pref_wear_active_title"
+        android:summary="@string/pref_wear_active_summ"
+        android:defaultValue="true" />
+    </PreferenceCategory>
     <ListPreference
         android:key="pref_overlayDelay"
-        android:title="@string/pref_overlayDelay"
-        android:dialogTitle="@string/pref_overlayDelay"
+        android:title="@string/pref_overlayDelay_title"
         android:summary="@string/pref_overlayDelay_summ"
         android:entries="@array/pref_overlayDelay_entries"
         android:entryValues="@array/pref_overlayDelay_values"
         android:defaultValue="@string/pref_overlayDelay_default" />
+    <PreferenceCategory
+        android:title="@string/pref_group_SMS_database">
     <Preference
         android:selectable="true"
         android:enabled="true"
@@ -23,4 +34,6 @@
         android:summary= "@string/versionDB"
         android:onClick="OnClick"
         />
-</PreferenceScreen>
+    </PreferenceCategory>
+
+    </PreferenceScreen>

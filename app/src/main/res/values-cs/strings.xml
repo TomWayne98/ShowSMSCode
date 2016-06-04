@@ -6,14 +6,13 @@
     <string name="action_simulateSMS">Simulovat SMS</string>
 
     <!--Nastavení-->
-    <string name="versionDB_title">Verze databáze</string>
-    <string name="SF_summary_text">Aktuální verze:</string>
+    <string name="versionDB_title">Verze databáze v.</string>
+    <string name="SF_summary_text">Tapni pro aktualizaci definic</string>
     <string name="SF_delay_summary_seconds">sekund</string>
     <string name="app_name">UkažSMSKód</string>
     <string name="pref_notification">Notifikace</string>
     <string name="pref_notification_summ">Ukázat kód v notifikační liště</string>
-    <string name="pref_overlayDelay">Doba zobrazení</string>
-    <string name="pref_overlayDelay_summ">Jak dlouho bude kód zonbrazen</string>
+ <string name="pref_overlayDelay_summ">5 sekund</string>
 
     <!--MainActivity texts-->
     <string name="MA_text_Aboutauthor">Autor: Josef Hruška</string>
@@ -27,4 +26,11 @@
  <!--Notifikace-->
     <string name="SF_notification_summary_allowed">Povoleny</string>
     <string name="SF_notification_summary_denied">Zakázány</string>
+ <string name="pref_group_SMS_database">SMS databáze</string>
+ <string name="pref_group_phone">Toto zařízení</string>
+ <string name="pref_group_wear">Wear zařízení</string>
+ <string name="pref_overlayDelay_title">Jak dlouho bude kód zobrazen</string>
+ <string name="pref_wear_active_summ">Zobrazí kód na připojeném Android Wear zařízení</string>
+ <string name="pref_wear_active_title">Připojení k Android Wear</string>
+    <string name="pref_update_toast">Manuální aktualizace spuštěna</string>
 </resources>
