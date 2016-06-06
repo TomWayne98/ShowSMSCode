@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:onClick="AddToGit"
+            android:onClick="openBrowser"
             android:text="@string/MA_text_addToGithub"
             android:id="@+id/MA_tv_addToGit" />
     </LinearLayout>
@@ -82,10 +82,11 @@
         android:theme="@style/MainActivityTheme">
 
         <TextView
+
             android:id="@+id/MA_tv_author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="AboutAuthor"
+            android:onClick="openBrowser"
             android:paddingBottom="12dp"
             android:text="@string/MA_text_Aboutauthor" />
 
@@ -94,17 +95,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:onClick="OpenSourceCode"
+            android:onClick="openBrowser"
             android:paddingBottom="12dp"
             android:text="@string/MA_text_openSourceCode" />
 
         <TextView
+
             android:id="@+id/MA_tv_reportIssue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:gravity="center"
-            android:onClick="ReportIssue"
+            android:onClick="openBrowser"
             android:paddingBottom="12dp"
             android:text="@string/MA_text_reportIssue" />
     </LinearLayout>

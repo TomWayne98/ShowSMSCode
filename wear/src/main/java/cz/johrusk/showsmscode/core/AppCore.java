@@ -32,15 +32,8 @@ public class AppCore extends Application {
 
     }
 
-//    public static void onEvent(Bundle bundle){
-//        Log.d(LOG_TAG,"AppCore-onevent-static");
-//        String[] sArray  = bundle.getStringArray("key");
-
-
     public  void onEvent(String se){
         Log.d(LOG_TAG,"AppCore-onevent" + se);
-
-
     }
 
 }

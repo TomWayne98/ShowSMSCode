@@ -33,6 +33,8 @@ import cz.johrusk.showsmscode.sched.UpdateJob;
 import cz.johrusk.showsmscode.service.SimulateSmsService;
 import cz.johrusk.showsmscode.service.UpdateService;
 
+import static java.lang.String.valueOf;
+
 
 /**
  * The ShowSMSCode app find codes in incoming messages. Codes are showed via notification, overlaywindow or android wear device.
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         MainActivity.context = getApplicationContext();
-        String crashlytics_id = String.valueOf(android.os.Build.MANUFACTURER + android.os.Build.MODEL);
+        String crashlytics_id = valueOf(android.os.Build.MANUFACTURER + android.os.Build.MODEL);
         Crashlytics.setUserName(crashlytics_id);
         Crashlytics.log(crashlytics_id);
         setContentView(R.layout.main_activity);
@@ -257,32 +259,27 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
-    public void AddToGit(View view) {
-        String url = "https://github.com/JosefHruska/ShowSMSCode/wiki/How-to-add-new-SMS-pattern";
-        Intent showGithub = new Intent(Intent.ACTION_VIEW);
-        showGithub.setData(Uri.parse(url));
-        startActivity(showGithub);
-    }
 
-    public void ReportIssue(View view) {
-        String url = "https://github.com/JosefHruska/ShowSMSCode/issues";
-        Intent ReportIssue = new Intent(Intent.ACTION_VIEW);
-        ReportIssue.setData(Uri.parse(url));
-        startActivity(ReportIssue);
-    }
+    public void openBrowser(View v) {
+        String url = null;
 
-    public void OpenSourceCode(View view) {
-        String url = "https://github.com/JosefHruska/ShowSMSCode";
-        Intent OpenSourceCode = new Intent(Intent.ACTION_VIEW);
-        OpenSourceCode.setData(Uri.parse(url));
-        startActivity(OpenSourceCode);
-    }
-
-    public void AboutAuthor(View view) {
-        String url = "https://www.linkedin.com/in/josefhruska";
-        Intent AboutAuthor = new Intent(Intent.ACTION_VIEW);
-        AboutAuthor.setData(Uri.parse(url));
-        startActivity(AboutAuthor);
+        switch (v.getId()) {
+            case R.id.MA_tv_addToGit:
+                url = "https://github.com/JosefHruska/ShowSMSCode/wiki/How-to-add-new-SMS-pattern";
+                break;
+            case R.id.MA_tv_reportIssue:
+                url = "https://github.com/JosefHruska/ShowSMSCode/issues";
+                break;
+            case R.id.MA_tv_sourceCode:
+                url = "https://github.com/JosefHruska/ShowSMSCode";
+                break;
+            case R.id.MA_tv_author:
+                url = "https://www.linkedin.com/in/josefhruska";
+                break;
+        }
+        Intent openBrowser = new Intent(Intent.ACTION_VIEW);
+        openBrowser.setData(Uri.parse(url));
+        startActivity(openBrowser);
     }
 
     @Override

@@ -14,7 +14,7 @@ import cz.johrusk.showsmscode.service.UpdateService;
  * Created by Pepa on 15.05.2016.
  */
 public class UpdateJob extends com.evernote.android.job.Job {
-    
+
     public static final String TAG = "job_demo_tag";
     public static final String TAG_WEEKLY = "job_weekly_tag";
 
@@ -33,8 +33,8 @@ public class UpdateJob extends com.evernote.android.job.Job {
            // context.startService(notifWeeklyIntent2);
         } else if (params.getTag().equals(TAG)) {
 
-            Intent updtintent = new Intent(context, UpdateService.class);
-            context.startService(updtintent);
+            Intent updtIntent = new Intent(context, UpdateService.class);
+            context.startService(updtIntent);
         }
         return Result.SUCCESS;
     }
