@@ -27,21 +27,21 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import cz.johrusk.showsmscode.activity.Main_activity;
+import cz.johrusk.showsmscode.activity.MainActivity;
 import es.dmoral.prefs.Prefs;
 
 
-public class Update_service extends Service {
+public class UpdateService extends Service {
 
 
-    public final String LOG_TAG = Update_service.class.getName();
+    public final String LOG_TAG = UpdateService.class.getName();
     UpdateTask updateTask;
     public Context context = this;
     public final IBinder binder = new LocalBinder();
 
     public class LocalBinder extends Binder {
-        public Update_service getService() {
-            return Update_service.this;
+        public UpdateService getService() {
+            return UpdateService.this;
         }
     }
 
@@ -64,7 +64,7 @@ public class Update_service extends Service {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    Intent updtintent = new Intent(context, Update_service.class);
+                    Intent updtintent = new Intent(context, UpdateService.class);
                     updtintent.putExtra("firstTry", false);
                     startService(updtintent);
                 }
@@ -86,7 +86,7 @@ public class Update_service extends Service {
 
     private class UpdateTask extends AsyncTask<String, Void, String[]> {
         private Context c;
-        private String LOG_TAG = Main_activity.class.getName();
+        private String LOG_TAG = MainActivity.class.getName();
 
         public UpdateTask(Context context) {
             this.c = context;
@@ -111,7 +111,7 @@ public class Update_service extends Service {
 //                        Bundle bundle = new Bundle();
 //                        String type = "notifUpdate";
 //                        bundle.putStringArray("key", new String[]{updateContent, null, null, type});
-//                        Intent notifIntent = new Intent(context, Notification_service.class);
+//                        Intent notifIntent = new Intent(context, NotificationService.class);
 //                        notifIntent.putExtras(bundle);
 //                        c.startService(notifIntent);
                     }

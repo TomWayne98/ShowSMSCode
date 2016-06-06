@@ -27,7 +27,7 @@ import pl.tajchert.buswear.EventBus;
 /**
  * Listens to DataItems and Messages from the local node.
  */
-public class  DataLayerListenerService extends Service {
+public class DataLayerListenerService extends Service {
     final static String LOG_TAG = DataLayerListenerService.class.getSimpleName();
 
     @Nullable
@@ -47,7 +47,7 @@ public class  DataLayerListenerService extends Service {
     public void onEvent(String strg) {
         Log.d(LOG_TAG,"On-Event started" + strg);
         if (!strg.equals("text")) {
-            Intent startIntent = new Intent(this, Show_activity.class);
+            Intent startIntent = new Intent(this, ShowActivity.class);
             startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startIntent.putExtra("code", strg);
             startActivity(startIntent);

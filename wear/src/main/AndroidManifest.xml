@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="cz.johrusk.showsmscode.Show_activity">
+            android:name="cz.johrusk.showsmscode.ShowActivity">
         </activity>
         <service
             android:name="cz.johrusk.showsmscode.DataLayerListenerService" >

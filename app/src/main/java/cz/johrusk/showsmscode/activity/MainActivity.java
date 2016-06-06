@@ -29,11 +29,9 @@ import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 
 import cz.johrusk.showsmscode.R;
-import cz.johrusk.showsmscode.core.JobClass;
-import cz.johrusk.showsmscode.service.SimulateSMS_service;
-import cz.johrusk.showsmscode.service.Update_service;
-import cz.johrusk.showsmscode.service.WatchListener_service;
-import pl.tajchert.buswear.EventBus;
+import cz.johrusk.showsmscode.sched.UpdateJob;
+import cz.johrusk.showsmscode.service.SimulateSmsService;
+import cz.johrusk.showsmscode.service.UpdateService;
 
 
 /**
@@ -45,10 +43,10 @@ import pl.tajchert.buswear.EventBus;
  * @since 2016-04-09
  */
 
-public class Main_activity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     static Context context;
-    public static final String LOG_TAG = Main_activity.class.getSimpleName();
+    public static final String LOG_TAG = MainActivity.class.getSimpleName();
     // Permission requests
     public static final int PERM_SMS_RECIEVE = 0;
     public static final int PERM_SMS_READ = 1;
@@ -72,15 +70,12 @@ public class Main_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        Main_activity.context = getApplicationContext();
+        MainActivity.context = getApplicationContext();
         String crashlytics_id = String.valueOf(android.os.Build.MANUFACTURER + android.os.Build.MODEL);
         Crashlytics.setUserName(crashlytics_id);
         Crashlytics.log(crashlytics_id);
-
-        setContentView(R.layout.new_main_activity);
+        setContentView(R.layout.main_activity);
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
-
 //        Toolbar settings
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
@@ -98,44 +93,37 @@ public class Main_activity extends AppCompatActivity {
         author.setPaintFlags(author.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         sourceCode.setPaintFlags(sourceCode.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         reportIssue.setPaintFlags(reportIssue.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
-
 //        Schedule Job
         scheduleJob(UPDATE_24H); // Basic DB update
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();
-        EventBus.getDefault().post("text", this);
         Log.d(LOG_TAG, "ONSTART -----");
-        Intent updtintent = new Intent(context, Update_service.class);
+        Intent updtintent = new Intent(context, UpdateService.class);
         startService(updtintent);
         checkPermissionState();
-        Intent ListenIntent = new Intent(context, WatchListener_service.class);
-        startService(ListenIntent);
 
-
-        if (ContextCompat.checkSelfPermission(Main_activity.context,
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.READ_SMS},
                     PERM_SMS_READ);
         }
-        if (ContextCompat.checkSelfPermission(Main_activity.context,
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.RECEIVE_SMS},
                     PERM_SMS_RECIEVE);
         }
-        if (ContextCompat.checkSelfPermission(Main_activity.context,
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.RECEIVE_BOOT_COMPLETED},
                     PERM_RECEIVE_BOOT);
         }
-        if (ContextCompat.checkSelfPermission(Main_activity.context,
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.SYSTEM_ALERT_WINDOW) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},
@@ -160,7 +148,6 @@ public class Main_activity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1234 && Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(this)) {
-
             }
         }
     }
@@ -176,11 +163,11 @@ public class Main_activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_settings:
-                Intent settingsIntent = new Intent(context, Settings_activity.class);
+                Intent settingsIntent = new Intent(context, SettingsActivity.class);
                 startActivity(settingsIntent);// User chose the "Settings" item, show the app settings UI...
                 return true;
             case R.id.action_simulateSMS:
-                Intent simulateIntent = new Intent(context, SimulateSMS_service.class);
+                Intent simulateIntent = new Intent(context, SimulateSmsService.class);
                 startService(simulateIntent);// User chose the "Settings" item, show the app settings UI...
                 return true;
             default:
@@ -193,8 +180,8 @@ public class Main_activity extends AppCompatActivity {
     // Scheduled Job which updates DB every day(default) eventually as soon as is connection available
     private void scheduleJob(long period) {
 
-        if (JobManager.instance().getAllJobRequestsForTag(JobClass.TAG).isEmpty()) {
-            int jobId = new JobRequest.Builder(JobClass.TAG)
+        if (JobManager.instance().getAllJobRequestsForTag(UpdateJob.TAG).isEmpty()) {
+            int jobId = new JobRequest.Builder(UpdateJob.TAG)
                     .setPeriodic(60_000L * period)
                     .setPersisted(true)
                     .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
@@ -212,15 +199,15 @@ public class Main_activity extends AppCompatActivity {
         LinearLayout ll_state = (LinearLayout) findViewById(R.id.ll_state);
         ImageView iv_state = (ImageView) findViewById(R.id.iv_state);
         TextView tv_state = (TextView) findViewById(R.id.tv_state);
-        if (ContextCompat.checkSelfPermission(Main_activity.context,
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
             isOK = false;
         }
-        if (ContextCompat.checkSelfPermission(Main_activity.context,
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
             isOK = false;
         }
-        if (ContextCompat.checkSelfPermission(Main_activity.context,
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {
             isOK = false;
         }
@@ -270,7 +257,6 @@ public class Main_activity extends AppCompatActivity {
             });
         }
     }
-
     public void AddToGit(View view) {
         String url = "https://github.com/JosefHruska/ShowSMSCode/wiki/How-to-add-new-SMS-pattern";
         Intent showGithub = new Intent(Intent.ACTION_VIEW);

@@ -8,10 +8,10 @@ import android.widget.FrameLayout;
 
 
 import cz.johrusk.showsmscode.R;
-import cz.johrusk.showsmscode.fragment.Settings_fragment;
+import cz.johrusk.showsmscode.fragment.SettingsFragment;
 
 
-public class Settings_activity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class Settings_activity extends AppCompatActivity {
         FrameLayout frame = (FrameLayout) findViewById(R.id.frame_content);
         // Display the fragment as the main content.
         getFragmentManager().beginTransaction()
-                .replace(R.id.frame_content, new Settings_fragment())
+                .replace(R.id.frame_content, new SettingsFragment())
                 .commit();
     }
 

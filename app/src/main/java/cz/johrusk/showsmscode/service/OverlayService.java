@@ -20,27 +20,22 @@ import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 
 import cz.johrusk.showsmscode.R;
-import cz.johrusk.showsmscode.activity.Main_activity;
-import cz.johrusk.showsmscode.fragment.Settings_fragment;
-import me.grantland.widget.AutofitTextView;
+import cz.johrusk.showsmscode.activity.MainActivity;
+import cz.johrusk.showsmscode.fragment.SettingsFragment;
 
 /**
  * This class show code in windows which overlay entire screen
  */
-
-
-public class Overlay_service extends Service {
-    public static final String LOG_TAG = Main_activity.class.getName();
+public class OverlayService extends Service {
+    public static final String LOG_TAG = MainActivity.class.getName();
     private WindowManager windowManager;
     private TextView codeView;
     private TextView senderView;
-    private AutofitTextView foo;
     private LayoutInflater layoutInf;
     private View layout;
     public Bundle bundle;
     public int overlayDelay;
     private View.OnClickListener clicklistener;
-
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -51,17 +46,13 @@ public class Overlay_service extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         this.bundle = intent.getBundleExtra("bundle");
 
-
         layoutInf = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        layout = layoutInf.inflate(R.layout.overlay_service,null);
+        layout = layoutInf.inflate(R.layout.overlay_service, null);
         String[] dataArray;
         dataArray = bundle.getStringArray("key");
         String code = dataArray[0];
         String sender = dataArray[2];
         String s = "until_tap";
-
-        //má tam být if (!s.equals(overlayDelay)) ale until_tap se zatím nepoužívá
-
 
         Answers.getInstance().logCustom(new CustomEvent("Overlay showed")
                 .putCustomAttribute("Code overlaying screen:", code));
@@ -76,12 +67,8 @@ public class Overlay_service extends Service {
             }
         };
 
-
-
         Log.d("OverLayService", "StartOk");
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-
-
 
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 900,
@@ -94,10 +81,8 @@ public class Overlay_service extends Service {
         params.x = 0;
         params.y = 0;
 
-
         codeView = (TextView) layout.findViewById(R.id.textView2);
         senderView = (TextView) layout.findViewById(R.id.textView);
-
         codeView.setText(sender);
         senderView.setText(code);
         windowManager.addView(layout, params);
@@ -109,7 +94,7 @@ public class Overlay_service extends Service {
     public void onCreate() {
         super.onCreate();
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        String i = sharedPref.getString(Settings_fragment.KEY_PREF_OVERLAY_DELAY, "");
+        String i = sharedPref.getString(SettingsFragment.KEY_PREF_OVERLAY_DELAY, "");
         String tap = "until_tap";
         if (!tap.equals(String.valueOf(i))) {
             overlayDelay = Integer.valueOf(i) * 1000;
@@ -126,10 +111,7 @@ public class Overlay_service extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        if (codeView != null) windowManager.removeView(codeView);
-//        if (senderView != null) windowManager.removeView(senderView);
         if (layout != null) windowManager.removeView(layout);
-
     }
 }
 

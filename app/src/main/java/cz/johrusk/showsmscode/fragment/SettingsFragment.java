@@ -12,13 +12,13 @@ import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 
 import cz.johrusk.showsmscode.R;
-import cz.johrusk.showsmscode.service.Update_service;
+import cz.johrusk.showsmscode.service.UpdateService;
 import es.dmoral.prefs.Prefs;
 
 /**
  * Settings class. All configurable stuff is here
  */
-public class Settings_fragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
+public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static final String KEY_PREF_OVERLAY_DELAY = "pref_overlayDelay";
     public static final String KEY_PREF_NOTIFICATION = "pref_notification";
@@ -28,7 +28,7 @@ public class Settings_fragment extends PreferenceFragment implements SharedPrefe
 
     Context c;
 
-    public Settings_fragment() {
+    public SettingsFragment() {
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Settings_fragment extends PreferenceFragment implements SharedPrefe
         pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                Intent intent = new Intent(c, Update_service.class);
+                Intent intent = new Intent(c, UpdateService.class);
                 c.startService(intent);
                 Toast.makeText(c, "Manual update started", Toast.LENGTH_SHORT).show();
                 return false;

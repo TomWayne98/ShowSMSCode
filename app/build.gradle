@@ -17,22 +17,15 @@ repositories {
 
 }
 android {
-    signingConfigs {
-        config {
-            keyAlias 'JoHrusk'
-            keyPassword 'ApkFobia64'
-            storeFile file('C:/Users/Pepa/OneDrive/Osobní/keystores/key1.jks')
-            storePassword 'KeyFobia64'
-        }
-    }
+
     compileSdkVersion 23
     buildToolsVersion "24.0.0 rc2"
     defaultConfig {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 13
-        versionName "0.13"
+        versionCode 14
+        versionName "0.14"
 
 
     }
@@ -40,13 +33,11 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
+
         }
     }
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
 }
-
-
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -62,6 +53,6 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.5.5@aar') {
         transitive = true;
     }
-    wearApp project(':myapplication')
+    wearApp project(':wear')
 
 }

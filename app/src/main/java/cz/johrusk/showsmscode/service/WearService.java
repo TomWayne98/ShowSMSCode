@@ -9,7 +9,7 @@ import android.util.Log;
 import pl.tajchert.buswear.EventBus;
 
 /**
- * Created by Pepa on 27.05.2016.
+ * This method send Strings (sender + code) to wear device
  */
 
 public class WearService extends IntentService {
@@ -28,6 +28,5 @@ public class WearService extends IntentService {
         String codePlusSender = Arr[0] + "/" + Arr[2];
         Log.d(LOG_TAG,"Post remote sent ( " + codePlusSender + " )");
         EventBus.getDefault().postRemote(codePlusSender, c);
-
     }
 }

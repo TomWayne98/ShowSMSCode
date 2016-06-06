@@ -21,7 +21,7 @@
         android:maxLines="2"
         autofit:minTextSize="16sp"
         android:textSize="24sp"
-        android:textColor="@color/bright_foreground_inverse_material_dark"
+        android:textColor="@color/common_signin_btn_dark_text_disabled"
         />
 
     <me.grantland.widget.AutofitTextView
@@ -30,10 +30,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:text="Creepadasdasdasdasda4"
+        android:text="PlaceholderC0D3T3XT"
         android:maxLines="2"
         autofit:minTextSize="16sp"
-        android:textSize="80sp"
+        android:textSize="96sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

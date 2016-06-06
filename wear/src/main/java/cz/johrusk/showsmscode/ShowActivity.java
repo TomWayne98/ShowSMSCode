@@ -13,10 +13,10 @@ import android.widget.TextView;
  * Created by Pepa on 27.05.2016.
  */
 
-public class Show_activity extends Activity {
+public class ShowActivity extends Activity {
     private TextView tv_code;
     private TextView tv_sender;
-    static final String TAG = Show_activity.class.getSimpleName();
+    static final String TAG = ShowActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

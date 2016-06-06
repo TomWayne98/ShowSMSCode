@@ -9,10 +9,10 @@ import android.content.Intent;
 /**
  * This class add the code to clipboard.
  */
-public class Clip_service extends IntentService {
+public class ClipService extends IntentService {
 
-    public Clip_service() {
-        super("Clip_service");
+    public ClipService() {
+        super("ClipService");
     }
 
     @Override

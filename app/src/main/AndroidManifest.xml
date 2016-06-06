@@ -24,34 +24,23 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme"
         android:name=".core.App" >>
-        <service android:name=".service.Notification_service" />
-        <service android:name=".service.Overlay_service" />
+        <service android:name=".service.NotificationService" />
+        <service android:name=".service.OverlayService" />
         <service
-            android:name=".service.Clip_service"
+            android:name=".service.ClipService"
             android:exported="false" />
         <service
-            android:name=".service.Update_service"
+            android:name=".service.UpdateService"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
             android:name=".service.WearService"
             android:exported="false" />
         <service
-            android:name=".service.SimulateSMS_service"
+            android:name=".service.SimulateSmsService"
             android:exported="false" />
-        <service
-            android:name=".service.WatchListener_service"
-            android:exported="true"
-            android:enabled="true"
-            >
-            <intent-filter>
-                <action android:name="com.google.android.gms.wearable.DATA_CHANGED"/>
-                <data android:scheme="wear" android:host="*"  />
-            </intent-filter>
 
-        </service>
-
-        <activity android:name=".activity.Main_activity"
+        <activity android:name=".activity.MainActivity"
            >
 
             <intent-filter>
@@ -60,9 +49,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.Settings_activity" />
+        <activity android:name=".activity.SettingsActivity" />
 
-        <receiver android:name=".receiver.Sms_reciever"
+        <receiver android:name=".receiver.SmsReceiver"
             android:permission="android.permission.BROADCAST_SMS">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />

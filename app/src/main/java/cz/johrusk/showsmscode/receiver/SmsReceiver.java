@@ -30,20 +30,20 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import cz.johrusk.showsmscode.activity.Main_activity;
-import cz.johrusk.showsmscode.service.Clip_service;
-import cz.johrusk.showsmscode.service.Notification_service;
-import cz.johrusk.showsmscode.service.Overlay_service;
-import cz.johrusk.showsmscode.fragment.Settings_fragment;
+import cz.johrusk.showsmscode.activity.MainActivity;
+import cz.johrusk.showsmscode.service.ClipService;
+import cz.johrusk.showsmscode.service.NotificationService;
+import cz.johrusk.showsmscode.service.OverlayService;
+import cz.johrusk.showsmscode.fragment.SettingsFragment;
 import cz.johrusk.showsmscode.service.WearService;
 import io.fabric.sdk.android.Fabric;
 
 /**
  * This class check received SMS.
  */
-public class Sms_reciever extends BroadcastReceiver {
+public class SmsReceiver extends BroadcastReceiver {
 
-    public static final String LOG_TAG = Main_activity.class.getName();
+    public static final String LOG_TAG = MainActivity.class.getName();
 
     public Context c;
     private JSONArray m_jArry;
@@ -56,8 +56,8 @@ public class Sms_reciever extends BroadcastReceiver {
 
         //Check whether is sending of notification allowed in settings (default value is true)
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(c);
-        Boolean sendNotification = sharedPref.getBoolean(Settings_fragment.KEY_PREF_NOTIFICATION, true);
-        Boolean showOnWearDevice = sharedPref.getBoolean(Settings_fragment.KEY_PREF_WEAR_DEVICE, true);
+        Boolean sendNotification = sharedPref.getBoolean(SettingsFragment.KEY_PREF_NOTIFICATION, true);
+        Boolean showOnWearDevice = sharedPref.getBoolean(SettingsFragment.KEY_PREF_WEAR_DEVICE, true);
 
         Log.i(LOG_TAG, "OnRecieveStarted");
         SmsMessage[] messages = getMessages(intent);
@@ -96,7 +96,7 @@ public class Sms_reciever extends BroadcastReceiver {
 
                             // It will start service for sending notification if its allowed in settings
                             if (sendNotification) {
-                                Intent notifIntent = new Intent(c, Notification_service.class);
+                                Intent notifIntent = new Intent(c, NotificationService.class);
                                 notifIntent.putExtras(bundle);
                                 c.startService(notifIntent);
                             }
@@ -109,12 +109,12 @@ public class Sms_reciever extends BroadcastReceiver {
 
                             if (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(c)) {
                                 // Starts service for showing a code on the screen
-                                Intent overlayIntent = new Intent(c, Overlay_service.class);
+                                Intent overlayIntent = new Intent(c, OverlayService.class);
                                 overlayIntent.putExtra("bundle", bundle);
                                 c.startService(overlayIntent);
                                 Log.d(LOG_TAG, "Overlay intent started");
                             } else if (Build.VERSION.SDK_INT < 23) {
-                                Intent overlayIntent = new Intent(c, Overlay_service.class);
+                                Intent overlayIntent = new Intent(c, OverlayService.class);
                                 overlayIntent.putExtra("bundle", bundle);
                                 c.startService(overlayIntent);
                                 Log.d(LOG_TAG, "Overlay intent started (SDK is lower than 23)");
@@ -122,7 +122,7 @@ public class Sms_reciever extends BroadcastReceiver {
                                 Log.d(LOG_TAG, "Permission for overlay is not granted");
                             }
                             //Starts IntentService which sets sms code to clipboard;
-                            Intent clipIntent = new Intent(c, Clip_service.class);
+                            Intent clipIntent = new Intent(c, ClipService.class);
                             clipIntent.putExtra("code", code);
                             c.startService(clipIntent);
                         } else {
@@ -246,7 +246,6 @@ public class Sms_reciever extends BroadcastReceiver {
             return null;
         }
         return json;
-
     }
 
     /**
@@ -394,7 +393,6 @@ public class Sms_reciever extends BroadcastReceiver {
                 }
             }
         }
-
         Log.d(LOG_TAG, "number is not in DB");
         return null;
     }

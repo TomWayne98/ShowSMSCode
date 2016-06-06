@@ -14,13 +14,13 @@ import android.util.Log;
 import com.crashlytics.android.Crashlytics;
 
 import cz.johrusk.showsmscode.R;
-import cz.johrusk.showsmscode.activity.Main_activity;
+import cz.johrusk.showsmscode.activity.MainActivity;
 
 
-public class Notification_service extends IntentService {
+public class NotificationService extends IntentService {
 
-    public Notification_service() {
-        super("Notification_service");
+    public NotificationService() {
+        super("NotificationService");
     }
 
     /**
@@ -45,7 +45,7 @@ public class Notification_service extends IntentService {
         int nID = 0;
         switch (notifType) {
             case "notifCode":
-                appIntent = new Intent(this, Main_activity.class);
+                appIntent = new Intent(this, MainActivity.class);
                 smsContent = dataArray[0];
                 smsSender = dataArray[2];
                 nID = 1;
