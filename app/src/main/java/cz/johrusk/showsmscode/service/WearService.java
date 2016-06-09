@@ -4,9 +4,9 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import pl.tajchert.buswear.EventBus;
+import timber.log.Timber;
 
 /**
  * Service which sends code and sender info to wear device
@@ -15,7 +15,6 @@ import pl.tajchert.buswear.EventBus;
  */
 
 public class WearService extends IntentService {
-    final static String LOG_TAG = WearService.class.getSimpleName();
 
     public WearService() {
         super("WearService");
@@ -28,7 +27,7 @@ public class WearService extends IntentService {
         String[] Arr = new String[4];
         Arr = bundle.getStringArray("key");
         String codePlusSender = Arr[0] + "/" + Arr[2];
-        Log.d(LOG_TAG,"Post remote sent ( " + codePlusSender + " )");
+       Timber.d("Post remote sent ( " + codePlusSender + " )");
         EventBus.getDefault().postRemote(codePlusSender, c);
     }
 }

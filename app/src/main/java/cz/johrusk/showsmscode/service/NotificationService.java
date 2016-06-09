@@ -9,12 +9,10 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.NotificationCompat;
-import android.util.Log;
-
-import com.crashlytics.android.Crashlytics;
 
 import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.activity.MainActivity;
+import timber.log.Timber;
 
 /**
  * Service which sends notification which contain the code and number of sender.
@@ -51,8 +49,7 @@ public class NotificationService extends IntentService {
                 nID = 1;
                 break;
             default:
-                Crashlytics.log(1, "NOTIFICATION_SERVICE", "Switch statement didn't catch the case:" + notifType);
-                Log.d("NOTIFICATION_SERVICE", "Switch statement didn't catch the case:" + notifType);
+                Timber.d("Switch statement didn't catch the case:" + notifType);
         }
         PendingIntent startAppIntent =
                 PendingIntent.getActivity(this, 0, appIntent, 0);

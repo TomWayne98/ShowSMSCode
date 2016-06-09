@@ -15,7 +15,7 @@
       "example": "DEBUG",
       "number": 123456,
       "unique": "TEST",
-      "sender": "debug_test",
+      "sender": "Sender",
       "reg_ex": "code: (\\d+)",
       "alt_numbers": [
         "733368395",

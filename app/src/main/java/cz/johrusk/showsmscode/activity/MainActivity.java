@@ -16,7 +16,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,9 +29,11 @@ import com.evernote.android.job.JobRequest;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cz.johrusk.showsmscode.R;
+import cz.johrusk.showsmscode.core.App;
 import cz.johrusk.showsmscode.sched.UpdateJob;
 import cz.johrusk.showsmscode.service.SimulateSmsService;
 import cz.johrusk.showsmscode.service.UpdateService;
+import timber.log.Timber;
 
 import static java.lang.String.valueOf;
 
@@ -46,7 +47,6 @@ import static java.lang.String.valueOf;
 public class MainActivity extends AppCompatActivity {
 
     static Context context;
-    public static final String LOG_TAG = MainActivity.class.getSimpleName();
     // Permission requests
     public static final int PERM_SMS_RECIEVE = 0;
     public static final int PERM_SMS_READ = 1;
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        MainActivity.context = getApplicationContext();
+        context = App.get();
         String crashlytics_id = valueOf(android.os.Build.MANUFACTURER + android.os.Build.MODEL);
         Crashlytics.setUserName(crashlytics_id);
         Crashlytics.log(crashlytics_id);
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d(LOG_TAG, "ONSTART -----");
+        Timber.d("ONSTART -----");
         Intent updtintent = new Intent(context, UpdateService.class);
         startService(updtintent);
         checkPermissionState();
@@ -138,13 +138,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        Log.d(LOG_TAG, "MainActivity state: onDestroy");
+        Timber.d("MainActivity state: onDestroy");
         super.onDestroy();
     }
 
     @Override
     protected void onStop() {
-        Log.d(LOG_TAG, "MainActivity state: onStop");
+        Timber.d("MainActivity state: onStop");
         super.onStop();
     }
 

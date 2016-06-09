@@ -25,6 +25,7 @@
         android:theme="@style/MyMaterialTheme"
         android:name=".core.App" >>
         <service android:name=".service.NotificationService" />
+        <service android:name=".service.MsgHandlerService" />
         <service android:name=".service.OverlayService" />
         <service
             android:name=".service.ClipService"

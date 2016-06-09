@@ -2,9 +2,9 @@ package cz.johrusk.showsmscode.core;
 
 import android.app.Application;
 import android.content.Intent;
-import android.util.Log;
 
 import cz.johrusk.showsmscode.DataLayerListenerService;
+import timber.log.Timber;
 
 /**
  * Main application class.
@@ -23,7 +23,8 @@ public class AppCore extends Application {
 
     @Override
     public void onCreate() {
-        Log.d(LOG_TAG,"AppCore on Create started");
+        Timber.plant(new Timber.DebugTree());
+        Timber.d("AppCore on Create started");
 
 
 
@@ -32,13 +33,13 @@ public class AppCore extends Application {
         Intent startIntent = new Intent(this, DataLayerListenerService.class);
             startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startService(startIntent);
-        Log.d(LOG_TAG,"AppCore-onCREATED");
+        Timber.d("AppCore-onCREATED");
 
     }
 
 
     public  void onEvent(String se){
-        Log.d(LOG_TAG,"AppCore-onevent" + se);
+        Timber.d("AppCore-onevent" + se);
     }
 
 }

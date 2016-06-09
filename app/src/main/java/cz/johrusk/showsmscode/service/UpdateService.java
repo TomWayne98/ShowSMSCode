@@ -10,7 +10,6 @@ import android.os.AsyncTask;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
-import android.util.Log;
 
 import com.crashlytics.android.Crashlytics;
 
@@ -29,6 +28,7 @@ import java.net.URL;
 
 import cz.johrusk.showsmscode.activity.MainActivity;
 import es.dmoral.prefs.Prefs;
+import timber.log.Timber;
 
 /**
  * Service which update definitions database.
@@ -38,8 +38,6 @@ import es.dmoral.prefs.Prefs;
 
 public class UpdateService extends Service {
 
-
-    public final String LOG_TAG = UpdateService.class.getName();
     UpdateTask updateTask;
     public Context context = this;
     public final IBinder binder = new LocalBinder();
@@ -63,9 +61,9 @@ public class UpdateService extends Service {
 
             updateTask = new UpdateTask(context);
             updateTask.execute("0");
-            Log.d(LOG_TAG, "CONNECTED = true");
+            Timber.d("CONNECTED = true");
         } else if (!intent.hasExtra("firstTry")) {
-            Log.d(LOG_TAG, "CONNECTED = false");
+            Timber.d("CONNECTED = false");
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -100,16 +98,16 @@ public class UpdateService extends Service {
         private void writeToFile(String data, String name) throws IOException {
             String file = null;
             if (name.equals("SMS")) {
-                Log.d(LOG_TAG, "Saving new SMS.json....");
+                Timber.d("Saving new SMS.json....");
                 file = "sms.txt";
             } else if (name.equals("VER")) {
-                Log.d(LOG_TAG, "Saving new version.json...." + data);
+                Timber.d("Saving new version.json...." + data);
                 file = "version.txt";
                 try {
                     JSONObject object = new JSONObject(data);
-                    Log.d(LOG_TAG, object.toString());
+                    Timber.d(object.toString());
                     String updateContent = object.getString("news");
-                    Log.d(LOG_TAG, "NEWS is : " + updateContent);
+                    Timber.d("NEWS is : " + updateContent);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -136,7 +134,7 @@ public class UpdateService extends Service {
                 Crashlytics.logException(ex);
                 return null;
             }
-            Log.d(LOG_TAG, "loadJSONFromAssets returns:" + json);
+            Timber.d("loadJSONFromAssets returns:" + json);
             Crashlytics.log("loadJSONFromAssets returns:" + json);
             return json;
         }
@@ -144,12 +142,12 @@ public class UpdateService extends Service {
         public int localCheckVersion() throws JSONException {
 
             String str = readFromFile("version.txt");
-            Log.d(LOG_TAG, "version string :" + str);
+            Timber.d("version string :" + str);
             JSONObject jarray = new JSONObject(str);
 
             int offlineVer = jarray.getInt("version");
-            Log.d(LOG_TAG, "offline version is :" + offlineVer);
-            Log.d(LOG_TAG, "versionDB was updated to: " + offlineVer);
+            Timber.d("offline version is :" + offlineVer);
+            Timber.d("versionDB was updated to: " + offlineVer);
 
             return offlineVer;
         }
@@ -178,7 +176,7 @@ public class UpdateService extends Service {
             } catch (IOException e) {
                 Crashlytics.log(1, "READFROMFILE", "Can not read file: " + e.toString());
             }
-            Log.d(LOG_TAG, "readFormFile return: " + ret);
+            Timber.d("readFormFile return: " + ret);
             return ret;
         }
 
@@ -190,26 +188,26 @@ public class UpdateService extends Service {
 
             File version_file = new File(INTERNAL_PATH_VERSION);
             File sms_file = new File(INTERNAL_PATH_SMS);
-            Log.d(LOG_TAG, "Path of smsJSON: " + sms_file.getAbsolutePath());
-            Log.d(LOG_TAG, "Path of versionJSON: " + version_file.getAbsolutePath());
+            Timber.d("Path of smsJSON: " + sms_file.getAbsolutePath());
+            Timber.d("Path of versionJSON: " + version_file.getAbsolutePath());
 
             if (sms_file.exists() && version_file.exists()) {
                 Crashlytics.log("sms.txt and version.txt exists in internal storage");
-                Log.d(LOG_TAG, "sms.txt and version.txt exists in internal storage");
+                Timber.d("sms.txt and version.txt exists in internal storage");
                 int localVer = localCheckVersion();
 
                 JSONObject jarray = new JSONObject(onlineVerStr);
                 int onlineVer = jarray.getInt("version");
-                Log.d(LOG_TAG, "Online Ver: " + onlineVer);
+                Timber.d("Online Ver: " + onlineVer);
 
                 if (onlineVer == localVer) {
-                    Log.d(LOG_TAG, "Online version in internal storage is same as online version");
+                    Timber.d("Online version in internal storage is same as online version");
                     stopSelf();
                     return true;
                 } else {
-                    Log.d(LOG_TAG, "Online version in internal storage is older then online version");
+                    Timber.d("Online version in internal storage is older then online version");
                     UpdateTask replaceSms = new UpdateTask(context);
-                    Log.d(LOG_TAG, "Local version in internal storage will be updated");
+                    Timber.d( "Local version in internal storage will be updated");
                     replaceSms.execute("1");
                 }
             } else {
@@ -221,23 +219,23 @@ public class UpdateService extends Service {
                 JSONObject Json = new JSONObject(onlineVerStr);
 
                 onlineVer = Json.getInt("version");
-                Log.d(LOG_TAG, "Online version is: " + String.valueOf(onlineVer));
+                Timber.d( "Online version is: " + String.valueOf(onlineVer));
 
                 locObj = new JSONObject(loadJSONFromAsset());
                 localVer = locObj.getInt("version");
-                Log.d(LOG_TAG, "Local version is: " + String.valueOf(localVer));
+                Timber.d( "Local version is: " + String.valueOf(localVer));
                 Prefs.with(c).writeInt("DBVersion", localVer);
 
                 if (localVer == onlineVer) {
-                    Log.d(LOG_TAG, "Version of JSON in Assets is same as online version");
+                    Timber.d( "Version of JSON in Assets is same as online version");
                     stopSelf();
 
                     return true;
                 } else {
-                    Log.d(LOG_TAG, "Version of JSON in Assets is older than online version");
+                    Timber.d( "Version of JSON in Assets is older than online version");
                     UpdateTask updateSms = new UpdateTask(context);
                     updateSms.execute("1");
-                    Log.d(LOG_TAG, "Local version in Assets wont be used anymore. Online version will be stored in internal storage and will be used instead ");
+                    Timber.d("Local version in Assets wont be used anymore. Online version will be stored in internal storage and will be used instead ");
                 }
             }
             return true;
@@ -287,7 +285,7 @@ public class UpdateService extends Service {
                 }
                 if (buffer.length() == 0) {
                     // Stream was empty.  No point in parsing.
-                    Log.d(LOG_TAG, "BUFFER == 0");
+                    Timber.d("BUFFER == 0");
                     stopSelf();
                     return null;
                 }
@@ -297,7 +295,7 @@ public class UpdateService extends Service {
 
                 return null;
             } finally {
-                Log.d(LOG_TAG, "output" + JsonStr);
+                Timber.d("output" + JsonStr);
                 if (urlConnection != null) {
                     urlConnection.disconnect();
                 }
@@ -305,7 +303,7 @@ public class UpdateService extends Service {
                     try {
                         reader.close();
                     } catch (final IOException e) {
-                        Log.d(LOG_TAG, "Error closing stream");
+                        Timber.d("Error closing stream");
                         Crashlytics.log(1, "UPDATE-SERVICE", "Error closing stream");
                     }
                 }
@@ -314,7 +312,7 @@ public class UpdateService extends Service {
                 results[0] = JsonStr;
                 results[1] = String.valueOf(par);
             } else {
-                Log.d(LOG_TAG, "Probably connection problem");
+                Timber.d("Probably connection problem");
                 stopSelf();
                 return null;
             }
@@ -335,7 +333,7 @@ public class UpdateService extends Service {
                         break;
                     case "1":
                         try {
-                            Log.d(LOG_TAG, "New version.json was downloaded");
+                            Timber.d("New version.json was downloaded");
                             Crashlytics.log("New version.json was downloaded");
                             writeToFile(result[0], "SMS");
                             UpdateTask updateVersion = new UpdateTask(context);
@@ -353,7 +351,7 @@ public class UpdateService extends Service {
                         break;
                 }
             } else {
-                Log.d(LOG_TAG, "Download Failded");
+                Timber.d("Download Failded");
                 Crashlytics.log(1, "UPDATE_SERVICE", "NullPointerException");
             }
         }

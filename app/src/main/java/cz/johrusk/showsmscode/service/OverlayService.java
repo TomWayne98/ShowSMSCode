@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +19,8 @@ import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 
 import cz.johrusk.showsmscode.R;
-import cz.johrusk.showsmscode.activity.MainActivity;
 import cz.johrusk.showsmscode.fragment.SettingsFragment;
+import timber.log.Timber;
 
 /**
  * Service which shows code in windows which overlays all other apps.
@@ -29,7 +28,7 @@ import cz.johrusk.showsmscode.fragment.SettingsFragment;
  * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 public class OverlayService extends Service {
-    public static final String LOG_TAG = MainActivity.class.getName();
+
     private WindowManager windowManager;
     TextView senderView;
      TextView codeView;
@@ -56,7 +55,7 @@ private LayoutInflater layoutInf;
         senderView = (TextView) layout.findViewById(R.id.tv_OS_sender);
         String[] dataArray;
         dataArray = bundle.getStringArray("key");
-        Log.d(LOG_TAG,"OnStartCommand " + dataArray[0] + " "+ dataArray[2] );
+        Timber.d("OnStartCommand " + dataArray[0] + " "+ dataArray[2] );
         String code = dataArray[0];
         String sender = dataArray[2];
         String s = "until_tap";
@@ -69,12 +68,12 @@ private LayoutInflater layoutInf;
         clicklistener = new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d(LOG_TAG, "Window tappped");
+                Timber.d("Window tappped");
                 stopSelf();
             }
         };
 
-        Log.d("OverLayService", "StartOk");
+        Timber.d("StartOk");
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
 
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
@@ -89,7 +88,7 @@ private LayoutInflater layoutInf;
         params.y = 0;
 
         senderView.setText(sender);
-        codeView.setText(sender);
+        codeView.setText(code);
         windowManager.addView(layout, params);
 
         return START_STICKY;
@@ -103,7 +102,7 @@ private LayoutInflater layoutInf;
         String tap = "until_tap";
         if (!tap.equals(String.valueOf(i))) {
             overlayDelay = Integer.valueOf(i) * 1000;
-            Log.d(LOG_TAG, "Handler started");
+            Timber.d("Handler started");
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {

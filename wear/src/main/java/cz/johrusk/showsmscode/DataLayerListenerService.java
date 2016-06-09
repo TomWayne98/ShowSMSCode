@@ -20,9 +20,9 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import pl.tajchert.buswear.EventBus;
+import timber.log.Timber;
 
 /**
  * Service which receives String containing code and sender from WearActivity.
@@ -43,13 +43,13 @@ public class DataLayerListenerService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         EventBus.getDefault().register(this);
-        Log.d(LOG_TAG, "DataLayer started");
+        Timber.d("DataLayer started");
         return super.onStartCommand(intent, flags, startId);
     }
 
 
     public void onEvent(String strg) {
-        Log.d(LOG_TAG, "On-Event started" + strg);
+        Timber.d("On-Event started" + strg);
         if (!strg.equals("text")) {
             Intent startIntent = new Intent(this, ShowActivity.class);
             startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

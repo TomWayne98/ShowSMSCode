@@ -32,7 +32,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'me.grantland:autofittextview:0.2.+'
-
+    compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.google.android.support:wearable:2.0.0-alpha1'
     compile 'com.google.android.gms:play-services-wearable:7.8.0'
     compile 'pl.tajchert:buswear:0.9.5'

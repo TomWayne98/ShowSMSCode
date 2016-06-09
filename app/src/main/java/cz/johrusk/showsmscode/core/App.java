@@ -7,6 +7,7 @@ import com.evernote.android.job.JobManager;
 
 import cz.johrusk.showsmscode.sched.JobCreator;
 import io.fabric.sdk.android.Fabric;
+import timber.log.Timber;
 
 /**
  * Main application class
@@ -23,8 +24,8 @@ public class App extends Application {
     @Override
     public void onCreate() {
         app = this;
-
         super.onCreate();
+        Timber.plant(new Timber.DebugTree());
         JobManager.create(this).addJobCreator(new JobCreator());
         Fabric.with(this, new Crashlytics());
     }

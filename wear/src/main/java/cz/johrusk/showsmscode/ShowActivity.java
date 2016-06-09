@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.wearable.view.WatchViewStub;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import timber.log.Timber;
 
 /**
  * Activity which  code and sender of received SMS.
@@ -17,16 +18,12 @@ import android.widget.TextView;
 
 public class ShowActivity extends Activity {
 
-
     private TextView tv_code;
     private TextView tv_sender;
-
-    static final String TAG = ShowActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
 
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         long[] vibrationPattern = {0, 500, 50, 300};
@@ -34,11 +31,11 @@ public class ShowActivity extends Activity {
         final int indexInPatternToRepeat = -1;
         vibrator.vibrate(vibrationPattern, indexInPatternToRepeat);
 
-        Log.d(TAG, "ShowActivity");
+        Timber.d("ShowActivity");
         final String sArray = getIntent().getStringExtra("code");
         final String[] parts = sArray.split("/");
 
-        Log.d(TAG, "Code / Sender: " + parts[0] + " / " + parts[1]);
+        Timber.d("Code / Sender: " + parts[0] + " / " + parts[1]);
         setContentView(R.layout.activity_main);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
@@ -58,22 +55,19 @@ public class ShowActivity extends Activity {
             }
         });
     }
-
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "OnResume");
+        Timber.d("OnResume");
     }
-
     @Override
     protected void onPause() {
         super.onPause();
     }
 
-
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG, "OnRestart");
+        Timber.d("OnRestart");
     }
 }

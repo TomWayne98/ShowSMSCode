@@ -3,8 +3,9 @@
     import android.app.Activity;
 import android.os.Bundle;
 import android.support.wearable.view.WatchViewStub;
-import android.util.Log;
 import android.widget.TextView;
+
+import timber.log.Timber;
 
     /**
      * Main application activity.
@@ -17,7 +18,6 @@ import android.widget.TextView;
 
 
     private TextView mTextView;
-    static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +41,7 @@ import android.widget.TextView;
     }
 
         public void onEvent(Bundle bundle){
-            Log.d(TAG,"MainActivity");
+            Timber.d("MainActivity");
             String[] sArray  = bundle.getStringArray("key");
              mTextView.setText(sArray[0]);
         }

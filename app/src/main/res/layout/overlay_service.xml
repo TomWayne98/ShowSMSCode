@@ -31,9 +31,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:text="PlaceholderC0D3T3XT"
-        android:maxLines="2"
+        android:textAlignment="center"
+        android:maxLines="1"
         autofit:minTextSize="16sp"
-        android:textSize="96sp"
+        android:textSize="120sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>
