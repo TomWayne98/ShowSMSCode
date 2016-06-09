@@ -4,14 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 
 import cz.johrusk.showsmscode.core.App;
 import cz.johrusk.showsmscode.service.NotificationService;
 import cz.johrusk.showsmscode.service.UpdateService;
 
 /**
- * Created by Pepa on 15.05.2016.
+ * Class which handle scheduled jobs
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 public class UpdateJob extends com.evernote.android.job.Job {
 
@@ -21,8 +22,7 @@ public class UpdateJob extends com.evernote.android.job.Job {
     @Override
     @NonNull
     protected Result onRunJob(Params params) {
-        // run your job
-       Log.d("TAG","TAF---------");
+
         Context context = App.get();
         if (params.getTag().equals(TAG_WEEKLY)) {
             Bundle bundle = new Bundle();
@@ -30,9 +30,7 @@ public class UpdateJob extends com.evernote.android.job.Job {
             bundle.putStringArray("key", new String[]{null, null, type, type});
             Intent notifWeeklyIntent2 = new Intent(context, NotificationService.class);
             notifWeeklyIntent2.putExtras(bundle);
-           // context.startService(notifWeeklyIntent2);
         } else if (params.getTag().equals(TAG)) {
-
             Intent updtIntent = new Intent(context, UpdateService.class);
             context.startService(updtIntent);
         }

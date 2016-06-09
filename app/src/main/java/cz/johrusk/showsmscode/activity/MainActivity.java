@@ -28,6 +28,8 @@ import com.crashlytics.android.Crashlytics;
 import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.sched.UpdateJob;
 import cz.johrusk.showsmscode.service.SimulateSmsService;
@@ -37,13 +39,10 @@ import static java.lang.String.valueOf;
 
 
 /**
- * The ShowSMSCode app find codes in incoming messages. Codes are showed via notification, overlaywindow or android wear device.
- * Code is also sent to clipboard.
+ * Main application activity.
  *
- * @author Josef Hruska
- * @version 0.1
- * @since 2016-04-09
- */
+ * @author Josef Hruska (pepa.hruska@gmail.com)
+ **/
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,8 +63,17 @@ public class MainActivity extends AppCompatActivity {
     public static final long UPDATE_WEEK = UPDATE_24H * 7;
     public static final long UPDATE_DEBUG = UPDATE_1H / 60;
 
+    @BindView(R.id.ll_state) LinearLayout ll_state;
+    @BindView(R.id.iv_state) ImageView iv_state;
+    @BindView(R.id.tv_state) TextView tv_state;
+    @BindView(R.id.toolbar) Toolbar toolbar;
+    @BindView(R.id.MA_tv_notRecognized) TextView notRecognized ;
+    @BindView(R.id.MA_tv_addToGit) TextView addToGit;
+    @BindView(R.id.MA_tv_author) TextView author;
+    @BindView(R.id.MA_tv_sourceCode) TextView sourceCode;
+    @BindView(R.id.MA_tv_reportIssue) TextView reportIssue;
 
-    private Toolbar toolbar;
+
 
 
     @Override
@@ -77,20 +85,14 @@ public class MainActivity extends AppCompatActivity {
         Crashlytics.setUserName(crashlytics_id);
         Crashlytics.log(crashlytics_id);
         setContentView(R.layout.main_activity);
+        ButterKnife.bind(this);
+
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
 //        Toolbar settings
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColorPrimary));
         setSupportActionBar(toolbar);
 //        Underline text
-        // TODO - add LinkedIn profile
-        TextView notRecognized = (TextView) findViewById(R.id.MA_tv_notRecognized);
-        TextView addToGit = (TextView) findViewById(R.id.MA_tv_addToGit);
-        TextView author = (TextView) findViewById(R.id.MA_tv_author);
-        TextView sourceCode = (TextView) findViewById(R.id.MA_tv_sourceCode);
-        TextView reportIssue = (TextView) findViewById(R.id.MA_tv_reportIssue);
-
         addToGit.setPaintFlags(reportIssue.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         author.setPaintFlags(author.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         sourceCode.setPaintFlags(sourceCode.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -198,9 +200,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void checkPermissionState() {
         Boolean isOK = true;
-        LinearLayout ll_state = (LinearLayout) findViewById(R.id.ll_state);
-        ImageView iv_state = (ImageView) findViewById(R.id.iv_state);
-        TextView tv_state = (TextView) findViewById(R.id.tv_state);
+
         if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
             isOK = false;

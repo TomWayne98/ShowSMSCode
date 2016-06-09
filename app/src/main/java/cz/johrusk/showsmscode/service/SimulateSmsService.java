@@ -15,7 +15,9 @@ import cz.johrusk.showsmscode.fragment.SettingsFragment;
 
 
 /**
- * This method simulates what happen when user receive SMS which is contained in SMS.
+ * Service which simulates what happen when user receive SMS which is contained in SMS.
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 public class SimulateSmsService extends IntentService {
     final static String LOG_TAG = MainActivity.class.getSimpleName();
@@ -31,10 +33,8 @@ public class SimulateSmsService extends IntentService {
         String type = "notifCode";
         Bundle bundle = new Bundle();
         String codePHLD = "C0DE";
-
         String senderPHLD = "Sender";
         bundle.putStringArray("key", new String[]{codePHLD, "true", senderPHLD, type});
-        Log.d(LOG_TAG, "TEST");
 
 
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(c);

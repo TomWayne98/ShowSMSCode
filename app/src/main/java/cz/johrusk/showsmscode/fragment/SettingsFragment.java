@@ -15,15 +15,19 @@ import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.service.UpdateService;
 import es.dmoral.prefs.Prefs;
 
+
 /**
- * Settings class. All configurable stuff is here
- */
+ * Fragment for SettingsActivity
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
+ **/
+
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static final String KEY_PREF_OVERLAY_DELAY = "pref_overlayDelay";
     public static final String KEY_PREF_NOTIFICATION = "pref_notification";
     public static final String KEY_PREF_VERSION = "pref_versionUpdate";
-    public static final String KEY_PREF_WEAR_DEVICE = "pref_wear_device_active";
+
     SharedPreferences sharedpreferences;
 
     Context c;

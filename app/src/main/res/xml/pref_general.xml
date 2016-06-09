@@ -9,14 +9,6 @@
         android:summary="@string/pref_notification_summ"
         android:defaultValue="true" />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/pref_group_wear">
-    <CheckBoxPreference
-        android:key="pref_wear_device_active"
-        android:title="@string/pref_wear_active_title"
-        android:summary="@string/pref_wear_active_summ"
-        android:defaultValue="true" />
-    </PreferenceCategory>
     <ListPreference
         android:key="pref_overlayDelay"
         android:title="@string/pref_overlayDelay_title"
@@ -35,5 +27,4 @@
         android:onClick="OnClick"
         />
     </PreferenceCategory>
-
-    </PreferenceScreen>
+</PreferenceScreen>

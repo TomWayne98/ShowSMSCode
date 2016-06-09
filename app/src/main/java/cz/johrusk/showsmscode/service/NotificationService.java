@@ -16,18 +16,18 @@ import com.crashlytics.android.Crashlytics;
 import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.activity.MainActivity;
 
-
+/**
+ * Service which sends notification which contain the code and number of sender.
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
+ */
 public class NotificationService extends IntentService {
 
     public NotificationService() {
         super("NotificationService");
     }
 
-    /**
-     * This method send notification which contain the code and number of sender.
-     *
-     * @param intent contain sms info (text, number)
-     */
+
     @Override
     protected void onHandleIntent(Intent intent) {
         String[] dataArray = new String[4];

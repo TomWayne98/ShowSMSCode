@@ -9,7 +9,9 @@ import android.util.Log;
 import pl.tajchert.buswear.EventBus;
 
 /**
- * This method send Strings (sender + code) to wear device
+ * Service which sends code and sender info to wear device
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 
 public class WearService extends IntentService {

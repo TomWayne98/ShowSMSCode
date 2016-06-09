@@ -7,7 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
- * This class add the code to clipboard.
+ * Service which copy code so it can be pasted.
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 public class ClipService extends IntentService {
 

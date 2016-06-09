@@ -11,6 +11,8 @@ import java.util.regex.Pattern;
 
 /**
  * Helper class for SMS pattern testing
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 @RunWith(MockitoJUnitRunner.class)
 public class SmsParser {

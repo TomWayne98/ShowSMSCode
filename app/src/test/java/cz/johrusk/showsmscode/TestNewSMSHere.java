@@ -10,6 +10,8 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 /**
  * Class for testing new SMS patterns
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 
 @RunWith(MockitoJUnitRunner.class)
@@ -20,7 +22,7 @@ public class TestNewSMSHere {
     @BeforeClass
     public static void setup() {smsParser = new SmsParser();}
 
-    /**
+    /*
      * Write method for testing SMS patterns here.
      * You just need to replace these four vars with correct Strings for new SMS.
      */
@@ -70,7 +72,7 @@ public class TestNewSMSHere {
         String code = SmsParser.TestSMSPattern(msg_content,unique,patern);
         Assert.assertEquals(expectedResult, code);
     }
-    //TODO Find out sender
+
     @Test
     public void MojeBanka(){
         String msg_content = ("MojeBanka: Prihlaseni do aplikace; datum a cas: 29.03.2016 21:52:19; Autorizacni SMS kod: 465 057");

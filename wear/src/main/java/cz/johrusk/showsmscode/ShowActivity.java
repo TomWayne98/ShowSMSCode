@@ -10,16 +10,23 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 /**
- * Created by Pepa on 27.05.2016.
+ * Activity which  code and sender of received SMS.
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 
 public class ShowActivity extends Activity {
+
+
     private TextView tv_code;
     private TextView tv_sender;
+
     static final String TAG = ShowActivity.class.getSimpleName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         long[] vibrationPattern = {0, 500, 50, 300};
@@ -27,13 +34,13 @@ public class ShowActivity extends Activity {
         final int indexInPatternToRepeat = -1;
         vibrator.vibrate(vibrationPattern, indexInPatternToRepeat);
 
-        Log.d(TAG,"ShowActivity");
-       final String sArray = getIntent().getStringExtra("code");
+        Log.d(TAG, "ShowActivity");
+        final String sArray = getIntent().getStringExtra("code");
         final String[] parts = sArray.split("/");
 
-        Log.d(TAG,"Code / Sender: " + parts[0] +" / " + parts[1]);
+        Log.d(TAG, "Code / Sender: " + parts[0] + " / " + parts[1]);
         setContentView(R.layout.activity_main);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD|WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
         stub.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,21 +57,23 @@ public class ShowActivity extends Activity {
                 tv_sender.setText(parts[1]);
             }
         });
-
-
-
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG,"OnResume");
+        Log.d(TAG, "OnResume");
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.d(TAG,"OnRestart");
+        Log.d(TAG, "OnRestart");
     }
 }

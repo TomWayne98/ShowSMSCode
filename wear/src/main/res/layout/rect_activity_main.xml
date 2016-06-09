@@ -8,23 +8,28 @@
     tools:context="cz.johrusk.showsmscode.MainActivity"
     tools:deviceIds="wear_square">
 
-    <TextView
-        android:id="@+id/sender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text"
-        android:layout_centerHorizontal="true"
-        android:text="@string/textview"
-        android:textColor="@color/light_grey" />
-
-    <TextView
+    <me.grantland.widget.AutofitTextView
+        android:textColor="@color/black"
+        android:paddingTop="70dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:id="@+id/text"
-        android:layout_width="wrap_content"
+        android:maxLines="1"
+        android:textSize="120sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hello_round"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-         />
+        android:textAlignment="center" />
+
+    <me.grantland.widget.AutofitTextView
+        android:textColor="@color/light_grey"
+        android:text="@string/textview"
+        android:layout_width="match_parent"
+        android:textSize="24sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/sender"
+        android:maxLines="1"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textAlignment="center" />
 </RelativeLayout>

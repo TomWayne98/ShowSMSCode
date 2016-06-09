@@ -30,6 +30,11 @@ import java.net.URL;
 import cz.johrusk.showsmscode.activity.MainActivity;
 import es.dmoral.prefs.Prefs;
 
+/**
+ * Service which update definitions database.
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
+ */
 
 public class UpdateService extends Service {
 
@@ -105,16 +110,6 @@ public class UpdateService extends Service {
                     Log.d(LOG_TAG, object.toString());
                     String updateContent = object.getString("news");
                     Log.d(LOG_TAG, "NEWS is : " + updateContent);
-                    if (updateContent != null) {
-                        //TODO Remove or not?
-                        //Notification about updates are disabled
-//                        Bundle bundle = new Bundle();
-//                        String type = "notifUpdate";
-//                        bundle.putStringArray("key", new String[]{updateContent, null, null, type});
-//                        Intent notifIntent = new Intent(context, NotificationService.class);
-//                        notifIntent.putExtras(bundle);
-//                        c.startService(notifIntent);
-                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

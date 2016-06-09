@@ -1,7 +1,9 @@
 package cz.johrusk.showsmscode.sched;
 
 /**
- * Created by Pepa on 15.05.2016.
+ * Class which creates scheduled job
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 public class JobCreator implements com.evernote.android.job.JobCreator {
 

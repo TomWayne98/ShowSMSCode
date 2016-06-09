@@ -24,14 +24,16 @@ import cz.johrusk.showsmscode.activity.MainActivity;
 import cz.johrusk.showsmscode.fragment.SettingsFragment;
 
 /**
- * This class show code in windows which overlay entire screen
+ * Service which shows code in windows which overlays all other apps.
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 public class OverlayService extends Service {
     public static final String LOG_TAG = MainActivity.class.getName();
     private WindowManager windowManager;
-    private TextView codeView;
-    private TextView senderView;
-    private LayoutInflater layoutInf;
+    TextView senderView;
+     TextView codeView;
+private LayoutInflater layoutInf;
     private View layout;
     public Bundle bundle;
     public int overlayDelay;
@@ -46,10 +48,15 @@ public class OverlayService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         this.bundle = intent.getBundleExtra("bundle");
 
+
+
         layoutInf = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         layout = layoutInf.inflate(R.layout.overlay_service, null);
+        codeView = (TextView) layout.findViewById(R.id.tv_OS_code);
+        senderView = (TextView) layout.findViewById(R.id.tv_OS_sender);
         String[] dataArray;
         dataArray = bundle.getStringArray("key");
+        Log.d(LOG_TAG,"OnStartCommand " + dataArray[0] + " "+ dataArray[2] );
         String code = dataArray[0];
         String sender = dataArray[2];
         String s = "until_tap";
@@ -81,10 +88,8 @@ public class OverlayService extends Service {
         params.x = 0;
         params.y = 0;
 
-        codeView = (TextView) layout.findViewById(R.id.textView2);
-        senderView = (TextView) layout.findViewById(R.id.textView);
+        senderView.setText(sender);
         codeView.setText(sender);
-        senderView.setText(code);
         windowManager.addView(layout, params);
 
         return START_STICKY;

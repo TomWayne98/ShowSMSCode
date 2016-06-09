@@ -10,6 +10,11 @@ import android.widget.FrameLayout;
 import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.fragment.SettingsFragment;
 
+/**
+ * Settings activity
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
+ */
 
 public class SettingsActivity extends AppCompatActivity {
 

@@ -6,7 +6,11 @@ import android.support.wearable.view.WatchViewStub;
 import android.util.Log;
 import android.widget.TextView;
 
-import pl.tajchert.buswear.EventBus;
+    /**
+     * Main application activity.
+     *
+     * @author Josef Hruska (pepa.hruska@gmail.com)
+     */
 
 
     public class MainActivity extends Activity  {
@@ -20,7 +24,6 @@ import pl.tajchert.buswear.EventBus;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        EventBus.getDefault().register(this);
 
         final WatchViewStub stub = (WatchViewStub) findViewById(R.id.watch_view_stub);
         stub.setOnLayoutInflatedListener(new WatchViewStub.OnLayoutInflatedListener() {

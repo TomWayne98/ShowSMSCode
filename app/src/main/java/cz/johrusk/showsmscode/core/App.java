@@ -9,8 +9,10 @@ import cz.johrusk.showsmscode.sched.JobCreator;
 import io.fabric.sdk.android.Fabric;
 
 /**
- * This class is used to initialize Fabric and JobManager
- */
+ * Main application class
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
+ **/
 public class App extends Application {
     private static App app;
 

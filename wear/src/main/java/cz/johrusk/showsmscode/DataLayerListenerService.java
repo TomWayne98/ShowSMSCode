@@ -25,10 +25,13 @@ import android.util.Log;
 import pl.tajchert.buswear.EventBus;
 
 /**
- * Listens to DataItems and Messages from the local node.
+ * Service which receives String containing code and sender from WearActivity.
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 public class DataLayerListenerService extends Service {
     final static String LOG_TAG = DataLayerListenerService.class.getSimpleName();
+
 
     @Nullable
     @Override
@@ -44,8 +47,9 @@ public class DataLayerListenerService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
+
     public void onEvent(String strg) {
-        Log.d(LOG_TAG,"On-Event started" + strg);
+        Log.d(LOG_TAG, "On-Event started" + strg);
         if (!strg.equals("text")) {
             Intent startIntent = new Intent(this, ShowActivity.class);
             startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -55,3 +59,5 @@ public class DataLayerListenerService extends Service {
         }
     }
 }
+
+

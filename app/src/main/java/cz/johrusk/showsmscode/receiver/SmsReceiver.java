@@ -39,7 +39,9 @@ import cz.johrusk.showsmscode.service.WearService;
 import io.fabric.sdk.android.Fabric;
 
 /**
- * This class check received SMS.
+ * Class checks received SMS.
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 public class SmsReceiver extends BroadcastReceiver {
 
@@ -57,7 +59,6 @@ public class SmsReceiver extends BroadcastReceiver {
         //Check whether is sending of notification allowed in settings (default value is true)
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(c);
         Boolean sendNotification = sharedPref.getBoolean(SettingsFragment.KEY_PREF_NOTIFICATION, true);
-        Boolean showOnWearDevice = sharedPref.getBoolean(SettingsFragment.KEY_PREF_WEAR_DEVICE, true);
 
         Log.i(LOG_TAG, "OnRecieveStarted");
         SmsMessage[] messages = getMessages(intent);
@@ -100,12 +101,11 @@ public class SmsReceiver extends BroadcastReceiver {
                                 notifIntent.putExtras(bundle);
                                 c.startService(notifIntent);
                             }
-                            // It send a content which can be displayed on wear device. (If it is allowed in prefs...)
-                            if (showOnWearDevice) {
+                            // It send a content which can be displayed on wear device.
                                 Intent wearIntent = new Intent(c, WearService.class);
                                 wearIntent.putExtras(bundle);
                                 c.startService(wearIntent);
-                            }
+
 
                             if (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(c)) {
                                 // Starts service for showing a code on the screen
