@@ -2,114 +2,152 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="7">
+    android:weightSum="7"
+    android:id="@+id/constraintLayout">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:navigationContentDescription="@string/app_name"
         app:layout_scrollFlags="scroll|enterAlways"
-        app:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+        app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        android:layout_width="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        tools:layout_constraintRight_creator="1" />
 
-    <LinearLayout
-        android:id="@+id/ll_state"
-        android:layout_width="match_parent"
+
+
+
+
+
+    <TextView
+
+        android:id="@+id/MA_tv_reportIssue"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:orientation="horizontal"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="openBrowser"
+        android:paddingBottom="12dp"
+        android:text="@string/MA_text_reportIssue"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        android:layout_marginBottom="56dp" />
 
-        android:weightSum="3"
-       >
+    <TextView
 
-        <ImageView
-            android:id="@+id/iv_state"
-            android:layout_width="wrap_content"
-            android:layout_height="117dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_weight="1.11"
-            android:gravity="center"
-            android:src="@drawable/ic_check_circle"
-            android:tint="@color/abc_search_url_text_normal"
-            android:contentDescription="@null" />
-
-        <TextView
-            android:id="@+id/tv_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:maxLines="3"
-            android:minLines="3"
-            android:text="@string/MA_text_state" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/MA_tv_author"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="openBrowser"
+        android:paddingBottom="12dp"
+        android:text="@string/MA_text_Aboutauthor"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/MA_tv_reportIssue"
+        android:layout_marginBottom="80dp" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="openBrowser"
+        android:text="@string/MA_text_addToGithub"
+        android:id="@+id/MA_tv_addToGit"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/MA_tv_notRecognized"
+        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout" />
+
+    <TextView
+        android:id="@+id/MA_tv_sourceCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="openBrowser"
+        android:paddingBottom="12dp"
+        android:text="@string/MA_text_openSourceCode"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/MA_tv_author"
+        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/MA_tv_reportIssue"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:text="@string/MA_text_notRecognized"
+        android:id="@+id/MA_tv_notRecognized"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintBottom_toTopOf="@+id/MA_tv_author"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintVertical_bias="0.76" />
+
+    <ImageView
+        android:id="@+id/iv_state"
+        android:layout_width="161dp"
+        android:layout_height="169dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1.11"
+        android:gravity="center"
+        android:src="@drawable/ic_check_circle"
+        android:tint="@color/abc_search_url_text_normal"
+        android:contentDescription="@null"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline"
+        android:layout_marginStart="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginTop="48dp" />
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:layout_weight="2"
         android:gravity="center"
-        android:orientation="vertical"
-        android:theme="@style/MainActivityTheme">
+        android:maxLines="3"
+        android:minLines="3"
+        android:text="@string/MA_text_state"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toRightOf="@+id/iv_state"
+        android:layout_marginStart="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        android:layout_marginTop="32dp"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/MA_tv_notRecognized"
+        android:layout_marginBottom="8dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="12dp"
-            android:text="@string/MA_text_notRecognized"
-            android:id="@+id/MA_tv_notRecognized" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="openBrowser"
-            android:text="@string/MA_text_addToGithub"
-            android:id="@+id/MA_tv_addToGit" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:gravity="center"
+        android:id="@+id/guideline"
         android:orientation="vertical"
-        android:theme="@style/MainActivityTheme">
-
-        <TextView
-
-            android:id="@+id/MA_tv_author"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="openBrowser"
-            android:paddingBottom="12dp"
-            android:text="@string/MA_text_Aboutauthor" />
-
-        <TextView
-            android:id="@+id/MA_tv_sourceCode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:onClick="openBrowser"
-            android:paddingBottom="12dp"
-            android:text="@string/MA_text_openSourceCode" />
-
-        <TextView
-
-            android:id="@+id/MA_tv_reportIssue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:gravity="center"
-            android:onClick="openBrowser"
-            android:paddingBottom="12dp"
-            android:text="@string/MA_text_reportIssue" />
-    </LinearLayout>
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        app:relativeBegin="0dp" />
 
 
 </android.support.constraint.ConstraintLayout>

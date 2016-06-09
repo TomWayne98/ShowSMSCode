@@ -21,7 +21,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
@@ -63,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     public static final long UPDATE_WEEK = UPDATE_24H * 7;
     public static final long UPDATE_DEBUG = UPDATE_1H / 60;
 
-    @BindView(R.id.ll_state) LinearLayout ll_state;
+//    @BindView(R.id.ll_state) LinearLayout ll_state;
     @BindView(R.id.iv_state) ImageView iv_state;
     @BindView(R.id.tv_state) TextView tv_state;
     @BindView(R.id.toolbar) Toolbar toolbar;
@@ -72,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.MA_tv_author) TextView author;
     @BindView(R.id.MA_tv_sourceCode) TextView sourceCode;
     @BindView(R.id.MA_tv_reportIssue) TextView reportIssue;
+
+
 
 
 
@@ -217,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         if (isOK == false) {
             iv_state.setColorFilter(Color.YELLOW);
             tv_state.setText(R.string.MA_text_state_needperm);
-            ll_state.setOnClickListener(new View.OnClickListener() {
+            iv_state.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent myAppSettings = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
@@ -230,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(context)) {
             iv_state.setColorFilter(Color.YELLOW);
             tv_state.setText(R.string.MA_text_state_needperm);
-            ll_state.setOnClickListener(new View.OnClickListener() {
+            iv_state.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent myAppSettings = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
@@ -244,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
         if (isOK == true && Build.VERSION.SDK_INT < 23) {
             iv_state.setColorFilter(getResources().getColor(R.color.color_state));
             tv_state.setText(R.string.MA_text_state);
-            ll_state.setOnClickListener(new View.OnClickListener() {
+            iv_state.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                 }
@@ -252,7 +253,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (isOK == true && (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(context))) {
             iv_state.setColorFilter(getResources().getColor(R.color.color_state));
             tv_state.setText(R.string.MA_text_state);
-            ll_state.setOnClickListener(new View.OnClickListener() {
+           iv_state.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                 }
