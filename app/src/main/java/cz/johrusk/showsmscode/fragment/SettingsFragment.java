@@ -50,6 +50,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
+//                TODO - solve this before removing UpdateService
                 Intent intent = new Intent(c, UpdateService.class);
                 c.startService(intent);
                 Toast.makeText(c, "Manual update started", Toast.LENGTH_SHORT).show();

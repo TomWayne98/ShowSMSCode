@@ -16,6 +16,8 @@ public class JobCreator implements com.evernote.android.job.JobCreator {
                 return  new UpdateJob();
             case UpdateJob.TAG_WEEKLY:
                 return new UpdateJob();
+            case UpdateJob.TAG_ONSTART:
+                return new UpdateJob();
             default:
                 return null;
         }

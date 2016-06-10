@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import cz.johrusk.showsmscode.core.App;
 import pl.tajchert.buswear.EventBus;
 import timber.log.Timber;
 
@@ -22,7 +23,7 @@ public class WearService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Context c = getApplicationContext();
+        Context c = App.get();
         Bundle bundle = intent.getExtras();
         String[] Arr = new String[4];
         Arr = bundle.getStringArray("key");

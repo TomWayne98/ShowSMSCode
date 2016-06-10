@@ -3,12 +3,9 @@ package cz.johrusk.showsmscode.service;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Binder;
-import android.os.Handler;
 import android.os.IBinder;
 
 import com.crashlytics.android.Crashlytics;
@@ -26,7 +23,6 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import cz.johrusk.showsmscode.activity.MainActivity;
 import es.dmoral.prefs.Prefs;
 import timber.log.Timber;
 
@@ -57,39 +53,18 @@ public class UpdateService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         // Check whether is connection available otherwise it will postpone update about 60 seconds.
-        if (isConnected()) {
+        updateTask = new UpdateTask(context);
+        updateTask.execute("0");
 
-            updateTask = new UpdateTask(context);
-            updateTask.execute("0");
-            Timber.d("CONNECTED = true");
-        } else if (!intent.hasExtra("firstTry")) {
-            Timber.d("CONNECTED = false");
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent updtintent = new Intent(context, UpdateService.class);
-                    updtintent.putExtra("firstTry", false);
-                    startService(updtintent);
-                }
-            }, 60000);
-        }
         return START_NOT_STICKY;
     }
-
     /**
      * This method return true if device has internet connection, otherwise false
      */
-    public Boolean isConnected() {
-        ConnectivityManager cm =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        return activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
-    }
 
     private class UpdateTask extends AsyncTask<String, Void, String[]> {
         private Context c;
-        private String LOG_TAG = MainActivity.class.getName();
+
 
         public UpdateTask(Context context) {
             this.c = context;

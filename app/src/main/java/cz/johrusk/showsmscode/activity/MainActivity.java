@@ -11,7 +11,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -32,7 +31,6 @@ import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.core.App;
 import cz.johrusk.showsmscode.sched.UpdateJob;
 import cz.johrusk.showsmscode.service.SimulateSmsService;
-import cz.johrusk.showsmscode.service.UpdateService;
 import timber.log.Timber;
 
 import static java.lang.String.valueOf;
@@ -73,10 +71,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.MA_tv_reportIssue) TextView reportIssue;
 
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,35 +99,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Timber.d("ONSTART -----");
-        Intent updtintent = new Intent(context, UpdateService.class);
-        startService(updtintent);
+        Timber.d("ONSTART");
+//        Intent updtintent = new Intent(context, UpdateService.class);
+//        startService(updtintent);
+        scheduleOnStartJob();
         checkPermissionState();
-
-        if (ContextCompat.checkSelfPermission(MainActivity.context,
-                Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_SMS},
-                    PERM_SMS_READ);
-        }
-        if (ContextCompat.checkSelfPermission(MainActivity.context,
-                Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.RECEIVE_SMS},
-                    PERM_SMS_RECIEVE);
-        }
-        if (ContextCompat.checkSelfPermission(MainActivity.context,
-                Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.RECEIVE_BOOT_COMPLETED},
-                    PERM_RECEIVE_BOOT);
-        }
-        if (ContextCompat.checkSelfPermission(MainActivity.context,
-                Manifest.permission.SYSTEM_ALERT_WINDOW) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},
-                    PERM_SHOW_WINDOWS);
-        }
     }
 
     @Override
@@ -176,15 +146,12 @@ public class MainActivity extends AppCompatActivity {
                 startService(simulateIntent);// User chose the "Settings" item, show the app settings UI...
                 return true;
             default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
                 return super.onOptionsItemSelected(item);
         }
     }
 
     // Scheduled Job which updates DB every day(default) eventually as soon as is connection available
     private void scheduleJob(long period) {
-
         if (JobManager.instance().getAllJobRequestsForTag(UpdateJob.TAG).isEmpty()) {
             int jobId = new JobRequest.Builder(UpdateJob.TAG)
                     .setPeriodic(60_000L * period)
@@ -194,7 +161,16 @@ public class MainActivity extends AppCompatActivity {
                     .schedule();
         }
     }
-
+    private void scheduleOnStartJob() {
+            int jobId = new JobRequest.Builder(UpdateJob.TAG_ONSTART)
+                    .setExecutionWindow(10_000L, 20_000L)
+                    .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
+                    .setRequirementsEnforced(true)
+                    .setPersisted(true)
+                    .setUpdateCurrent(true)
+                    .build()
+                    .schedule();
+    }
     /**
      * This method checks if are all permissions granted
      * eventually it change state indicator to yellow (green circle)
@@ -203,15 +179,31 @@ public class MainActivity extends AppCompatActivity {
         Boolean isOK = true;
 
         if (ContextCompat.checkSelfPermission(MainActivity.context,
+                Manifest.permission.SYSTEM_ALERT_WINDOW) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},
+                    PERM_SHOW_WINDOWS);
+        }
+
+        if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.READ_SMS},
+                    PERM_SMS_READ);
             isOK = false;
         }
         if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.RECEIVE_SMS},
+                    PERM_SMS_RECIEVE);
             isOK = false;
         }
         if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.RECEIVE_BOOT_COMPLETED},
+                    PERM_RECEIVE_BOOT);
             isOK = false;
         }
 
@@ -261,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     public void openBrowser(View v) {
         String url = null;
 
@@ -282,56 +275,6 @@ public class MainActivity extends AppCompatActivity {
         openBrowser.setData(Uri.parse(url));
         startActivity(openBrowser);
     }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], int[] grantResults) {
-
-
-        /**
-         * This method sends notifications if some of permissions isn't granted
-         */
-        switch (requestCode) {
-            case PERM_READ_P_STATE: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                } else {
-
-                }
-                return;
-            }
-            case PERM_SMS_READ: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                } else {
-                }
-                return;
-            }
-            case PERM_SMS_RECIEVE: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                } else {
-                }
-                return;
-            }
-            case PERM_RECEIVE_BOOT: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                } else {
-                }
-                return;
-            }
-            case PERM_SHOW_WINDOWS: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                } else if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(this)) {
-                }
-                return;
-            }
-
-        }
-    }
-
 }
 
 
