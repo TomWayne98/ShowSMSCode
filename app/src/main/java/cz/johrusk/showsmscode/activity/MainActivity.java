@@ -20,19 +20,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
-import com.evernote.android.job.JobManager;
-import com.evernote.android.job.JobRequest;
+import com.gun0912.tedpermission.PermissionListener;
+import com.gun0912.tedpermission.TedPermission;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.core.App;
-import cz.johrusk.showsmscode.sched.UpdateJob;
+import cz.johrusk.showsmscode.sched.JobRunner;
 import cz.johrusk.showsmscode.service.SimulateSmsService;
 import timber.log.Timber;
 
+import static cz.johrusk.showsmscode.sched.JobRunner.scheduleJob;
 import static java.lang.String.valueOf;
 
 
@@ -44,7 +48,9 @@ import static java.lang.String.valueOf;
 
 public class MainActivity extends AppCompatActivity {
 
+
     static Context context;
+    private static Boolean isOK = true;
     // Permission requests
     public static final int PERM_SMS_RECIEVE = 0;
     public static final int PERM_SMS_READ = 1;
@@ -100,10 +106,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         Timber.d("ONSTART");
-//        Intent updtintent = new Intent(context, UpdateService.class);
-//        startService(updtintent);
-        scheduleOnStartJob();
+        JobRunner.scheduleOnStartJob();
         checkPermissionState();
+
+        new TedPermission(this)
+                .setPermissionListener(permissionlistener)
+                .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
+                .setPermissions(Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS,Manifest.permission.RECEIVE_BOOT_COMPLETED)
+                .check();
     }
 
     @Override
@@ -116,15 +126,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         Timber.d("MainActivity state: onStop");
         super.onStop();
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1234 && Build.VERSION.SDK_INT >= 23) {
-            if (!Settings.canDrawOverlays(this)) {
-            }
-        }
     }
 
     @Override
@@ -150,61 +151,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Scheduled Job which updates DB every day(default) eventually as soon as is connection available
-    public static void scheduleJob(long period) {
-        if (JobManager.instance().getAllJobRequestsForTag(UpdateJob.TAG).isEmpty()) {
-            int jobId = new JobRequest.Builder(UpdateJob.TAG)
-                    .setPeriodic(60_000L * period)
-                    .setPersisted(true)
-                    .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
-                    .build()
-                    .schedule();
-        }
-    }
-    public static void scheduleOnStartJob() {
-            int jobId = new JobRequest.Builder(UpdateJob.TAG_ONSTART)
-                    .setExecutionWindow(10_000L, 20_000L)
-                    .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
-                    .setRequirementsEnforced(true)
-                    .setPersisted(true)
-                    .setUpdateCurrent(true)
-                    .build()
-                    .schedule();
-    }
     /**
      * This method checks if are all permissions granted
      * eventually it change state indicator to yellow (green circle)
      */
     public void checkPermissionState() {
-        Boolean isOK = true;
+
 
         if (ContextCompat.checkSelfPermission(MainActivity.context,
                 Manifest.permission.SYSTEM_ALERT_WINDOW) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.SYSTEM_ALERT_WINDOW},
                     PERM_SHOW_WINDOWS);
-        }
-
-        if (ContextCompat.checkSelfPermission(MainActivity.context,
-                Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_SMS},
-                    PERM_SMS_READ);
-            isOK = false;
-        }
-        if (ContextCompat.checkSelfPermission(MainActivity.context,
-                Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.RECEIVE_SMS},
-                    PERM_SMS_RECIEVE);
-            isOK = false;
-        }
-        if (ContextCompat.checkSelfPermission(MainActivity.context,
-                Manifest.permission.RECEIVE_BOOT_COMPLETED) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.RECEIVE_BOOT_COMPLETED},
-                    PERM_RECEIVE_BOOT);
-            isOK = false;
         }
 
         if (isOK == false) {
@@ -252,6 +210,20 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
+
+    PermissionListener permissionlistener = new PermissionListener() {
+        @Override
+        public void onPermissionGranted() {
+            Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPermissionDenied(ArrayList<String> deniedPermissions) {
+            Toast.makeText(MainActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+            isOK = false;
+        }
+    };
+
 
 
     public void openBrowser(View v) {

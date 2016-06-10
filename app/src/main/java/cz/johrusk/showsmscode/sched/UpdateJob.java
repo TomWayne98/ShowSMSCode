@@ -57,7 +57,7 @@ public class UpdateJob extends com.evernote.android.job.Job {
 //            context.startService(updtIntent);
             updateTask = new UpdateTask(context);
             updateTask.execute("0");
-
+            Timber.d("JOB STARTED - ONSTART_JOB");
         }
         return Result.SUCCESS;
     }

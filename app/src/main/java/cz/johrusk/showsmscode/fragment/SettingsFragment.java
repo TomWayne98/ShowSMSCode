@@ -10,7 +10,7 @@ import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 
 import cz.johrusk.showsmscode.R;
-import cz.johrusk.showsmscode.activity.MainActivity;
+import cz.johrusk.showsmscode.sched.JobRunner;
 import es.dmoral.prefs.Prefs;
 
 
@@ -48,13 +48,8 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-//                TODO - solve this before removing UpdateService
-//                Intent intent = new Intent(c, UpdateService.class);
-//                c.startService(intent);
-//                Toast.makeText(c, "Manual update started", Toast.LENGTH_SHORT).show();
-
-                MainActivity.scheduleOnStartJob();
-
+//                MainActivity.scheduleOnStartJob();
+                JobRunner.scheduleOnStartJob();
                 return false;
             }
         });
