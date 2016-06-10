@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Scheduled Job which updates DB every day(default) eventually as soon as is connection available
-    private void scheduleJob(long period) {
+    public static void scheduleJob(long period) {
         if (JobManager.instance().getAllJobRequestsForTag(UpdateJob.TAG).isEmpty()) {
             int jobId = new JobRequest.Builder(UpdateJob.TAG)
                     .setPeriodic(60_000L * period)
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                     .schedule();
         }
     }
-    private void scheduleOnStartJob() {
+    public static void scheduleOnStartJob() {
             int jobId = new JobRequest.Builder(UpdateJob.TAG_ONSTART)
                     .setExecutionWindow(10_000L, 20_000L)
                     .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)

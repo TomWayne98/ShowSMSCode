@@ -1,18 +1,16 @@
 package cz.johrusk.showsmscode.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-import android.widget.Toast;
 
 import com.crashlytics.android.answers.Answers;
 import com.crashlytics.android.answers.CustomEvent;
 
 import cz.johrusk.showsmscode.R;
-import cz.johrusk.showsmscode.service.UpdateService;
+import cz.johrusk.showsmscode.activity.MainActivity;
 import es.dmoral.prefs.Prefs;
 
 
@@ -51,9 +49,12 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
             @Override
             public boolean onPreferenceClick(Preference preference) {
 //                TODO - solve this before removing UpdateService
-                Intent intent = new Intent(c, UpdateService.class);
-                c.startService(intent);
-                Toast.makeText(c, "Manual update started", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(c, UpdateService.class);
+//                c.startService(intent);
+//                Toast.makeText(c, "Manual update started", Toast.LENGTH_SHORT).show();
+
+                MainActivity.scheduleOnStartJob();
+
                 return false;
             }
         });
