@@ -19,7 +19,6 @@
         android:layout_marginBottom="30dp"
         android:text="Sender"
         android:maxLines="2"
-        autofit:minTextSize="16sp"
         android:textSize="24sp"
         android:textColor="#676767"
         />
