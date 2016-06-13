@@ -4,7 +4,7 @@ import com.evernote.android.job.JobManager;
 import com.evernote.android.job.JobRequest;
 
 /**
- * Helper class for running jobs which can be call from whole app.
+ * Helper class for running jobs which can be called from whole app.
  *
  * @author Josef Hruska (pepa.hruska@gmail.com)
  */

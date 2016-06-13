@@ -48,15 +48,10 @@ import static java.lang.String.valueOf;
 
 public class MainActivity extends AppCompatActivity {
 
-
     static Context context;
-    private static Boolean isOK = true;
-    // Permission requests
-    public static final int PERM_SMS_RECIEVE = 0;
-    public static final int PERM_SMS_READ = 1;
-    public static final int PERM_RECEIVE_BOOT = 2;
-    public static final int PERM_READ_P_STATE = 3;
-    public static final int PERM_SHOW_WINDOWS = 4;
+
+     static Boolean isOK = true; // Permission state
+    public static final int PERM_SHOW_WINDOWS = 4; // Permission request
 
     //Jobs - Time periods
     public static final long UPDATE_24H = (60 * 24);
@@ -66,15 +61,23 @@ public class MainActivity extends AppCompatActivity {
     public static final long UPDATE_WEEK = UPDATE_24H * 7;
     public static final long UPDATE_DEBUG = UPDATE_1H / 60;
 
-//    @BindView(R.id.ll_state) LinearLayout ll_state;
-    @BindView(R.id.iv_state) ImageView iv_state;
-    @BindView(R.id.tv_state) TextView tv_state;
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.MA_tv_notRecognized) TextView notRecognized ;
-    @BindView(R.id.MA_tv_addToGit) TextView addToGit;
-    @BindView(R.id.MA_tv_author) TextView author;
-    @BindView(R.id.MA_tv_sourceCode) TextView sourceCode;
-    @BindView(R.id.MA_tv_reportIssue) TextView reportIssue;
+    //    @BindView(R.id.ll_state) LinearLayout ll_state;
+    @BindView(R.id.iv_state)
+    ImageView iv_state;
+    @BindView(R.id.tv_state)
+    TextView tv_state;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.MA_tv_notRecognized)
+    TextView notRecognized;
+    @BindView(R.id.MA_tv_addToGit)
+    TextView addToGit;
+    @BindView(R.id.MA_tv_author)
+    TextView author;
+    @BindView(R.id.MA_tv_sourceCode)
+    TextView sourceCode;
+    @BindView(R.id.MA_tv_reportIssue)
+    TextView reportIssue;
 
 
     @Override
@@ -82,12 +85,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         context = App.get();
+        // Crashlitics
         String crashlytics_id = valueOf(android.os.Build.MANUFACTURER + android.os.Build.MODEL);
         Crashlytics.setUserName(crashlytics_id);
         Crashlytics.log(crashlytics_id);
+
         setContentView(R.layout.main_activity);
         ButterKnife.bind(this);
-
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
 //        Toolbar settings
         toolbar.setTitle(R.string.app_name);
@@ -98,21 +102,21 @@ public class MainActivity extends AppCompatActivity {
         author.setPaintFlags(author.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         sourceCode.setPaintFlags(sourceCode.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         reportIssue.setPaintFlags(reportIssue.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-//        Schedule Job
-        scheduleJob(UPDATE_24H); // Basic DB update
+
+        scheduleJob(UPDATE_24H); // It schedule daily job if there is no scheduled daily job yet.
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Timber.d("ONSTART");
+        Timber.d("MainActivity state: onStart");
         JobRunner.scheduleOnStartJob();
         checkPermissionState();
 
         new TedPermission(this)
                 .setPermissionListener(permissionlistener)
-                .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
-                .setPermissions(Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS,Manifest.permission.RECEIVE_BOOT_COMPLETED)
+                .setDeniedMessage("If you reject permission, app can not work properly\n\nPlease turn on permissions at [Setting] > [Permission]")
+                .setPermissions(Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS, Manifest.permission.RECEIVE_BOOT_COMPLETED)
                 .check();
     }
 
@@ -203,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (isOK == true && (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(context))) {
             iv_state.setColorFilter(getResources().getColor(R.color.color_state));
             tv_state.setText(R.string.MA_text_state);
-           iv_state.setOnClickListener(new View.OnClickListener() {
+            iv_state.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                 }
@@ -214,7 +218,6 @@ public class MainActivity extends AppCompatActivity {
     PermissionListener permissionlistener = new PermissionListener() {
         @Override
         public void onPermissionGranted() {
-            Toast.makeText(MainActivity.this, "Permission Granted", Toast.LENGTH_SHORT).show();
         }
 
         @Override
@@ -222,9 +225,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
             isOK = false;
         }
+
     };
-
-
 
     public void openBrowser(View v) {
         String url = null;

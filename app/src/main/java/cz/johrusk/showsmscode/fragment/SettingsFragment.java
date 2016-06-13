@@ -27,7 +27,6 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
     public static final String KEY_PREF_VERSION = "pref_versionUpdate";
 
     SharedPreferences sharedpreferences;
-
     Context c;
 
     public SettingsFragment() {
@@ -39,7 +38,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         super.onActivityCreated(savedInstanceState);
         // Load the preferences from an XML resource
 
-        int DBVersion = Prefs.with(c).readInt("DBVersion", 69);
+        int DBVersion = Prefs.with(c).readInt("DBVersion", -1);
         String str = String.valueOf(DBVersion);
         sharedpreferences = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         Preference pref = findPreference(KEY_PREF_VERSION);
@@ -48,7 +47,6 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-//                MainActivity.scheduleOnStartJob();
                 JobRunner.scheduleOnStartJob();
                 return false;
             }
@@ -97,5 +95,4 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         }
     }
 
-    Preference myPref = (Preference) findPreference("pref_version_key");
 }

@@ -11,12 +11,8 @@ import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.TextView;
-
-import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.CustomEvent;
 
 import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.fragment.SettingsFragment;
@@ -29,14 +25,13 @@ import timber.log.Timber;
  */
 public class OverlayService extends Service {
 
-    private WindowManager windowManager;
-    TextView senderView;
-     TextView codeView;
-private LayoutInflater layoutInf;
-    private View layout;
     public Bundle bundle;
     public int overlayDelay;
-    private View.OnClickListener clicklistener;
+    TextView senderView;
+    TextView codeView;
+    private WindowManager windowManager;
+    private LayoutInflater layoutInf;
+    private View layout;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -46,36 +41,16 @@ private LayoutInflater layoutInf;
 
     public int onStartCommand(Intent intent, int flags, int startId) {
         this.bundle = intent.getBundleExtra("bundle");
-
-
-
         layoutInf = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         layout = layoutInf.inflate(R.layout.overlay_service, null);
         codeView = (TextView) layout.findViewById(R.id.tv_OS_code);
         senderView = (TextView) layout.findViewById(R.id.tv_OS_sender);
         String[] dataArray;
         dataArray = bundle.getStringArray("key");
-        Timber.d("OnStartCommand " + dataArray[0] + " "+ dataArray[2] );
+        Timber.d("OnStartCommand " + dataArray[0] + " " + dataArray[2]);
         String code = dataArray[0];
         String sender = dataArray[2];
-        String s = "until_tap";
-
-        Answers.getInstance().logCustom(new CustomEvent("Overlay showed")
-                .putCustomAttribute("Code overlaying screen:", code));
-        Answers.getInstance().logCustom(new CustomEvent("Overlay delay")
-                .putCustomAttribute("Length of overlaying", overlayDelay));
-
-        clicklistener = new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Timber.d("Window tappped");
-                stopSelf();
-            }
-        };
-
-        Timber.d("StartOk");
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 900,
                 WindowManager.LayoutParams.WRAP_CONTENT,
@@ -99,17 +74,14 @@ private LayoutInflater layoutInf;
         super.onCreate();
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         String i = sharedPref.getString(SettingsFragment.KEY_PREF_OVERLAY_DELAY, "");
-        String tap = "until_tap";
-        if (!tap.equals(String.valueOf(i))) {
-            overlayDelay = Integer.valueOf(i) * 1000;
-            Timber.d("Handler started");
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    stopSelf();
-                }
-            }, overlayDelay);
-        }
+        overlayDelay = Integer.valueOf(i) * 1000;
+        Timber.d("Handler started");
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                stopSelf();
+            }
+        }, overlayDelay);
     }
 
     @Override

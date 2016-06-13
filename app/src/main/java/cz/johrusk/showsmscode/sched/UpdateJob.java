@@ -35,31 +35,32 @@ import static cz.johrusk.showsmscode.sched.UpdateJob.context;
  * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 public class UpdateJob extends com.evernote.android.job.Job {
-    public static  Context context;
     public static final String TAG = "job_demo_tag";
     public static final String TAG_WEEKLY = "job_weekly_tag";
     public static final String TAG_ONSTART = "job_onstart_tag";
+    public static Context context;
     UpdateTask updateTask;
 
     @Override
     @NonNull
     protected Result onRunJob(Params params) {
 
-         context = App.get();
+        context = App.get();
         if (params.getTag().equals(TAG_WEEKLY)) {
             Bundle bundle = new Bundle();
             String type = "notifWeekly";
             bundle.putStringArray("key", new String[]{null, null, type, type});
             Intent notifWeeklyIntent = new Intent(context, NotificationService.class);
             notifWeeklyIntent.putExtras(bundle);
-        } if (params.getTag().equals(TAG) || params.getTag().equals(TAG_ONSTART))  {
-//            Intent updtIntent = new Intent(context, UpdateService.class);
-//            context.startService(updtIntent);
+            return Result.SUCCESS;
+        }
+        if (params.getTag().equals(TAG) || params.getTag().equals(TAG_ONSTART)) {
             updateTask = new UpdateTask(context);
             updateTask.execute("0");
             Timber.d("JOB STARTED - ONSTART_JOB");
+            return Result.SUCCESS;
         }
-        return Result.SUCCESS;
+        return Result.FAILURE;
     }
 }
 
@@ -93,7 +94,6 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
         outputStreamWriter.write(data);
         outputStreamWriter.close();
         if (name.equals("VER")) {
-//            stopSelf();
         }
     }
 
@@ -168,26 +168,22 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
         Timber.d("Path of versionJSON: " + version_file.getAbsolutePath());
 
         if (sms_file.exists() && version_file.exists()) {
-            Crashlytics.log("sms.txt and version.txt exists in internal storage");
-            Timber.d("sms.txt and version.txt exists in internal storage");
+            Timber.d("sms.txt and version.txt exists in the internal storage");
             int localVer = localCheckVersion();
-
             JSONObject jarray = new JSONObject(onlineVerStr);
             int onlineVer = jarray.getInt("version");
             Timber.d("Online Ver: " + onlineVer);
 
             if (onlineVer == localVer) {
-                Timber.d("Online version in internal storage is same as online version");
-//                stopSelf();
+                Timber.d("The online version in internal storage is same as online version");
                 return true;
             } else {
                 Timber.d("Online version in internal storage is older then online version");
                 UpdateTask replaceSms = new UpdateTask(context);
-                Timber.d( "Local version in internal storage will be updated");
+                Timber.d("Local version in internal storage will be updated");
                 replaceSms.execute("1");
             }
         } else {
-            Crashlytics.log("version.txt doesn't exist in internal storage");
             int localVer;
             int onlineVer;
             JSONObject locObj;
@@ -195,23 +191,21 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
             JSONObject Json = new JSONObject(onlineVerStr);
 
             onlineVer = Json.getInt("version");
-            Timber.d( "Online version is: " + String.valueOf(onlineVer));
+            Timber.d("Online version is: " + String.valueOf(onlineVer));
 
             locObj = new JSONObject(loadJSONFromAsset());
             localVer = locObj.getInt("version");
-            Timber.d( "Local version is: " + String.valueOf(localVer));
+            Timber.d("Local version is: " + String.valueOf(localVer));
             Prefs.with(c).writeInt("DBVersion", localVer);
 
             if (localVer == onlineVer) {
-                Timber.d( "Version of JSON in Assets is same as online version");
-//                stopSelf();
-
+                Timber.d("Version of JSON in assets is same as the online version");
                 return true;
             } else {
-                Timber.d( "Version of JSON in Assets is older than online version");
-               UpdateTask updateSms = new UpdateTask(context);
+                Timber.d("Version of JSON in assets is older than the online version");
+                UpdateTask updateSms = new UpdateTask(context);
                 updateSms.execute("1");
-                Timber.d("Local version in Assets wont be used anymore. Online version will be stored in internal storage and will be used instead ");
+                Timber.d("Local version in assets wo'nt be used anymore. Online version will be stored in the internal storage and will be used instead ");
             }
         }
         return true;
@@ -261,8 +255,7 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
             }
             if (buffer.length() == 0) {
                 // Stream was empty.  No point in parsing.
-                Timber.d("BUFFER == 0");
-//                stopSelf();
+                Timber.d("BUFFER.lenght == 0");
                 return null;
             }
             JsonStr = buffer.toString();
@@ -280,7 +273,6 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
                     reader.close();
                 } catch (final IOException e) {
                     Timber.d("Error closing stream");
-                    Crashlytics.log(1, "UPDATE-SERVICE", "Error closing stream");
                 }
             }
         }
@@ -289,7 +281,6 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
             results[1] = String.valueOf(par);
         } else {
             Timber.d("Probably connection problem");
-//            stopSelf();
             return null;
         }
         return results;
@@ -310,9 +301,8 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
                 case "1":
                     try {
                         Timber.d("New version.json was downloaded");
-                        Crashlytics.log("New version.json was downloaded");
                         writeToFile(result[0], "SMS");
-                       UpdateTask updateVersion = new UpdateTask(context);
+                        UpdateTask updateVersion = new UpdateTask(context);
                         updateVersion.execute("2");
                     } catch (IOException e) {
                         Crashlytics.logException(e);

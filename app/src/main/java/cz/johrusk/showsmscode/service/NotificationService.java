@@ -54,16 +54,6 @@ public class NotificationService extends IntentService {
         PendingIntent startAppIntent =
                 PendingIntent.getActivity(this, 0, appIntent, 0);
 
-        // Create a big text style for the second page
-        android.support.v4.app.NotificationCompat.BigTextStyle secondPageStyle = new NotificationCompat.BigTextStyle();
-        secondPageStyle.setBigContentTitle("Page 2")
-                .bigText("A lot of text...");
-
-        // Create second page notification
-        Notification secondPageNotification =
-                new NotificationCompat.Builder(this)
-                        .setStyle(secondPageStyle)
-                        .build();
 
         NotificationCompat.Builder notifBuilder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(this)

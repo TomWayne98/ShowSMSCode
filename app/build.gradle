@@ -25,8 +25,8 @@ android {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 18
         targetSdkVersion 23
-        versionCode 14
-        versionName "0.14"
+        versionCode 15
+        versionName "0.15"
 
 
     }
@@ -34,7 +34,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
+        }
+        debug {
+            debuggable true
         }
     }
     sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }

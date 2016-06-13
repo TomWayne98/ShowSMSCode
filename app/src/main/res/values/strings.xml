@@ -34,8 +34,8 @@
     <string name="MA_text_state_needperm">App needs\n permission.</string>
     <string name="SF_notification_summary_allowed">Allowed</string>
     <string name="SF_notification_summary_denied">Denied</string>
-    <string name="no_message_info">\"no_msg</string>
-    <string name="no_message">no_msg</string>
+    <string name="no_message_info" translatable="false">no_msg</string>
+    <string name="no_message" translatable="false">no_msg</string>
 
 
     <!--Notifikace-->

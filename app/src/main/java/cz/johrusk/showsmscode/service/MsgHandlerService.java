@@ -27,23 +27,22 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import cz.johrusk.showsmscode.activity.MainActivity;
 import cz.johrusk.showsmscode.core.App;
 import cz.johrusk.showsmscode.fragment.SettingsFragment;
 import timber.log.Timber;
 
 /**
- * Created by Pepa on 09.06.2016.
+ * Class which do most of the work after receiving the code.
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com
  */
 
 public class MsgHandlerService extends IntentService {
 
-    public static final String LOG_TAG = MainActivity.class.getName();
     public Context c = App.get();
-    private JSONArray m_jArry;
-
     SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(c);
     Boolean sendNotification = sharedPref.getBoolean(SettingsFragment.KEY_PREF_NOTIFICATION, true);
+    private JSONArray m_jArry;
 
     public MsgHandlerService() {
         super("MsgHandlerService");
@@ -70,8 +69,6 @@ public class MsgHandlerService extends IntentService {
                     code = matcher.group(1); // Access a submatch group; String can't do this.
                     Timber.d("code is: " + code);
                 }
-//                        Answers.getInstance().logCustom(new CustomEvent("SMS from DB received")
-//                                .putCustomAttribute("Code / Sender", code + "  " + smsOnList[1]));
                 if (code != "" && code != null) {
                     String type = "notifCode";
                     Bundle bundle = new Bundle();

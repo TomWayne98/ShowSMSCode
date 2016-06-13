@@ -26,8 +26,6 @@ public class AppCore extends Application {
         Timber.plant(new Timber.DebugTree());
         Timber.d("AppCore on Create started");
 
-
-
         app = this;
         super.onCreate();
         Intent startIntent = new Intent(this, DataLayerListenerService.class);
@@ -38,8 +36,5 @@ public class AppCore extends Application {
     }
 
 
-    public  void onEvent(String se){
-        Timber.d("AppCore-onevent" + se);
-    }
 
 }

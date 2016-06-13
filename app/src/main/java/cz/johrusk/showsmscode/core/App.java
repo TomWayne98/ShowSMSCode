@@ -25,10 +25,9 @@ public class App extends Application {
     public void onCreate() {
         app = this;
         super.onCreate();
-
-        Timber.plant(new Timber.DebugTree());
-        JobManager.create(this).addJobCreator(new JobCreator());
-        Fabric.with(this, new Crashlytics());
+        Timber.plant(new Timber.DebugTree()); // Timber init
+        JobManager.create(this).addJobCreator(new JobCreator()); // Job manager init
+        Fabric.with(this, new Crashlytics()); // Fabric init
     }
 
 
