@@ -15,12 +15,11 @@ apply plugin: 'android-apt'
 repositories {
     maven { url 'https://maven.fabric.io/public' }
     maven { url "https://jitpack.io" }
-
 }
 android {
 
     compileSdkVersion 23
-    buildToolsVersion '24.0.0 rc4'
+    buildToolsVersion '24.0.0 rc3'
     defaultConfig {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 18
@@ -55,7 +54,7 @@ dependencies {
     compile 'com.android.support:design:23.4.0'
     compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.google.android.gms:play-services-wearable:7.8.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha2'
+
     compile 'pl.tajchert:buswear:0.9.5'
     compile 'com.github.GrenderG:Prefs:1.1'
     compile 'me.grantland:autofittextview:0.2.+'
