@@ -5,10 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
-
-import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.CustomEvent;
-
 import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.sched.JobRunner;
 import es.dmoral.prefs.Prefs;
@@ -85,8 +81,6 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
             } else {
                 notificationPref.setSummary(R.string.SF_notification_summary_denied);
             }
-            Answers.getInstance().logCustom(new CustomEvent("Notification ON/OFF")
-                    .putCustomAttribute("Set to:", s));
         }
         if (key.equals(KEY_PREF_OVERLAY_DELAY)) {
             Preference overlayDelayPref = findPreference(key);

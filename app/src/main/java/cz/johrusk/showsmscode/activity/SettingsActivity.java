@@ -6,7 +6,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-
 import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.fragment.SettingsFragment;
 

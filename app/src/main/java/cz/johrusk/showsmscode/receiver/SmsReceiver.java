@@ -6,10 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
 
-import com.crashlytics.android.Crashlytics;
-
 import cz.johrusk.showsmscode.service.MsgHandlerService;
-import io.fabric.sdk.android.Fabric;
 import timber.log.Timber;
 
 /**
@@ -23,7 +20,6 @@ public class SmsReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context c, Intent intent) {
-        Fabric.with(c, new Crashlytics());
         this.c = c;
         Timber.d("SMS RECEIVED");
         SmsMessage[] messages = getMessages(intent);

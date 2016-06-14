@@ -7,11 +7,10 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import com.crashlytics.android.Crashlytics;
+import com.google.firebase.FirebaseException;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -21,7 +20,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
 import cz.johrusk.showsmscode.core.App;
 import cz.johrusk.showsmscode.service.NotificationService;
 import es.dmoral.prefs.Prefs;
@@ -107,11 +105,9 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
             is.close();
             json = new String(buffer, "UTF-8");
         } catch (IOException ex) {
-            Crashlytics.logException(ex);
             return null;
         }
         Timber.d("loadJSONFromAssets returns:" + json);
-        Crashlytics.log("loadJSONFromAssets returns:" + json);
         return json;
     }
 
@@ -148,9 +144,7 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
                 ret = stringBuilder.toString();
             }
         } catch (FileNotFoundException e) {
-            Crashlytics.log(1, "READFROMFILE", "File not found: " + e.toString());
         } catch (IOException e) {
-            Crashlytics.log(1, "READFROMFILE", "Can not read file: " + e.toString());
         }
         Timber.d("readFormFile return: " + ret);
         return ret;
@@ -260,7 +254,6 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
             }
             JsonStr = buffer.toString();
         } catch (IOException e) {
-            Crashlytics.logException(e);
 
             return null;
         } finally {
@@ -295,7 +288,6 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
                     try {
                         firstTimeCheckVersion(result[0]);
                     } catch (JSONException e) {
-                        Crashlytics.logException(e);
                     }
                     break;
                 case "1":
@@ -305,20 +297,17 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
                         UpdateTask updateVersion = new UpdateTask(context);
                         updateVersion.execute("2");
                     } catch (IOException e) {
-                        Crashlytics.logException(e);
                     }
                     break;
                 case "2":
                     try {
                         writeToFile(result[0], "VER");
                     } catch (IOException e) {
-                        Crashlytics.logException(e);
                     }
                     break;
             }
         } else {
             Timber.d("Download Failded");
-            Crashlytics.log(1, "UPDATE_SERVICE", "NullPointerException");
         }
     }
 }

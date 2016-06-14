@@ -22,7 +22,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.crashlytics.android.Crashlytics;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
 
@@ -37,7 +36,6 @@ import cz.johrusk.showsmscode.service.SimulateSmsService;
 import timber.log.Timber;
 
 import static cz.johrusk.showsmscode.sched.JobRunner.scheduleJob;
-import static java.lang.String.valueOf;
 
 
 /**
@@ -50,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     static Context context;
 
-     static Boolean isOK = true; // Permission state
+    static Boolean isOK = true; // Permission state
     public static final int PERM_SHOW_WINDOWS = 4; // Permission request
 
     //Jobs - Time periods
@@ -85,10 +83,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         context = App.get();
-        // Crashlitics
-        String crashlytics_id = valueOf(android.os.Build.MANUFACTURER + android.os.Build.MODEL);
-        Crashlytics.setUserName(crashlytics_id);
-        Crashlytics.log(crashlytics_id);
 
         setContentView(R.layout.main_activity);
         ButterKnife.bind(this);
@@ -102,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         author.setPaintFlags(author.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         sourceCode.setPaintFlags(sourceCode.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         reportIssue.setPaintFlags(reportIssue.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
         scheduleJob(UPDATE_24H); // It schedule daily job if there is no scheduled daily job yet.
     }
 

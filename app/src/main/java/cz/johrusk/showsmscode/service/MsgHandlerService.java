@@ -8,11 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-
-import com.crashlytics.android.Crashlytics;
-import com.crashlytics.android.answers.Answers;
-import com.crashlytics.android.answers.CustomEvent;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -105,8 +100,6 @@ public class MsgHandlerService extends IntentService {
                     clipIntent.putExtra("code", code);
                     c.startService(clipIntent);
                 } else {
-                    Answers.getInstance().logCustom(new CustomEvent("Code is null/\"\"")
-                            .putCustomAttribute("Sender / SMS Body", msgArr[0] + "  " + msgArr[1]));
                 }
             }
         } catch (JSONException e) {
@@ -163,11 +156,7 @@ public class MsgHandlerService extends IntentService {
                 ret = stringBuilder.toString();
             }
         } catch (FileNotFoundException e) {
-            Crashlytics.logException(e);
-            Crashlytics.log("File not found");
         } catch (IOException e) {
-            Crashlytics.logException(e);
-            Crashlytics.log("Cannot read file");
         }
         Timber.d("readFrommFile return: " + ret);
 

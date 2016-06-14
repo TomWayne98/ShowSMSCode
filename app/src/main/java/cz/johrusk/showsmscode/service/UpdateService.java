@@ -7,9 +7,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Binder;
 import android.os.IBinder;
-
-import com.crashlytics.android.Crashlytics;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -106,11 +103,9 @@ public class UpdateService extends Service {
                 is.close();
                 json = new String(buffer, "UTF-8");
             } catch (IOException ex) {
-                Crashlytics.logException(ex);
                 return null;
             }
             Timber.d("loadJSONFromAssets returns:" + json);
-            Crashlytics.log("loadJSONFromAssets returns:" + json);
             return json;
         }
 
@@ -147,9 +142,7 @@ public class UpdateService extends Service {
                     ret = stringBuilder.toString();
                 }
             } catch (FileNotFoundException e) {
-                Crashlytics.log(1, "READFROMFILE", "File not found: " + e.toString());
             } catch (IOException e) {
-                Crashlytics.log(1, "READFROMFILE", "Can not read file: " + e.toString());
             }
             Timber.d("readFormFile return: " + ret);
             return ret;
@@ -167,7 +160,6 @@ public class UpdateService extends Service {
             Timber.d("Path of versionJSON: " + version_file.getAbsolutePath());
 
             if (sms_file.exists() && version_file.exists()) {
-                Crashlytics.log("sms.txt and version.txt exists in internal storage");
                 Timber.d("sms.txt and version.txt exists in internal storage");
                 int localVer = localCheckVersion();
 
@@ -186,7 +178,6 @@ public class UpdateService extends Service {
                     replaceSms.execute("1");
                 }
             } else {
-                Crashlytics.log("version.txt doesn't exist in internal storage");
                 int localVer;
                 int onlineVer;
                 JSONObject locObj;
@@ -266,7 +257,6 @@ public class UpdateService extends Service {
                 }
                 JsonStr = buffer.toString();
             } catch (IOException e) {
-                Crashlytics.logException(e);
 
                 return null;
             } finally {
@@ -279,7 +269,6 @@ public class UpdateService extends Service {
                         reader.close();
                     } catch (final IOException e) {
                         Timber.d("Error closing stream");
-                        Crashlytics.log(1, "UPDATE-SERVICE", "Error closing stream");
                     }
                 }
             }
@@ -303,31 +292,26 @@ public class UpdateService extends Service {
                         try {
                             firstTimeCheckVersion(result[0]);
                         } catch (JSONException e) {
-                            Crashlytics.logException(e);
                         }
                         break;
                     case "1":
                         try {
                             Timber.d("New version.json was downloaded");
-                            Crashlytics.log("New version.json was downloaded");
                             writeToFile(result[0], "SMS");
                             UpdateTask updateVersion = new UpdateTask(context);
                             updateVersion.execute("2");
                         } catch (IOException e) {
-                            Crashlytics.logException(e);
                         }
                         break;
                     case "2":
                         try {
                             writeToFile(result[0], "VER");
                         } catch (IOException e) {
-                            Crashlytics.logException(e);
                         }
                         break;
                 }
             } else {
                 Timber.d("Download Failded");
-                Crashlytics.log(1, "UPDATE_SERVICE", "NullPointerException");
             }
         }
     }

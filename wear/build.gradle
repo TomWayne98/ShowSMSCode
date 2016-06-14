@@ -1,5 +1,8 @@
+
+
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
+apply plugin: 'me.tatarka.retrolambda'
 
 
 android {
@@ -11,8 +14,8 @@ android {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 15
-        versionName "0.15"
+        versionCode 16
+        versionName "0.16"
     }
     buildTypes {
         release {
@@ -22,18 +25,20 @@ android {
     }
 
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_7
-        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
+
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'me.grantland:autofittextview:0.2.+'
     compile 'com.jakewharton.timber:timber:4.1.2'
+    compile 'com.patloew.rxwear:rxwear:1.2.0'
     compile 'com.google.android.support:wearable:2.0.0-alpha1'
-    compile 'com.google.android.gms:play-services-wearable:7.8.0'
-    compile 'pl.tajchert:buswear:0.9.5'
+    compile 'com.google.android.gms:play-services-wearable:9.0.2'
+    compile 'com.google.firebase:firebase-core:9.0.2'
 }

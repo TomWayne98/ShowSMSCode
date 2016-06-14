@@ -5,8 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.patloew.rxwear.RxWear;
+
 import cz.johrusk.showsmscode.core.App;
-import pl.tajchert.buswear.EventBus;
 import timber.log.Timber;
 
 /**
@@ -28,7 +29,12 @@ public class WearService extends IntentService {
         String[] Arr = new String[4];
         Arr = bundle.getStringArray("key");
         String codePlusSender = Arr[0] + "/" + Arr[2];
-       Timber.d("Post remote sent ( " + codePlusSender + " )");
-        EventBus.getDefault().postRemote(codePlusSender, c);
+        Timber.d("Post remote sent ( " + codePlusSender + " )");
+        RxWear.init(c);
+        RxWear.Message.SendDataMap.toAllRemoteNodes("/dataMap")
+                .putString("message", codePlusSender)
+                .toObservable()
+                .subscribe(requestId -> {
+                });
     }
 }

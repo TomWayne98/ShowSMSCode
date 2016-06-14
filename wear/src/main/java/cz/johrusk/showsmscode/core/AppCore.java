@@ -25,13 +25,12 @@ public class AppCore extends Application {
     public void onCreate() {
         Timber.plant(new Timber.DebugTree());
         Timber.d("AppCore on Create started");
-
         app = this;
         super.onCreate();
         Intent startIntent = new Intent(this, DataLayerListenerService.class);
             startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startService(startIntent);
-        Timber.d("AppCore-onCREATED");
+
 
     }
 

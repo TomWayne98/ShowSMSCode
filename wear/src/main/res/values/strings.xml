@@ -3,6 +3,5 @@
     <string name="hello_round">Hello World"</string>
     <string name="hello_square">Hello World!</string>
     <string name="textview">PlaceH0LD3R</string>
-    <string name="no_message">no_msg</string>
-    <string name="no_message_info">no_msg_infor</string>
+    <string name="no_message_info">no_msg</string>
 </resources>

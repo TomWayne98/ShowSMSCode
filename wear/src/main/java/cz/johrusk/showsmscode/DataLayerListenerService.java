@@ -20,8 +20,9 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
-
-import pl.tajchert.buswear.EventBus;
+import com.google.android.gms.wearable.MessageApi;
+import com.patloew.rxwear.RxWear;
+import com.patloew.rxwear.transformers.MessageEventGetDataMap;
 import timber.log.Timber;
 
 /**
@@ -42,21 +43,22 @@ public class DataLayerListenerService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        EventBus.getDefault().register(this);
+        RxWear.init(this);
+        RxWear.Message.listen("/dataMap", MessageApi.FILTER_LITERAL)
+                .compose(MessageEventGetDataMap.noFilter())
+                .subscribe(dataMap -> {
+                    String message = dataMap.getString("message", getString(R.string.no_message_info));
+                    Timber.d("Message received: " + message);
+                    if (!message.equals("no_msg")) {
+                        Intent startIntent = new Intent(this, ShowActivity.class);
+                        startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startIntent.putExtra("code", message);
+                        startActivity(startIntent);
+                        stopSelf();
+                    }
+                });
         Timber.d("DataLayer started");
         return super.onStartCommand(intent, flags, startId);
-    }
-
-
-    public void onEvent(String strg) {
-        Timber.d("On-Event started" + strg);
-        if (!strg.equals("text")) {
-            Intent startIntent = new Intent(this, ShowActivity.class);
-            startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startIntent.putExtra("code", strg);
-            startActivity(startIntent);
-            stopSelf();
-        }
     }
 }
 
