@@ -3,6 +3,8 @@
     package="cz.johrusk.showsmscode">
 
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
 
     <uses-feature android:name="android.hardware.type.watch" />
 
@@ -16,8 +18,14 @@
         <activity
             android:name="cz.johrusk.showsmscode.ShowActivity">
         </activity>
+        <receiver android:name="cz.johrusk.showsmscode.BootCompletedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         <activity
-            android:name="cz.johrusk.showsmscode.MainActivity">
+            android:name="cz.johrusk.showsmscode.MainActivity"
+            android:exported="true">
         </activity>
         <service
             android:name="cz.johrusk.showsmscode.DataLayerListenerService" >

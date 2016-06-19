@@ -1,9 +1,7 @@
 package cz.johrusk.showsmscode.core;
 
 import android.app.Application;
-import android.content.Intent;
 
-import cz.johrusk.showsmscode.MainActivity;
 import timber.log.Timber;
 
 /**
@@ -25,10 +23,6 @@ public class AppCore extends Application {
         Timber.d("AppCore on Create started");
         app = this;
         super.onCreate();
-        Intent startIntent = new Intent(this, MainActivity.class);
-            startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(startIntent);
-
 
     }
 

@@ -24,6 +24,7 @@ public class JobRunner {
         }
     }
     public static void scheduleOnStartJob() {
+        if (JobManager.instance().getAllJobRequestsForTag(UpdateJob.TAG_ONSTART).isEmpty()) {
         int jobId = new JobRequest.Builder(UpdateJob.TAG_ONSTART)
                 .setExecutionWindow(10_000L, 20_000L)
                 .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
@@ -32,5 +33,6 @@ public class JobRunner {
                 .setUpdateCurrent(true)
                 .build()
                 .schedule();
+    }
     }
 }
