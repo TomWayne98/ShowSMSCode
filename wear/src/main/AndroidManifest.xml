@@ -16,6 +16,9 @@
         <activity
             android:name="cz.johrusk.showsmscode.ShowActivity">
         </activity>
+        <activity
+            android:name="cz.johrusk.showsmscode.MainActivity">
+        </activity>
         <service
             android:name="cz.johrusk.showsmscode.DataLayerListenerService" >
         </service>

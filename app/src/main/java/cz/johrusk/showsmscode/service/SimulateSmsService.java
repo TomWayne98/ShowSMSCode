@@ -25,7 +25,7 @@ public class SimulateSmsService extends IntentService {
         Context c = App.get();
 
         Intent msgHandler = new Intent(c, MsgHandlerService.class);
-        String msgContent = "TEST code: 997192";
+        String msgContent = "TEST code: 997456192";
         String msgSender = "123456";
         Bundle msg = new Bundle();
 

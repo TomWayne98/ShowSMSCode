@@ -17,12 +17,12 @@ repositories {
 }
 android {
 
-    compileSdkVersion 23
-    buildToolsVersion '24.0.0 rc3'
+    compileSdkVersion 24
+    buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 18
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 16
         versionName "0.16"
 
@@ -49,13 +49,13 @@ dependencies {
     compile 'com.evernote:android-job:1.0.4'
     compile 'com.jakewharton:butterknife:8.0.1'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.android.support:design:23.4.0'
+    compile 'com.android.support:appcompat-v7:24.0.0'
+    compile 'com.android.support:design:24.0.0'
     compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.google.android.gms:play-services-wearable:9.0.2'
     compile 'com.google.firebase:firebase-core:9.0.2'
     compile 'com.github.GrenderG:Prefs:1.1'
-    compile 'me.grantland:autofittextview:0.2.+'
+    compile 'com.github.AndroidDeveloperLB:AutoFitTextView:2'
     compile 'com.patloew.rxwear:rxwear:1.2.0'
     compile 'com.google.android.support:wearable:2.0.0-alpha1'
     compile 'com.github.ParkSangGwon:TedPermission:v1.0.11'

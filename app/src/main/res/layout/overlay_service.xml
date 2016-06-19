@@ -9,7 +9,7 @@
     android:background="@color/textColorPrimary"
     android:elevation="8dp">
 
-    <me.grantland.widget.AutofitTextView
+    <com.lb.auto_fit_textview.AutoResizeTextView
         android:id="@+id/tv_OS_sender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         android:textColor="#676767"
         />
 
-    <me.grantland.widget.AutofitTextView
+    <com.lb.auto_fit_textview.AutoResizeTextView
         android:textColor="@color/bright_foreground_inverse_material_dark"
         android:id="@+id/tv_OS_code"
         android:layout_width="wrap_content"

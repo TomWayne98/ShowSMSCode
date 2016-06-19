@@ -3,7 +3,7 @@ package cz.johrusk.showsmscode.core;
 import android.app.Application;
 import android.content.Intent;
 
-import cz.johrusk.showsmscode.DataLayerListenerService;
+import cz.johrusk.showsmscode.MainActivity;
 import timber.log.Timber;
 
 /**
@@ -13,8 +13,6 @@ import timber.log.Timber;
  */
 public class AppCore extends Application {
     private static AppCore app;
-    final static String LOG_TAG = AppCore.class.getSimpleName();
-
 
 
     public static AppCore get() {
@@ -27,9 +25,9 @@ public class AppCore extends Application {
         Timber.d("AppCore on Create started");
         app = this;
         super.onCreate();
-        Intent startIntent = new Intent(this, DataLayerListenerService.class);
+        Intent startIntent = new Intent(this, MainActivity.class);
             startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startService(startIntent);
+            startActivity(startIntent);
 
 
     }
