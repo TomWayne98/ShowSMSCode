@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.patloew.rxwear.GoogleAPIConnectionException;
 import com.patloew.rxwear.RxWear;
 
 import cz.johrusk.showsmscode.core.App;
@@ -35,6 +36,13 @@ public class WearService extends IntentService {
                 .putString("message", codePlusSender)
                 .toObservable()
                 .subscribe(requestId -> {
-                });
+                        }, throwable -> {
+                            if (throwable instanceof GoogleAPIConnectionException) {
+                                Timber.d("Android wear is not installed");
+                            } else {
+                                Timber.d("Message was not send to wearable");
+                            }
+                        }
+                );
     }
 }

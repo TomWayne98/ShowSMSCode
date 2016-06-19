@@ -4,6 +4,7 @@
     <PreferenceCategory
         android:title="@string/pref_group_phone">
     <CheckBoxPreference
+        android:id="@+id/Notifications"
         android:key="pref_notification"
         android:title="@string/pref_notification"
         android:summary="@string/pref_notification_summ"

@@ -5,9 +5,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+
 import cz.johrusk.showsmscode.R;
 import cz.johrusk.showsmscode.sched.JobRunner;
 import es.dmoral.prefs.Prefs;
+import timber.log.Timber;
 
 
 /**
@@ -19,6 +21,7 @@ import es.dmoral.prefs.Prefs;
 public class SettingsFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     public static final String KEY_PREF_OVERLAY_DELAY = "pref_overlayDelay";
+    public static final String KEY_PREF_OVERLAY_DELAY_PREFS = "pref_overlayDelayPrefs";
     public static final String KEY_PREF_NOTIFICATION = "pref_notification";
     public static final String KEY_PREF_VERSION = "pref_versionUpdate";
 
@@ -35,8 +38,11 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         // Load the preferences from an XML resource
 
         int DBVersion = Prefs.with(c).readInt("DBVersion", -1);
+        Timber.d("Version of DB = " + DBVersion);
         String str = String.valueOf(DBVersion);
         sharedpreferences = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+         //int oDelay = Prefs.with(c).readInt(KEY_PREF_OVERLAY_DELAY_PREFS);
+//        CheckBoxPreference checkBoxPreference = findPreference(KEY_PREF_NOTIFICATION);
         Preference pref = findPreference(KEY_PREF_VERSION);
         pref.setSummary(getResources().getString(R.string.SF_summary_text));
         pref.setTitle(getResources().getString(R.string.versionDB_title) + str);
