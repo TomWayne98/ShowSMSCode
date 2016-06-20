@@ -23,8 +23,8 @@ android {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 18
         targetSdkVersion 24
-        versionCode 16
-        versionName "0.16"
+        versionCode 17
+        versionName "0.17"
 
 
     }
