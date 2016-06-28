@@ -19,6 +19,8 @@
         android:layout_marginBottom="30dp"
         android:text="Sender"
         android:maxLines="2"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:textSize="24sp"
         android:textColor="#676767"
         />
@@ -30,6 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:text="PlaceholderC0D3T3XT"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
         android:textAlignment="center"
         android:maxLines="1"
         autofit:minTextSize="16sp"

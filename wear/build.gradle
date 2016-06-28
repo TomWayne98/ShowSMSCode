@@ -1,6 +1,7 @@
 
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
@@ -28,6 +29,9 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 dependencies {
@@ -41,4 +45,8 @@ dependencies {
     compile 'com.google.android.support:wearable:2.0.0-alpha1'
     compile 'com.google.android.gms:play-services-wearable:9.0.2'
     compile 'com.google.firebase:firebase-core:9.0.2'
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }

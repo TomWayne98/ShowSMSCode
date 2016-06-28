@@ -9,11 +9,13 @@ buildscript {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 apply plugin: 'android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 repositories {
     maven { url "https://jitpack.io" }
+    mavenCentral()
 }
 android {
 
@@ -37,7 +39,9 @@ android {
             debuggable true
         }
     }
-    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] } }
+    sourceSets { main { assets.srcDirs = ['src/main/assets', 'src/main/assets/'] }
+        main.java.srcDirs += 'src/main/kotlin'
+    }
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -64,4 +68,5 @@ dependencies {
 
     apply plugin: 'com.google.gms.google-services'
     wearApp project(':wear')
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }

@@ -7,10 +7,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
-import com.google.firebase.FirebaseException;
-
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,6 +19,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import cz.johrusk.showsmscode.core.App;
 import cz.johrusk.showsmscode.service.NotificationService;
 import es.dmoral.prefs.Prefs;
@@ -311,4 +311,3 @@ class UpdateTask extends AsyncTask<String, Void, String[]> {
         }
     }
 }
-
