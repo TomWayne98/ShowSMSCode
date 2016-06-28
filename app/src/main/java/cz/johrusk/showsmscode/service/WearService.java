@@ -25,7 +25,7 @@ public class WearService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Context c = App.get();
+        Context c = App.Companion.get();
         Bundle bundle = intent.getExtras();
         String[] Arr = new String[4];
         Arr = bundle.getStringArray("key");

@@ -34,7 +34,7 @@ import timber.log.Timber;
 
 public class MsgHandlerService extends IntentService {
 
-    public Context c = App.get();
+    public Context c = App.Companion.get();
     SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(c);
     Boolean sendNotification = sharedPref.getBoolean(SettingsFragment.KEY_PREF_NOTIFICATION, true);
     private JSONArray m_jArry;

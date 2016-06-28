@@ -3,18 +3,21 @@
 buildscript {
     ext.kotlin_version = '1.0.2-1'
     ext.kotlin_version = '1.0.2'
-
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
+
         mavenCentral()
     }
-    dependencies {
 
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.0-alpha3'
         classpath 'com.google.gms:google-services:3.0.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.android.tools.build:gradle:2.2.0-alpha3'
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -27,6 +30,8 @@ allprojects {
     repositories {
         jcenter()
         maven { url "https://jitpack.io" }
+
+        mavenCentral()
     }
 }
 

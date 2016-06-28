@@ -22,7 +22,7 @@ public class SimulateSmsService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Context c = App.get();
+        Context c = App.Companion.get();
 
         Intent msgHandler = new Intent(c, MsgHandlerService.class);
         String msgContent = "TEST code: 997456192";

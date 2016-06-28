@@ -2,6 +2,7 @@
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
@@ -46,6 +47,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-wearable:9.0.2'
     compile 'com.google.firebase:firebase-core:9.0.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'org.jetbrains.anko:anko-sdk15:0.9'
 }
 repositories {
     mavenCentral()

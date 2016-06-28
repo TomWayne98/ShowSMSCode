@@ -35,6 +35,8 @@ import cz.johrusk.showsmscode.sched.JobRunner;
 import cz.johrusk.showsmscode.service.SimulateSmsService;
 import timber.log.Timber;
 
+
+
 import static cz.johrusk.showsmscode.sched.JobRunner.scheduleJob;
 
 
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        context = App.get();
+        context = App.Companion.get();
 
         setContentView(R.layout.main_activity);
         ButterKnife.bind(this);

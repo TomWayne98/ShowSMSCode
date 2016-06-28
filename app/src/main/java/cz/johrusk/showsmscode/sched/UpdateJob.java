@@ -43,7 +43,7 @@ public class UpdateJob extends com.evernote.android.job.Job {
     @NonNull
     protected Result onRunJob(Params params) {
 
-        context = App.get();
+        context = App.Companion.get();
         if (params.getTag().equals(TAG_WEEKLY)) {
             Bundle bundle = new Bundle();
             String type = "notifWeekly";
