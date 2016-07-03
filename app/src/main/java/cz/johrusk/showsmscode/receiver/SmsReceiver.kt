@@ -13,7 +13,7 @@ import timber.log.Timber
 /**
  * Created by Pepa on 03.07.2016.
  */
-class SmsReceiverKotlin : BroadcastReceiver(), AnkoLogger {
+class SmsReceiver : BroadcastReceiver(), AnkoLogger {
     override fun onReceive(context: Context, intent: Intent) {
         warn { "SMS Received" }
         val messages = getMessages(intent)
@@ -41,13 +41,14 @@ class SmsReceiverKotlin : BroadcastReceiver(), AnkoLogger {
 
     @Synchronized fun getMessages(intent: Intent): Array<SmsMessage?> {
         val bundle = intent.extras
+        val format = bundle.getString("format") //From API 23+ it is necessary to get format to choose between 3GPP/3GPP2 formatting
 
-        val messages: Array<Object>? = bundle.get("pdus") as Array<Object>
+        val messages: Array<Any>? = bundle.get("pdus") as Array<Any>
         if (messages != null) {
             try {
                 val smsMessages = arrayOfNulls<SmsMessage>(messages.size)
                 for (i in messages.indices) {
-                    smsMessages[i] = SmsMessage.createFromPdu(messages[i] as ByteArray)
+                    smsMessages[i] = SmsMessage.createFromPdu(messages[i] as ByteArray,format)
                 }
                 return smsMessages
             } catch (e: SecurityException) {
