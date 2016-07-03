@@ -15,7 +15,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -34,10 +33,6 @@ import cz.johrusk.showsmscode.core.App;
 import cz.johrusk.showsmscode.sched.JobRunner;
 import cz.johrusk.showsmscode.service.SimulateSmsService;
 import timber.log.Timber;
-
-
-
-import static cz.johrusk.showsmscode.sched.JobRunner.scheduleJob;
 
 
 /**
@@ -98,14 +93,17 @@ public class MainActivity extends AppCompatActivity {
         author.setPaintFlags(author.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         sourceCode.setPaintFlags(sourceCode.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         reportIssue.setPaintFlags(reportIssue.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        scheduleJob(UPDATE_24H); // It schedule daily job if there is no scheduled daily job yet.
+        //TODO - is this way of running job OK?
+        JobRunner.INSTANCE.scheduleJob(UPDATE_24H);
+//        scheduleJob(UPDATE_24H); // It schedule daily job if there is no scheduled daily job yet.
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         Timber.d("MainActivity state: onStart");
-        JobRunner.scheduleOnStartJob();
+        //TODO - is this way of running job OK?
+        JobRunner.INSTANCE.scheduleOnStartJob();
         checkPermissionState();
 
         new TedPermission(this)
@@ -127,12 +125,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -151,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method checks if are all permissions granted
+     * This method checks if  all permissions are granted
      * eventually it change state indicator to yellow (green circle)
      */
     public void checkPermissionState() {

@@ -49,7 +49,7 @@ public class SettingsFragment extends PreferenceFragment implements SharedPrefer
         pref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
             @Override
             public boolean onPreferenceClick(Preference preference) {
-                JobRunner.scheduleOnStartJob();
+                JobRunner.INSTANCE.scheduleOnStartJob();
                 return false;
             }
         });

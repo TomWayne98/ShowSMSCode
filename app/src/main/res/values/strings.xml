@@ -23,6 +23,8 @@
     <string name="action_simulateSMS">Simulate SMS</string>
     <string name="SF_summary_text">"Tap to update ticket definitions"</string>
     <string name="SF_delay_summary_seconds">" seconds"</string>
+    <string name="SF_notification_summary_allowed">Allowed</string>
+    <string name="SF_notification_summary_denied">Denied</string>
 
     <!--MainActivity text-->
     <string name="MA_text_notRecognized">SMS not recognized?</string>
@@ -32,12 +34,18 @@
     <string name="MA_text_Aboutauthor">Author: Josef Hruška</string>
     <string name="MA_text_state">App listens\n for verification\n SMS messages</string>
     <string name="MA_text_state_needperm">App needs\n permission.</string>
-    <string name="SF_notification_summary_allowed">Allowed</string>
-    <string name="SF_notification_summary_denied">Denied</string>
     <string name="no_message_info" translatable="false">no_msg</string>
     <string name="no_message" translatable="false">no_msg</string>
+    <string name="MA_permission_denied_dialog">If you reject permission, app can not work properly\n\nPlease turn on permissions at [Setting] > [Permission]"</string>
+    <string name="MA_toast_permission_state_OK">Permissions are OK</string>
+
+    <!--Browser urls-->
+    <string name="URL_LinkedIn" translatable="false">https://www.linkedin.com/in/josefhruska</string>
+    <string name="URL_GitHub" translatable="false">https://github.com/JosefHruska/ShowSMSCode</string>
+    <string name="URL_Issues" translatable="false">https://github.com/JosefHruska/ShowSMSCode/issues</string>
+    <string name="URL_AddSMS" translatable="false">https://github.com/JosefHruska/ShowSMSCode/wiki/How-to-add-new-SMS-pattern</string>
 
 
-    <!--Notifikace-->
+
 
 </resources>
