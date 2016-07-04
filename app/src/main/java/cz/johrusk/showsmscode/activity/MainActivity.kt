@@ -33,7 +33,7 @@ import java.util.*
  * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 
-class MainActivityKotlin :  AppCompatActivity(), AnkoLogger {
+class MainActivity :  AppCompatActivity(), AnkoLogger {
 
     companion object{
         var isOK = true
@@ -76,7 +76,7 @@ class MainActivityKotlin :  AppCompatActivity(), AnkoLogger {
         JobRunner.scheduleOnStartJob()
         checkPermissionState()
 
-         TedPermission(this) // Use after checkPermissionState
+        TedPermission(this) // Use after checkPermissionState
                 .setPermissionListener(permissionListener)
                 .setDeniedMessage(R.string.MA_permission_denied_dialog)
                 .setPermissions(Manifest.permission.READ_SMS, Manifest.permission.RECEIVE_SMS, Manifest.permission.RECEIVE_BOOT_COMPLETED)
@@ -107,7 +107,7 @@ class MainActivityKotlin :  AppCompatActivity(), AnkoLogger {
                 return true
             }
             R.id.action_simulateSMS -> {
-                startActivity(intentFor<SimulateSmsService>())// Simulate receiving a SMS
+                startService(intentFor<SimulateSmsService>())// Simulate receiving a SMS
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -150,16 +150,14 @@ class MainActivityKotlin :  AppCompatActivity(), AnkoLogger {
 
         }
         if (isOK === true && Build.VERSION.SDK_INT < 23) {
-            iv_state.setColorFilter(resources.getColor(R.color.color_state))
+            iv_state.setColorFilter(getColor(R.color.color_state))
             tv_state.setText(R.string.MA_text_state)
             iv_state.setOnClickListener { toast(R.string.MA_toast_permission_state_OK) }
         } else if (isOK === true && Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(ctx)) {
-            iv_state.setColorFilter(resources.getColor(R.color.color_state))
+            iv_state.setColorFilter(getColor(R.color.color_state))
             tv_state.setText(R.string.MA_text_state)
             iv_state.setOnClickListener {toast(R.string.MA_toast_permission_state_OK) }
         }
-
-
 
         val permissionlistener: PermissionListener = object : PermissionListener {
             override fun onPermissionGranted() {
@@ -171,11 +169,10 @@ class MainActivityKotlin :  AppCompatActivity(), AnkoLogger {
             }
 
         }
-     permissionListener = permissionlistener
+        permissionListener = permissionlistener
     }
 
-    //
-    fun openBrowser(v: View) {
+    fun openBrowser(v: View) { // This method is called from .xml...
         var url: String? = null
 
         when (v.id) {

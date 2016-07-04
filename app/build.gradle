@@ -6,7 +6,7 @@ apply plugin: 'android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 
 buildscript {
-    ext.kotlin_version = '1.0.2-1'
+
     repositories {
         maven { url "https://jitpack.io" }
         mavenCentral()
@@ -14,8 +14,6 @@ buildscript {
 
     dependencies {
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
     }
 }
 
@@ -63,7 +61,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:24.0.0'
     compile 'com.jakewharton.timber:timber:4.1.2'
-    compile 'com.google.android.gms:play-services-wearable:9.0.2'
+    compile 'com.google.android.gms:play-services-wearable:9.2.0'
     compile 'com.google.firebase:firebase-core:9.0.2'
     compile 'com.github.GrenderG:Prefs:1.1'
     compile 'com.github.AndroidDeveloperLB:AutoFitTextView:2'

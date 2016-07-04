@@ -31,10 +31,6 @@
             android:name=".service.ClipService"
             android:exported="false" />
         <service
-            android:name=".service.UpdateService"
-            android:exported="true"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-        <service
             android:name=".service.WearService"
             android:exported="false" />
         <service
