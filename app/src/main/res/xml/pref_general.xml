@@ -7,13 +7,11 @@
         android:id="@+id/Notifications"
         android:key="pref_notification"
         android:title="@string/pref_notification"
-        android:summary="@string/pref_notification_summ"
         android:defaultValue="true" />
     </PreferenceCategory>
     <ListPreference
         android:key="pref_overlayDelay"
         android:title="@string/pref_overlayDelay_title"
-        android:summary="@string/pref_overlayDelay_summ"
         android:entries="@array/pref_overlayDelay_entries"
         android:entryValues="@array/pref_overlayDelay_values"
         android:defaultValue="@string/pref_overlayDelay_default" />

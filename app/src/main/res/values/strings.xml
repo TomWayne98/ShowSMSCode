@@ -21,10 +21,12 @@
     <!--Menu-->
     <string name="action_settings">Settings</string>
     <string name="action_simulateSMS">Simulate SMS</string>
-    <string name="SF_summary_text">"Tap to update ticket definitions"</string>
+    <string name="SF_summary_text">Tap to update ticket definitions</string>
     <string name="SF_delay_summary_seconds">" seconds"</string>
     <string name="SF_notification_summary_allowed">Allowed</string>
     <string name="SF_notification_summary_denied">Denied</string>
+    <string name="SF_manual_update">Manual update started</string>
+
 
     <!--MainActivity text-->
     <string name="MA_text_notRecognized">SMS not recognized?</string>

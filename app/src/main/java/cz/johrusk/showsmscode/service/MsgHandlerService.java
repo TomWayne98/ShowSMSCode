@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +24,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import cz.johrusk.showsmscode.core.App;
-import cz.johrusk.showsmscode.fragment.SettingsFragment;
 import timber.log.Timber;
 
 /**
@@ -36,7 +36,7 @@ public class MsgHandlerService extends IntentService {
 
     public Context c = App.Companion.get();
     SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(c);
-    Boolean sendNotification = sharedPref.getBoolean(SettingsFragment.KEY_PREF_NOTIFICATION, true);
+    Boolean sendNotification = sharedPref.getBoolean("pref_notification", true);
     private JSONArray m_jArry;
 
     public MsgHandlerService() {
