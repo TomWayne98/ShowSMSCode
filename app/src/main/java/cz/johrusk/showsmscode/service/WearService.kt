@@ -17,7 +17,7 @@ import org.jetbrains.anko.debug
 class WearService : IntentService("WearService"), AnkoLogger {
 
     override fun onHandleIntent(intent: Intent) {
-        val bundle = intent.extras
+        val bundle = intent.getBundleExtra("bundle")
         val Arr:Array<String> = bundle.getStringArray("key")
         val codePlusSender = Arr[0] + "/" + Arr[2]
         debug("Post remote sent ( $codePlusSender )")

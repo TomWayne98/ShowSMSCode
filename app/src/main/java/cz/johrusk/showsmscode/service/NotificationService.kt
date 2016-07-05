@@ -22,7 +22,7 @@ class NotificationService : IntentService("NotificationService") {
 
     override fun onHandleIntent(intent: Intent) {
 //        var dataArray = arrayOfNulls<String>(4)
-        val bundle = intent.extras
+        val bundle = intent.getBundleExtra("bundle")
         val  dataArray = bundle.getStringArray("key")
         val notifType = dataArray[3]
 

@@ -12,10 +12,7 @@ import android.view.WindowManager
 import android.widget.TextView
 import cz.johrusk.showsmscode.R
 import cz.johrusk.showsmscode.fragment.SettingsFragment
-import org.jetbrains.anko.ctx
-import org.jetbrains.anko.find
-import org.jetbrains.anko.layoutInflater
-import org.jetbrains.anko.windowManager
+import org.jetbrains.anko.*
 import timber.log.Timber
 
 /**
@@ -24,15 +21,13 @@ import timber.log.Timber
  * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 
-class OverlayService : Service() {
+class OverlayService : Service(), AnkoLogger{
     override fun onBind(p0: Intent?): IBinder? {
         return null //Not used
     }
 
     companion object {
       var layout: View? = null
-
-
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
@@ -42,7 +37,7 @@ class OverlayService : Service() {
         layout =  layoutInflater.inflate(R.layout.overlay_service,null)
         val dataArray: Array<String>
         dataArray = bundle.getStringArray("key")
-        Timber.d("OnStartCommand " + dataArray[0] + " " + dataArray[2])
+        debug("Overlay Service - onStartCommand with" + dataArray[0] + " " + dataArray[2])
         val code = dataArray[0]
         val sender = dataArray[2]
         val params = WindowManager.LayoutParams(
