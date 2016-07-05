@@ -6,11 +6,7 @@ import android.os.IBinder
 import com.google.android.gms.wearable.MessageApi
 import com.patloew.rxwear.RxWear
 import com.patloew.rxwear.transformers.MessageEventGetDataMap
-import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.newTask
-import org.jetbrains.anko.warn
-import timber.log.Timber
+import org.jetbrains.anko.*
 
 /**
  * Service which receives String containing code and sender from WearActivity.
@@ -33,7 +29,7 @@ class DataLayerListenerService : Service(), AnkoLogger {
                 stopSelf()
             }
         }
-        Timber.d("DataLayer started")
+        debug("DataLayer started")
         return super.onStartCommand(intent, flags, startId)
     }
 }

@@ -24,11 +24,12 @@ import java.util.regex.Pattern
 class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
 
     //    var c: Context = App.get()
-    private var sharedPref = PreferenceManager.getDefaultSharedPreferences(ctx)
-    private var sendNotification: Boolean = sharedPref.getBoolean("pref_notification", true)
+
 
 
     override fun onHandleIntent(intent: Intent) {
+        val sharedPref = PreferenceManager.getDefaultSharedPreferences(ctx)
+        val sendNotification: Boolean = sharedPref.getBoolean("pref_notification", true)
         val msgArr = intent.getBundleExtra("msg").getStringArray("msg")
 
         try {
@@ -94,10 +95,6 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
 
     /**
      * This method loads sms file from internal storage
-
-     * @return sms file in form of String
-     * *
-     * @throws org.json.JSONException
      */
     @Throws(JSONException::class)
     private fun loadJSONFromInternal(): String {
@@ -109,13 +106,16 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
             if (inputStream != null) {
                 val inputStreamReader = InputStreamReader(inputStream)
                 val bufferedReader = BufferedReader(inputStreamReader)
-                var receiveString = ""
                 val stringBuilder = StringBuilder()
-                receiveString = bufferedReader.readLine()
-                while (receiveString != null) {
+                var receiveString:String = bufferedReader.readLine()
+                do {
                     stringBuilder.append(receiveString)
                     receiveString = bufferedReader.readLine()
                 }
+                while (receiveString != null)
+
+
+
                 inputStream.close()
                 ret = stringBuilder.toString()
             }
@@ -134,7 +134,7 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
      * @return sms file in form of String
      */
     fun loadJSONFromAsset(): String? {
-        var json: String? = null
+        val json:String
         try {
             val iStream = ctx.assets.open("sms.json")
             val size = iStream.available()
@@ -152,7 +152,6 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
 
     /**
      * This method checks whether is unique text in sms
-
      * @param msg_content text of sms
      * *
      * @param results     Array with information in sms
@@ -160,8 +159,6 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
      * @return true == "Unique text is contained in sms" false == "Unique text is not contained in sms"
      */
     fun containUnique(msg_content: String, results: Array<String?>): Boolean {
-
-        val code = ""
 
         val pUnique = Pattern.compile(results[0])
         val mUnique = pUnique.matcher(msg_content)
@@ -219,24 +216,16 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
 
     /**
      * This method loads data from JSON DB and compares them with each sms.
-
-     * @param msg_sender_number
-     * *
-     * @param msg_content
-     * *
-     * @return
-     * *
-     * @throws org.json.JSONException
      */
     @Throws(JSONException::class)
     fun recognizeSms(msg_sender_number: String, msg_content: String): Array<String?>? {
-        var m_jArry: JSONArray? = null
+        val m_jArry: JSONArray
         val results = arrayOfNulls<String>(3)
         var name: String? = null
         var number: Long = 0
         var name_value: String? = null
         var number_value: Long = 0
-        var alt_numbers: JSONArray? = null
+        var alt_numbers: JSONArray
 
         val isNumber = numberOrName(msg_sender_number)
         if (!(isNumber)) {
@@ -268,7 +257,7 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
             results[1] = jo_inside.getString("sender")
             results[2] = jo_inside.getString("reg_ex")
             if (id_value < 1000 && !number.equals(0)) {
-                if (number == number_value && containUnique(msg_content, results)!!) {
+                if (number == number_value && containUnique(msg_content, results)) {
                     warn("number was recognized")
                     return results
                 }
@@ -276,13 +265,13 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
                     alt_numbers = jo_inside.getJSONArray("alt_numbers")
                     for (x in 0..alt_numbers!!.length() - 1) {
                         altnumbers_value[x] = alt_numbers.getString(x)
-                        if (number == java.lang.Long.valueOf(altnumbers_value[x]) && containUnique(msg_content, results)!!) {
+                        if (number == java.lang.Long.valueOf(altnumbers_value[x]) && containUnique(msg_content, results)) {
                             return results
                         }
                     }
                 }
             } else if (name != null) {
-                if (name == name_value && containUnique(msg_content, results)!!) {
+                if (name == name_value && containUnique(msg_content, results)) {
                     warn("number was recognized")
                     return results
                 }
@@ -290,7 +279,7 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
                     alt_numbers = jo_inside.getJSONArray("alt_numbers")
                     for (x in 0..alt_numbers!!.length() - 1) {
                         altnumbers_value[x] = alt_numbers.getString(x)
-                        if (name == altnumbers_value[x] && containUnique(msg_content, results)!!) {
+                        if (name == altnumbers_value[x] && containUnique(msg_content, results)) {
                             return results
                         }
                     }

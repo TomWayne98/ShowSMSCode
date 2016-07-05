@@ -39,13 +39,9 @@ class MainActivity :  AppCompatActivity(), AnkoLogger {
         var isOK = true
         var permissionListener: PermissionListener? = null //PermissionListener
 
-        //Jobs - time periods
+        //Jobs - time period
         val UPDATE_24H:Long = (60 * 24)
-        val UPDATE_12H = (UPDATE_24H) / 2
-        val UPDATE_6H = (UPDATE_24H) / 4
-        val UPDATE_1H = (UPDATE_24H) / 24
-        val UPDATE_WEEK = (UPDATE_24H) * 7
-        val UPDATE_DEBUG = (UPDATE_1H) / 60
+
 
 //        val isMarshmallow = if (Build.VERSION.SDK_INT >= 23) {true}
 //        else false
@@ -69,7 +65,6 @@ class MainActivity :  AppCompatActivity(), AnkoLogger {
         MA_tv_reportIssue.paintFlags = MA_tv_reportIssue.paintFlags and  Paint.UNDERLINE_TEXT_FLAG
     }
 
-
     override fun onStart() {
         super.onStart()
         debug("MainActivity state: onStart")
@@ -86,7 +81,6 @@ class MainActivity :  AppCompatActivity(), AnkoLogger {
     override fun onDestroy() {
         debug("MainActivity state: onDestroy")
         super.onDestroy()
-
     }
 
     override fun onStop() {
@@ -95,7 +89,6 @@ class MainActivity :  AppCompatActivity(), AnkoLogger {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
