@@ -15,7 +15,6 @@ class ClipService : IntentService("ClipService") {
 
     override fun onHandleIntent(intent: Intent) {
         val str = intent.getStringExtra("code")
-
         val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clip = ClipData.newPlainText("code", str)
         clipboard.primaryClip = clip

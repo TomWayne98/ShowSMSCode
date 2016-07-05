@@ -17,7 +17,6 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import cz.johrusk.showsmscode.R
@@ -28,41 +27,34 @@ import org.jetbrains.anko.*
 import java.util.*
 
 /**
- * Helper class for running jobs which can be called from whole app.
+ * MainActivity class
  *
  * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 
-class MainActivity :  AppCompatActivity(), AnkoLogger {
+class MainActivity : AppCompatActivity(), AnkoLogger {
 
-    companion object{
+    companion object {
         var isOK = true
         var permissionListener: PermissionListener? = null //PermissionListener
-
-        //Jobs - time period
-        val UPDATE_24H:Long = (60 * 24)
-
-
-//        val isMarshmallow = if (Build.VERSION.SDK_INT >= 23) {true}
-//        else false
+        val UPDATE_24H: Long = (60 * 24)//Jobs - time period when
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.main_activity)
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, false) // It will set the default preference on first run
 //        It schedule daily job if there is no scheduled daily job yet.
         JobRunner.scheduleJob(UPDATE_24H)
 //        App name
         toolbar.setTitle(R.string.app_name)
-        toolbar.setTitleTextColor(ContextCompat.getColor(ctx,R.color.textColorPrimary))
+        toolbar.setTitleTextColor(ContextCompat.getColor(ctx, R.color.textColorPrimary))
         setSupportActionBar(toolbar)
 //        Text underlinig
-        MA_tv_addToGit.paintFlags = MA_tv_reportIssue.paintFlags and  Paint.UNDERLINE_TEXT_FLAG
-        MA_tv_author.paintFlags = MA_tv_author.paintFlags and  Paint.UNDERLINE_TEXT_FLAG
-        MA_tv_sourceCode.paintFlags = MA_tv_sourceCode.paintFlags and  Paint.UNDERLINE_TEXT_FLAG
-        MA_tv_reportIssue.paintFlags = MA_tv_reportIssue.paintFlags and  Paint.UNDERLINE_TEXT_FLAG
+        MA_tv_addToGit.paintFlags = MA_tv_reportIssue.paintFlags and Paint.UNDERLINE_TEXT_FLAG
+        MA_tv_author.paintFlags = MA_tv_author.paintFlags and Paint.UNDERLINE_TEXT_FLAG
+        MA_tv_sourceCode.paintFlags = MA_tv_sourceCode.paintFlags and Paint.UNDERLINE_TEXT_FLAG
+        MA_tv_reportIssue.paintFlags = MA_tv_reportIssue.paintFlags and Paint.UNDERLINE_TEXT_FLAG
     }
 
     override fun onStart() {
@@ -106,11 +98,12 @@ class MainActivity :  AppCompatActivity(), AnkoLogger {
             else -> return super.onOptionsItemSelected(item)
         }
     }
+
     /**
      * This method checks if  all permissions are granted
      * eventually it change state indicator to yellow (green circle)
+     * If the circle is yellow, it can be clicked and user can allow system permission to app.
      */
-    // TODO: Improve permission handling UX + new logic
     fun checkPermissionState() {
         val PERM_SHOW_WINDOWS = 4
 
@@ -120,17 +113,18 @@ class MainActivity :  AppCompatActivity(), AnkoLogger {
                     arrayOf(Manifest.permission.SYSTEM_ALERT_WINDOW),
                     PERM_SHOW_WINDOWS)
         }
-
+        // Device which has not granted all permissions (we get overlay-permission checked separately)
         if (isOK == false) {
             iv_state.setColorFilter(Color.YELLOW)
             tv_state.setText(R.string.MA_text_state_needperm)
             iv_state.setOnClickListener {
-                val myAppSettings = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + packageName))
+                val myAppSettings = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + packageName)) // TODO: I guess this kind of intent can't be simplified with Kotlin/Anko...
                 myAppSettings.addCategory(Intent.CATEGORY_DEFAULT)
                 myAppSettings.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(myAppSettings)
             }
         }
+        // Marshmallow+ device with denied overlay-permission
         if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(ctx)) {
             iv_state.setColorFilter(Color.YELLOW)
             tv_state.setText(R.string.MA_text_state_needperm)
@@ -140,27 +134,21 @@ class MainActivity :  AppCompatActivity(), AnkoLogger {
                 myAppSettings.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivityForResult(myAppSettings, 1234)
             }
-
         }
-        if (isOK === true && Build.VERSION.SDK_INT < 23) {
+        // Device with granted overlay permission
+        if (isOK === true && ((Build.VERSION.SDK_INT < 23) || (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(ctx)))) {
             iv_state.setColorFilter(getColor(R.color.color_state))
             tv_state.setText(R.string.MA_text_state)
             iv_state.setOnClickListener { toast(R.string.MA_toast_permission_state_OK) }
-        } else if (isOK === true && Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(ctx)) {
-            iv_state.setColorFilter(getColor(R.color.color_state))
-            tv_state.setText(R.string.MA_text_state)
-            iv_state.setOnClickListener {toast(R.string.MA_toast_permission_state_OK) }
         }
 
         val permissionlistener: PermissionListener = object : PermissionListener {
             override fun onPermissionGranted() {
             }
-
             override fun onPermissionDenied(deniedPermissions: ArrayList<String>) {
-                Toast.makeText(ctx, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show()
+                toast("Permission Denied\n" + deniedPermissions.toString())
                 isOK = false
             }
-
         }
         permissionListener = permissionlistener
     }
@@ -176,6 +164,4 @@ class MainActivity :  AppCompatActivity(), AnkoLogger {
         }
         browse(url as String)
     }
-
-
 }

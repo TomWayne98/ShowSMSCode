@@ -7,19 +7,20 @@ import android.os.Bundle
 import android.telephony.SmsMessage
 import cz.johrusk.showsmscode.service.MsgHandlerService
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.warn
-import timber.log.Timber
+import org.jetbrains.anko.debug
 
 /**
- * Created by Pepa on 03.07.2016.
+ * Broadcast receiver which handles receiving of SMS
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 class SmsReceiver : BroadcastReceiver(), AnkoLogger {
     override fun onReceive(context: Context, intent: Intent) {
-        warn { "SMS Received" }
+        debug { "SMS Received" }
         val messages = getMessages(intent)
         for (message in messages) {
             try {
-                Timber.d("receiving sms from " + message!!.displayOriginatingAddress)
+                debug("receiving sms from " + message!!.displayOriginatingAddress)
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -31,7 +32,7 @@ class SmsReceiver : BroadcastReceiver(), AnkoLogger {
                 val msgSender = message.displayOriginatingAddress
                 val msg = Bundle()
 
-                Timber.d("Content of SMS $msgContent / $msgSender")
+                debug("Content of SMS $msgContent / $msgSender")
                 msg.putStringArray("msg", arrayOf(msgSender, msgContent))
                 msgHandler.putExtra("msg", msg)
                 context.startService(msgHandler)
@@ -48,7 +49,7 @@ class SmsReceiver : BroadcastReceiver(), AnkoLogger {
             try {
                 val smsMessages = arrayOfNulls<SmsMessage>(messages.size)
                 for (i in messages.indices) {
-                    smsMessages[i] = SmsMessage.createFromPdu(messages[i] as ByteArray,format)
+                    smsMessages[i] = SmsMessage.createFromPdu(messages[i] as ByteArray, format)
                 }
                 return smsMessages
             } catch (e: SecurityException) {

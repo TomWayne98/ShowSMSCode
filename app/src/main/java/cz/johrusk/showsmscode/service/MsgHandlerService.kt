@@ -23,10 +23,6 @@ import java.util.regex.Pattern
  */
 class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
 
-    //    var c: Context = App.get()
-
-
-
     override fun onHandleIntent(intent: Intent) {
         val sharedPref = PreferenceManager.getDefaultSharedPreferences(ctx)
         val sendNotification: Boolean = sharedPref.getBoolean("pref_notification", true)
@@ -53,7 +49,6 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
 
                     bundle.putStringArray("key", arrayOf<String>(code, msgArr[0], smsOnList[1]!!, type))
 
-                    //TODO: Check whether is notification service working
                     if (sendNotification) startService(intentFor<NotificationService>("bundle" to bundle))  // It will start service for sending notification if its allowed in settings
                     startService(intentFor<WearService>("bundle" to bundle)) // It send a content which can be displayed on wear device.
                     startService(intentFor<ClipService>("code" to code)) // Starts IntentService which sets sms code to clipboard.
@@ -107,13 +102,7 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
                 val inputStreamReader = InputStreamReader(inputStream)
                 val bufferedReader = BufferedReader(inputStreamReader)
                 val stringBuilder = StringBuilder()
-                var receiveString:String = bufferedReader.readLine()
-                do {
-                    stringBuilder.append(receiveString)
-                    receiveString = bufferedReader.readLine()
-                }
-                while (receiveString != null)
-
+                bufferedReader.forEachLine {stringBuilder.append(it)}
 
 
                 inputStream.close()

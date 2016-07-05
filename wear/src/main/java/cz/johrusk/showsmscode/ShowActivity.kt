@@ -11,7 +11,6 @@ import org.jetbrains.anko.warn
 
 /**
  * Activity which  code and sender of received SMS.
-
  * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 
@@ -34,7 +33,7 @@ class ShowActivity : Activity(), AnkoLogger {
 
         watch_view_stub.setOnClickListener { finish() }
         watch_view_stub.setOnLayoutInflatedListener { stub ->
-            val tv_code = stub.findViewById(R.id.text) as TextView //TODO: how to use Kotlin with ViewStub?
+            val tv_code = stub.findViewById(R.id.text) as TextView //TODO: Is it possible to use Kotlin binding with stub?
             tv_code.text = parts[0]
             val tv_sender = stub.findViewById(R.id.sender) as TextView
             tv_sender.text = parts[1]

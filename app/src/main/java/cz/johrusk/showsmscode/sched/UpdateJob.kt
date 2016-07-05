@@ -1,17 +1,16 @@
 package cz.johrusk.showsmscode.sched
 
 import android.content.Context
-import android.net.Uri
 import android.os.AsyncTask
 import com.evernote.android.job.Job
 import cz.johrusk.showsmscode.core.App
 import es.dmoral.prefs.Prefs
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.debug
 import org.jetbrains.anko.warn
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.*
-import java.net.HttpURLConnection
 import java.net.URL
 
 /**
@@ -77,7 +76,7 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
             val buffer = ByteArray(size)
             inStream.read(buffer)
             inStream.close()
-            json = String(buffer, Charsets.UTF_8) // TODO Check if it is OK
+            json = String(buffer, Charsets.UTF_8)
         } catch (ex: IOException) {
             return null
         }
@@ -108,15 +107,8 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
             if (inputStream != null) {
                 val inputStreamReader = InputStreamReader(inputStream!!)
                 val bufferedReader = BufferedReader(inputStreamReader)
-                var receiveString = ""
                 val stringBuilder = StringBuilder()
-
-                receiveString = bufferedReader.readLine()
-                while (receiveString != null) {// TODO Check if it is OK
-                    stringBuilder.append(receiveString)
-                    receiveString = bufferedReader.readLine()
-                }
-
+                bufferedReader.forEachLine {stringBuilder.append(it)}
                 inputStream!!.close()
                 ret = stringBuilder.toString()
             }
@@ -137,30 +129,27 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
 
         val version_file = File(INTERNAL_PATH_VERSION)
         val sms_file = File(INTERNAL_PATH_SMS)
-        warn("Path of smsJSON: " + sms_file.getAbsolutePath())
-        warn("Path of versionJSON: " + version_file.getAbsolutePath())
+        debug("Path of smsJSON: " + sms_file.getAbsolutePath())
+        debug("Path of versionJSON: " + version_file.getAbsolutePath())
 
         if (sms_file.exists() && version_file.exists()) {
             warn("sms.txt and version.txt exists in the internal storage")
             val localVer = localCheckVersion()
-            val jarray = JSONObject(onlineVerStr)
-            val onlineVer = jarray.getInt("version")
-            warn("Online Ver: " + onlineVer)
+            val onlineVer = JSONObject(onlineVerStr).getInt("version")
+            debug("Online Ver: " + onlineVer)
 
             if (onlineVer == localVer) {
-                warn("The online version in internal storage is same as online version")
+               debug("The online version in internal storage is equal to online version")
                 return true
             } else {
-                warn("Online version in internal storage is older then online version")
+                debug("Online version in internal storage is older than online version")
                 val replaceSms = UpdateTask(App.get())
-                warn("Local version in internal storage will be updated")
                 replaceSms.execute("1")
             }
         } else {
             val localVer: Int
             val onlineVer: Int
             val locObj: JSONObject
-
             val Json = JSONObject(onlineVerStr)
 
             onlineVer = Json.getInt("version")
@@ -185,13 +174,10 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
     }
 
     override fun doInBackground(vararg params: String): Array<String> {
-        val nullAr = kotlin.arrayOfNulls<String>(2)
-        var urlConnection: HttpURLConnection? = null
-        var reader: BufferedReader? = null
+        var JsonStr: String? = null
 
         val par = Integer.valueOf(params[0])!!
         val results = arrayOfNulls<String>(2)
-        var JsonStr: String? = null
         var dUrl: String? = null
 
         val VERSION_URL = "https://rawgit.com/JosefHruska/ShowSMSCode/master/app/src/main/assets/version.json"
@@ -202,61 +188,14 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
         } else if (par == 1) {
             dUrl = SMS_URL
         }
-        try {
+        JsonStr = URL(dUrl).readText()
+        warn("Kotlin ver: " + JsonStr)
 
-            val buildUri = Uri.parse(dUrl).buildUpon().build()
-            val url = URL(buildUri.toString())
-
-            // Create the request to GITHub, and open the connection
-            urlConnection = url.openConnection() as HttpURLConnection
-            urlConnection.requestMethod = "GET"
-            urlConnection.connect()
-
-            // Read the input stream into a String
-            val inputStream = urlConnection.inputStream
-            val buffer = StringBuffer()
-            if (inputStream == null) {
-                // Nothing to do.
-                warn { "AsyncTask failed" }
-                this.cancel(true)
-            }
-            reader = BufferedReader(InputStreamReader(inputStream))
-
-            var line: String = reader.readLine()
-            while (line != null) {
-                buffer.append(line + "\n")
-
-                line = reader.readLine() ?: break
-            }
-            if (buffer.length == 0) {
-                // Stream was empty.  No point in parsing.
-                warn { "AsyncTask failed" }
-                this.cancel(true)
-            }
-            JsonStr = buffer.toString()
-        } catch (e: IOException) {
-            warn { "AsyncTask failed" }
-            this.cancel(true)
-        } finally {
-            warn("output" + JsonStr)
-            if (urlConnection != null) {
-                urlConnection.disconnect()
-            }
-            if (reader != null) {
-                try {
-                    reader.close()
-                } catch (e: IOException) {
-                    warn("Error closing stream")
-                }
-
-            }
-        }
         if (JsonStr != null) {
             results[0] = JsonStr
             results[1] = par.toString()
         } else {
             warn("Probably connection problem")
-            warn { "AsyncTask failed" }
             this.cancel(true)
         }
         return results as Array<String>
@@ -270,15 +209,13 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
                     firstTimeCheckVersion(result[0])
                 } catch (e: JSONException) {
                 }
-
                 "1" -> try {
-                    warn("New version.json was downloaded")
+                    debug("New version.json was downloaded")
                     writeToFile(result[0], "SMS")
                     val updateVersion = UpdateTask(App.get())
                     updateVersion.execute("2")
                 } catch (e: IOException) {
                 }
-
                 "2" -> try {
                     writeToFile(result[0], "VER")
                 } catch (e: IOException) {
@@ -286,7 +223,7 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
 
             }
         } else {
-            warn("Download Failded")
+            warn("Download Failed")
         }
     }
 }

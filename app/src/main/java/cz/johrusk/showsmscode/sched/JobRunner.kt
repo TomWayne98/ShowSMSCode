@@ -10,8 +10,6 @@ import com.evernote.android.job.JobRequest
  */
 
 object JobRunner {
-    //TODO: Add log (Ankologer) + check if there is just one instance of job
-
     // Scheduled Job which updates DB every day(default) eventually as soon as is connection available
     fun scheduleJob(period: Long) {
         if (JobManager.instance().getAllJobRequestsForTag(UpdateJob.TAG).isEmpty()) {
@@ -20,7 +18,6 @@ object JobRunner {
                     .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
                     .build()
                     .schedule()
-
         }
     }
 
@@ -29,7 +26,9 @@ object JobRunner {
             val jobId = JobRequest
                     .Builder(UpdateJob.TAG_ONSTART)
                     .setExecutionWindow(10000L, 30000L).setRequirementsEnforced(true) // All requirements have to be satisfied
-                    .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED).build().schedule()
+                    .setRequiredNetworkType(JobRequest.NetworkType.CONNECTED)
+                    .build()
+                    .schedule()
         }
     }
 }
