@@ -38,10 +38,7 @@ android {
 dependencies {
 
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.jakewharton:butterknife:8.0.1'
-    apt 'com.jakewharton:butterknife-compiler:8.0.1'
     compile 'com.github.AndroidDeveloperLB:AutoFitTextView:2'
-    compile 'com.jakewharton.timber:timber:4.1.2'
     compile 'com.patloew.rxwear:rxwear:1.2.0'
     compile 'com.google.android.support:wearable:2.0.0-alpha1'
     compile 'com.google.android.gms:play-services-wearable:9.2.0'
