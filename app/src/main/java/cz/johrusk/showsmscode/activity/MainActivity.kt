@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.main_activity)
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, false) // It will set the default preference on first run
 //        It schedule daily job if there is no scheduled daily job yet.
-        JobRunner.scheduleJob(UPDATE_24H)
+
 //        App name
         toolbar.setTitle(R.string.app_name)
         toolbar.setTitleTextColor(ContextCompat.getColor(ctx, R.color.textColorPrimary))
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
     override fun onStart() {
         super.onStart()
         debug("MainActivity state: onStart")
-        JobRunner.scheduleOnStartJob()
+
         checkPermissionState()
 
         TedPermission(this) // Use after checkPermissionState
