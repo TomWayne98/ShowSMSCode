@@ -9,7 +9,8 @@ import android.support.v4.app.NotificationManagerCompat
 import android.support.v7.app.NotificationCompat
 import cz.johrusk.showsmscode.R
 import cz.johrusk.showsmscode.activity.MainActivity
-import timber.log.Timber
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.warn
 
 /**
  * Service which sends notification which contain the code and number of sender.
@@ -17,7 +18,7 @@ import timber.log.Timber
  * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 
-class NotificationService : IntentService("NotificationService") {
+class NotificationService : IntentService("NotificationService"), AnkoLogger {
 
 
     override fun onHandleIntent(intent: Intent) {
@@ -41,11 +42,9 @@ class NotificationService : IntentService("NotificationService") {
                 smsSender = dataArray[2]
                 nID = 1
             }
-            else -> Timber.d("Switch statement didn't catch the case:" + notifType)
+            else -> warn("Switch statement didn't catch the case:" + notifType)
         }
         val startAppIntent = PendingIntent.getActivity(this, 0, appIntent, 0)
-
-
         val notifBuilder = NotificationCompat.Builder(this).setSmallIcon(R.drawable.ic_sms).setContentTitle(smsContent).setContentText(smsSender).setAutoCancel(true) as NotificationCompat.Builder
 
         if (notifType == "notifCode") {

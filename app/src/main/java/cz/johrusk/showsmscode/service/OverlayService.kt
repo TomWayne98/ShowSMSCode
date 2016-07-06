@@ -13,7 +13,6 @@ import android.widget.TextView
 import cz.johrusk.showsmscode.R
 import cz.johrusk.showsmscode.fragment.SettingsFragment
 import org.jetbrains.anko.*
-import timber.log.Timber
 
 /**
  * Service which shows code in windows which overlays all other apps.
@@ -65,7 +64,7 @@ class OverlayService : Service(), AnkoLogger{
         val sharedPref = PreferenceManager.getDefaultSharedPreferences(ctx)
         val i = sharedPref.getString(SettingsFragment.KEY_PREF_OVERLAY_DELAY, "")
         val overlayDelay = Integer.valueOf(i)!! * 1000
-        Timber.d("Handler started")
+        debug("Handler started")
         Handler().postDelayed({ stopSelf() }, overlayDelay.toLong())
     }
 
