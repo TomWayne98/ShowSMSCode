@@ -28,7 +28,7 @@ class UpdateJob : com.evernote.android.job.Job(), AnkoLogger {
     }
 
     override fun onRunJob(params: Job.Params): Job.Result {
-        if (params.getTag() == TAG || params.getTag() == TAG_ONSTART) {
+        if (params.tag == TAG || params.tag == TAG_ONSTART) {
             val updateTask: UpdateTask = UpdateTask(App.get())
             updateTask.execute("0")
             warn("JOB STARTED - ONSTART_JOB")
@@ -71,7 +71,7 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
     fun loadJSONFromAsset(): String? {
         var json: String? = null
         try {
-            val inStream = App.get().getAssets().open("version.json")
+            val inStream = App.get().assets.open("version.json")
             val size = inStream.available()
             val buffer = ByteArray(size)
             inStream.read(buffer)
@@ -105,11 +105,11 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
             val inputStream = App.get().openFileInput(file)
 
             if (inputStream != null) {
-                val inputStreamReader = InputStreamReader(inputStream!!)
+                val inputStreamReader = InputStreamReader(inputStream)
                 val bufferedReader = BufferedReader(inputStreamReader)
                 val stringBuilder = StringBuilder()
                 bufferedReader.forEachLine {stringBuilder.append(it)}
-                inputStream!!.close()
+                inputStream.close()
                 ret = stringBuilder.toString()
             }
         } catch (e: FileNotFoundException) {
@@ -124,13 +124,13 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
     fun firstTimeCheckVersion(onlineVerStr: String): Boolean? {
         val SMS_FILE = "/sms.txt"
         val VERSION_FILE = "/version.txt"
-        val INTERNAL_PATH_SMS = App.get().getFilesDir().getPath() + SMS_FILE
-        val INTERNAL_PATH_VERSION = App.get().getFilesDir().getPath() + VERSION_FILE
+        val INTERNAL_PATH_SMS = App.get().filesDir.path + SMS_FILE
+        val INTERNAL_PATH_VERSION = App.get().filesDir.path + VERSION_FILE
 
         val version_file = File(INTERNAL_PATH_VERSION)
         val sms_file = File(INTERNAL_PATH_SMS)
-        debug("Path of smsJSON: " + sms_file.getAbsolutePath())
-        debug("Path of versionJSON: " + version_file.getAbsolutePath())
+        debug("Path of smsJSON: " + sms_file.absolutePath)
+        debug("Path of versionJSON: " + version_file.absolutePath)
 
         if (sms_file.exists() && version_file.exists()) {
             warn("sms.txt and version.txt exists in the internal storage")

@@ -51,8 +51,8 @@ class OverlayService : Service(), AnkoLogger{
         params.y = 0
         val tv_sender = layout!!.find<TextView>(R.id.tv_OS_sender)
         val tv_code = layout!!.find<TextView>(R.id.tv_OS_code)
-        tv_sender.setText(sender)
-        tv_code.setText(code)
+        tv_sender.text = sender
+        tv_code.text = code
         windowManager.addView(layout, params)
 
         return Service.START_STICKY

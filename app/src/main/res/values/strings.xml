@@ -46,8 +46,8 @@
     <string name="URL_GitHub" translatable="false">https://github.com/JosefHruska/ShowSMSCode</string>
     <string name="URL_Issues" translatable="false">https://github.com/JosefHruska/ShowSMSCode/issues</string>
     <string name="URL_AddSMS" translatable="false">https://github.com/JosefHruska/ShowSMSCode/wiki/How-to-add-new-SMS-pattern</string>
-
-
+    <string name="sender">Sender</string>
+    <string name="placeholderc0d3t3xt" translatable="false">PlaceholderC0D3T3XT</string>
 
 
 </resources>

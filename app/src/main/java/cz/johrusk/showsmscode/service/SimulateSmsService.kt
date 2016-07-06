@@ -19,7 +19,7 @@ class SimulateSmsService : IntentService("SimulateSmsService"),AnkoLogger {
 
         val msgContent = "TEST code: 997456192"
         val msgSender = "123456"
-        var msg = Bundle()
+        val msg = Bundle()
 
         debug("Content of SMS $msgContent / $msgSender")
         msg.putStringArray("msg", arrayOf(msgSender, msgContent))

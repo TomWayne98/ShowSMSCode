@@ -17,7 +17,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class TestNewSMSHere {
 
-    static SmsParser smsParser;
+    static private SmsParser smsParser;
 
     @BeforeClass
     public static void setup() {smsParser = new SmsParser();}

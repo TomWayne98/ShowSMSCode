@@ -195,10 +195,10 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
         val m = p.matcher(msg_sender_number)
 
         if (m.find()) {
-            debug("Sender adress is a name")
+            debug("Sender address is a name")
             return false
         } else {
-            debug("Sender adress is a number")
+            debug("Sender address is a number")
             return true
         }
     }

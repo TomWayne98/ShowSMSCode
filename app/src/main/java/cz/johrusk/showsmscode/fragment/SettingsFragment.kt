@@ -28,7 +28,7 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
 
         val prefVer = findPreference(KEY_PREF_VERSION)
         val prefDelay = findPreference(KEY_PREF_OVERLAY_DELAY)
-        var delay = defaultSharedPreferences.getString(KEY_PREF_OVERLAY_DELAY, "5")
+        val delay = defaultSharedPreferences.getString(KEY_PREF_OVERLAY_DELAY, "5")
         prefDelay.summary = (delay + getString(R.string.SF_delay_summary_seconds))
         prefVer.summary = resources.getString(R.string.SF_summary_text)
         prefVer.title = resources.getString(R.string.versionDB_title) + DBVersion

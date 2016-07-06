@@ -17,7 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
-        android:text="Sender"
+        android:text="@string/sender"
         android:maxLines="2"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
@@ -26,12 +26,12 @@
         />
 
     <com.lb.auto_fit_textview.AutoResizeTextView
-        android:textColor="@color/bright_foreground_inverse_material_dark"
+        android:textColor="@color/black_54p"
         android:id="@+id/tv_OS_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:text="PlaceholderC0D3T3XT"
+        android:text="@string/placeholderc0d3t3xt"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:textAlignment="center"

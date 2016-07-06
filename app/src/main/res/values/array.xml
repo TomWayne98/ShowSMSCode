@@ -17,8 +17,7 @@
         <item>10</item>
         <item>15</item>
         <item>30</item>
-        <!--Tepmporary doesn't work - clicklistenter is not working.-->
-        <!--<item>until_tap</item>-->
+
     </string-array>
 
 </resources>

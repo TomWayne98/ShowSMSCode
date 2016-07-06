@@ -5,7 +5,9 @@ import android.content.Context
 import android.content.Intent
 
 /**
- * Created by Pepa on 19.06.2016.
+ * Broadcast receiver which start Datalayerlistener when is Android Wear started
+ *
+ * @author Josef Hruska (pepa.hruska@gmail.com)
  */
 
 class BootCompletedReceiver : BroadcastReceiver() {
