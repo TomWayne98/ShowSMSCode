@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.provider.Settings
+import cz.johrusk.showsmscode.helpers.WearHelper
 import cz.johrusk.showsmscode.core.App
 import org.jetbrains.anko.*
 import org.json.JSONArray
@@ -124,16 +125,19 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
      */
     fun loadJSONFromAsset(): String? {
         val json:String
+        var iStream: InputStream? = null
         try {
-            val iStream = ctx.assets.open("sms.json")
+            val iStream = applicationContext.assets.open("sms.json")
             val size = iStream.available()
             val buffer = ByteArray(size)
             iStream.read(buffer)
-            iStream.close()
             json = String(buffer, Charsets.UTF_8)
         } catch (ex: IOException) {
             ex.printStackTrace()
             return null
+        }
+        finally {
+            iStream?.close()
         }
 
         return json
@@ -224,10 +228,12 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
         }
 
         if (checkStorage()) {
-            m_jArry = JSONObject(loadJSONFromInternal()).getJSONArray("sms")
+            val objectString  = loadJSONFromAsset()
+            m_jArry = JSONObject(objectString).getJSONArray("sms")
             debug("Internal source will be used. Length of JSONArray:  ${m_jArry.length()}")
         } else {
-            m_jArry = JSONObject(loadJSONFromAsset()).getJSONArray("sms")
+            val objectString  = loadJSONFromAsset()
+            m_jArry = JSONObject(objectString).getJSONArray("sms")
             debug("Assets source will be used. Length of JSONArray: ${m_jArry!!.length()}") // It has been already checked that this array exists and "sms" parameter is contained.
         }
 

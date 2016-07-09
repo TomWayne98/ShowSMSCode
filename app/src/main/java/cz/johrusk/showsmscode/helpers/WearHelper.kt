@@ -1,4 +1,4 @@
-package cz.johrusk.showsmscode.service
+package cz.johrusk.showsmscode.helpers
 
 import android.content.Context
 import android.os.Bundle
@@ -6,6 +6,7 @@ import com.patloew.rxwear.GoogleAPIConnectionException
 import com.patloew.rxwear.RxWear
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.debug
+
 
 /**
  * Object which sends code and sender info to wear device

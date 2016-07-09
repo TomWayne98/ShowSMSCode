@@ -20,8 +20,7 @@ import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import cz.johrusk.showsmscode.R
 import cz.johrusk.showsmscode.core.App
-import cz.johrusk.showsmscode.service.MsgHandlerService
-import cz.johrusk.showsmscode.service.SimulateSmsHelper
+import cz.johrusk.showsmscode.helpers.SimulateSms
 import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.*
 import java.util.*
@@ -84,8 +83,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
                 return true
             }
             R.id.action_simulateSMS -> {
-                val msg = SimulateSmsHelper.getFakeContent()
-                startService(intentFor<MsgHandlerService>("msg" to msg))
+                SimulateSms.show(ctx)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
