@@ -2,10 +2,10 @@ package cz.johrusk.showsmscode.service
 
 import android.app.IntentService
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.provider.Settings
+import cz.johrusk.showsmscode.core.App
 import org.jetbrains.anko.*
 import org.json.JSONArray
 import org.json.JSONException
@@ -29,7 +29,7 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
         val msgArr = intent.getBundleExtra("msg").getStringArray("msg")
 
         try {
-            val smsOnList: Array<String?>? = recognizeSms(msgArr[0], msgArr[1])
+            val smsOnList: Array<String?>? = recognizeSms(msgArr[0], msgArr[1]) //TODO check whether extension fun works
             warn(Arrays.toString(smsOnList))
 
             if (smsOnList != null) {
@@ -50,10 +50,10 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
                     bundle.putStringArray("key", arrayOf<String>(code, msgArr[0], smsOnList[1]!!, type))
 
                     if (sendNotification) startService(intentFor<NotificationService>("bundle" to bundle))  // It will start service for sending notification if its allowed in settings
-                    startService(intentFor<WearService>("bundle" to bundle)) // It send a content which can be displayed on wear device.
+                    WearHelper.sentToWatch(bundle,ctx)// It send a content which can be displayed on wear device.
                     startService(intentFor<ClipService>("code" to code)) // Starts IntentService which sets sms code to clipboard.
 
-                    if ((Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(ctx) || Build.VERSION.SDK_INT < 23)) {
+                    if ((App.atleastMarshmallow() && Settings.canDrawOverlays(ctx) || !App.atleastMarshmallow())) {
                         startService(intentFor<OverlayService>("bundle" to bundle)) // Starts service for showing a code on the screen
                         warn("Overlay intent started")
                     } else warn("Permission for overlay is not granted")
@@ -147,11 +147,11 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
      * *
      * @return true == "Unique text is contained in sms" false == "Unique text is not contained in sms"
      */
-    fun containUnique(msg_content: String, results: Array<String?>): Boolean {
+    fun String.containUnique(results: Array<String?>): Boolean {
 
         val pUnique = Pattern.compile(results[0])
-        val mUnique = pUnique.matcher(msg_content)
-        warn(msg_content)
+        val mUnique = pUnique.matcher(this)
+        warn(this)
 
         if (mUnique.find()) {
             warn("Unique text is contained in sms")
@@ -168,16 +168,16 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
      * *
      * @return changed number
      */
-    fun removePreCode(msg_sender_number: String): Long {
+    fun String.removePreCode(): Long {
         val pattern = "\\+(\\d..)"
         val patt = Pattern.compile(pattern)
-        val mat = patt.matcher(msg_sender_number)
+        val mat = patt.matcher(this)
         if (mat.find()) {
-            val number: Long = java.lang.Long.valueOf(mat.replaceFirst(""))!!
+            val number: Long = java.lang.Long.valueOf(mat.replaceFirst(""))!! //matcher is find so it cant be null
             warn("edited number: " + number)
             return number
         }
-        return java.lang.Long.valueOf(msg_sender_number)!!
+        return java.lang.Long.valueOf(this)!! //In this case this == value of string which call this method
     }
 
     /**
@@ -220,19 +220,19 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
         if (!(isNumber)) {
             name = msg_sender_number
         } else {
-            number = removePreCode(msg_sender_number)
+            number = msg_sender_number.removePreCode()
         }
 
         if (checkStorage()) {
             m_jArry = JSONObject(loadJSONFromInternal()).getJSONArray("sms")
-            debug("Internal source will be used. Length of JSONArray: " + m_jArry.length())
+            debug("Internal source will be used. Length of JSONArray:  ${m_jArry.length()}")
         } else {
             m_jArry = JSONObject(loadJSONFromAsset()).getJSONArray("sms")
-            debug("Assets source will be used. Length of JSONArray: " + m_jArry!!.length())
+            debug("Assets source will be used. Length of JSONArray: ${m_jArry!!.length()}") // It has been already checked that this array exists and "sms" parameter is contained.
         }
 
         for (i in 0..m_jArry.length() - 1) {
-            val jo_inside = m_jArry!!.getJSONObject(i)
+            val jo_inside = m_jArry!!.getJSONObject(i) // Array.length is not null, it means that JSON is contained
             warn("id = " + jo_inside.getString("id"))
             val id_value = jo_inside.getInt("id")
             if (id_value < 1000) {
@@ -246,29 +246,29 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
             results[1] = jo_inside.getString("sender")
             results[2] = jo_inside.getString("reg_ex")
             if (id_value < 1000 && !number.equals(0)) {
-                if (number == number_value && containUnique(msg_content, results)) {
+                if (number == number_value && msg_content.containUnique(results)) {
                     warn("number was recognized")
                     return results
                 }
                 if (jo_inside.has("alt_numbers")) {
                     alt_numbers = jo_inside.getJSONArray("alt_numbers")
-                    for (x in 0..alt_numbers!!.length() - 1) {
+                    for (x in 0..alt_numbers!!.length() - 1) { // According to condition above it it contains alt_numbers array
                         altnumbers_value[x] = alt_numbers.getString(x)
-                        if (number == java.lang.Long.valueOf(altnumbers_value[x]) && containUnique(msg_content, results)) {
+                        if (number == java.lang.Long.valueOf(altnumbers_value[x]) && msg_content.containUnique(results)) {
                             return results
                         }
                     }
                 }
             } else if (name != null) {
-                if (name == name_value && containUnique(msg_content, results)) {
+                if (name == name_value && msg_content.containUnique(results)) {
                     warn("number was recognized")
                     return results
                 }
                 if (jo_inside.has("alt_numbers")) {
                     alt_numbers = jo_inside.getJSONArray("alt_numbers")
-                    for (x in 0..alt_numbers!!.length() - 1) {
+                    for (x in 0..alt_numbers!!.length() - 1) { // According to condition above it it contains alt_numbers array
                         altnumbers_value[x] = alt_numbers.getString(x)
-                        if (name == altnumbers_value[x] && containUnique(msg_content, results)) {
+                        if (name == altnumbers_value[x] && msg_content.containUnique(results)) {
                             return results
                         }
                     }

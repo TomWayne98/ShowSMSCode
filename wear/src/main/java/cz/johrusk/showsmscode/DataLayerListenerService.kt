@@ -6,7 +6,10 @@ import android.os.IBinder
 import com.google.android.gms.wearable.MessageApi
 import com.patloew.rxwear.RxWear
 import com.patloew.rxwear.transformers.MessageEventGetDataMap
-import org.jetbrains.anko.*
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.debug
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.newTask
 
 /**
  * Service which receives String containing code and sender from WearActivity.
@@ -23,7 +26,7 @@ class DataLayerListenerService : Service(), AnkoLogger {
         RxWear.init(this)
         RxWear.Message.listen("/dataMap", MessageApi.FILTER_LITERAL).compose(MessageEventGetDataMap.noFilter()).subscribe { dataMap ->
             val message = dataMap.getString("message", getString(R.string.no_message_info))
-            warn("Message received: " + message)
+            debug("Message received: $message")
             if (message != "no_msg") {
                 startActivity(intentFor<ShowActivity>("code" to message).newTask())
                 stopSelf()

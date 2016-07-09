@@ -2,6 +2,7 @@ package cz.johrusk.showsmscode.sched
 
 import android.content.Context
 import android.os.AsyncTask
+import android.util.Log
 import com.evernote.android.job.Job
 import cz.johrusk.showsmscode.core.App
 import es.dmoral.prefs.Prefs
@@ -46,16 +47,16 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
     private fun writeToFile(data: String, name: String) {
         var file: String? = null
         if (name.equals("SMS")) {
-            warn("Saving new SMS.json....")
+            debug("Saving new SMS.json....")
             file = "sms.txt"
-        } else if (name == "VER") {
-            warn("Saving new version.json...." + data)
+        } else if (name.equals("VER")) {
+            debug("Saving new version.json...." + data)
             file = "version.txt"
             try {
                 val JSONob = JSONObject(data)
-                warn(JSONob.toString())
+                debug(JSONob)
                 val updateContent = JSONob.getString("news")
-                warn("NEWS is : " + updateContent)
+                debug("NEWS is : " + updateContent)
             } catch (e: JSONException) {
                 e.printStackTrace()
             }
@@ -70,18 +71,23 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
 
     fun loadJSONFromAsset(): String? {
         var json: String? = null
+        var  inStream: InputStream? = null
         try {
-            val inStream = App.get().assets.open("version.json")
+            val inStream = App.get().assets.open("version.json") // Todo java.lang.NullPointerException: Attempt to invoke virtual method 'int java.lang.String.length()' on a null object reference
             val size = inStream.available()
             val buffer = ByteArray(size)
             inStream.read(buffer)
-            inStream.close()
             json = String(buffer, Charsets.UTF_8)
+            warn("JsonString from assets look like this: $json")
+            Log.d("LOG","JsonString from assets look like this: $json")
         } catch (ex: IOException) {
             return null
         }
+        finally {
+            inStream?.close()
+        }
 
-        warn("loadJSONFromAssets returns:" + json)
+        debug("loadJSONFromAssets returns: $json")
         return json
     }
 
@@ -89,9 +95,9 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
     fun localCheckVersion(): Int {
 
         val str: String = readFromFile("version.txt")
-        warn("version string :" + str)
+        debug("version string : $str")
         val offlineVer = JSONObject(str).getInt("version")
-        warn("offline version is :" + offlineVer)
+        debug("offline version is $offlineVer")
 
         return offlineVer
     }
@@ -100,23 +106,27 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
     @Throws(JSONException::class)
     fun readFromFile(file: String): String {
         var ret = ""
-
+        var inputStream:InputStream? = null
         try {
-            val inputStream = App.get().openFileInput(file)
+            inputStream = App.get().openFileInput(file)
 
             if (inputStream != null) {
                 val inputStreamReader = InputStreamReader(inputStream)
                 val bufferedReader = BufferedReader(inputStreamReader)
                 val stringBuilder = StringBuilder()
                 bufferedReader.forEachLine {stringBuilder.append(it)}
-                inputStream.close()
+
                 ret = stringBuilder.toString()
             }
         } catch (e: FileNotFoundException) {
+            error("File was not found")
         } catch (e: IOException) {
         }
+        finally {
+            inputStream?.close()
+        }
 
-        warn("readFormFile return: " + ret)
+        debug("readFormFile return: $ret")
         return ret
     }
 
@@ -129,8 +139,8 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
 
         val version_file = File(INTERNAL_PATH_VERSION)
         val sms_file = File(INTERNAL_PATH_SMS)
-        debug("Path of smsJSON: " + sms_file.absolutePath)
-        debug("Path of versionJSON: " + version_file.absolutePath)
+        debug("Path of smsJSON: ${sms_file.absolutePath}")
+        debug("Path of versionJSON:  ${version_file.absolutePath}")
 
         if (sms_file.exists() && version_file.exists()) {
             warn("sms.txt and version.txt exists in the internal storage")
@@ -154,8 +164,8 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
 
             onlineVer = Json.getInt("version")
             warn("Online version is: " + onlineVer.toString())
-
-            locObj = JSONObject(loadJSONFromAsset())
+            val str = loadJSONFromAsset()
+            locObj = JSONObject(str)
             localVer = locObj.getInt("version")
             warn("Local version is: " + localVer.toString())
             Prefs.with(c).writeInt("DBVersion", localVer)
@@ -176,7 +186,7 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
     override fun doInBackground(vararg params: String): Array<String> {
         var JsonStr: String? = null
 
-        val par = Integer.valueOf(params[0])!!
+        val par = Integer.valueOf(params[0])!! //all update tasks have to have this parameter as Integer in order to be execute.
         val results = arrayOfNulls<String>(2)
         var dUrl: String? = null
 
@@ -189,7 +199,7 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
             dUrl = SMS_URL
         }
         JsonStr = URL(dUrl).readText()
-        warn("Kotlin ver: " + JsonStr)
+        warn("Downloaded json string: $JsonStr")
 
         if (JsonStr != null) {
             results[0] = JsonStr
@@ -198,8 +208,8 @@ internal class UpdateTask(private val c: Context) : AsyncTask<String, Void, Arra
             warn("Probably connection problem")
             this.cancel(true)
         }
-        return results as Array<String>
-    }
+        return results as Array<String> // It cant be null, otherwise this task would be cancelled before this statement
+     }
 
     override fun onPostExecute(result: Array<String>) {
 

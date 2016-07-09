@@ -7,7 +7,6 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Paint
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.provider.Settings
@@ -20,8 +19,9 @@ import android.view.View
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.TedPermission
 import cz.johrusk.showsmscode.R
-import cz.johrusk.showsmscode.sched.JobRunner
-import cz.johrusk.showsmscode.service.SimulateSmsService
+import cz.johrusk.showsmscode.core.App
+import cz.johrusk.showsmscode.service.MsgHandlerService
+import cz.johrusk.showsmscode.service.SimulateSmsHelper
 import kotlinx.android.synthetic.main.main_activity.*
 import org.jetbrains.anko.*
 import java.util.*
@@ -33,34 +33,26 @@ import java.util.*
  */
 
 class MainActivity : AppCompatActivity(), AnkoLogger {
-
-    companion object {
-        var isOK = true
-        var permissionListener: PermissionListener? = null //PermissionListener
-        val UPDATE_24H: Long = (60 * 24)//Jobs - time period when
-    }
+    var permissionListener: PermissionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, false) // It will set the default preference on first run
-//        It schedule daily job if there is no scheduled daily job yet.
-
-//        App name
+        // Toolbar
         toolbar.setTitle(R.string.app_name)
         toolbar.setTitleTextColor(ContextCompat.getColor(ctx, R.color.textColorPrimary))
         setSupportActionBar(toolbar)
-//        Text underlinig
-        MA_tv_addToGit.paintFlags = MA_tv_reportIssue.paintFlags and Paint.UNDERLINE_TEXT_FLAG
-        MA_tv_author.paintFlags = MA_tv_author.paintFlags and Paint.UNDERLINE_TEXT_FLAG
-        MA_tv_sourceCode.paintFlags = MA_tv_sourceCode.paintFlags and Paint.UNDERLINE_TEXT_FLAG
-        MA_tv_reportIssue.paintFlags = MA_tv_reportIssue.paintFlags and Paint.UNDERLINE_TEXT_FLAG
+        // Text underlinig
+        MA_tv_addToGit.paintFlags +=  Paint.UNDERLINE_TEXT_FLAG
+        MA_tv_author.paintFlags += Paint.UNDERLINE_TEXT_FLAG
+        MA_tv_sourceCode.paintFlags +=  Paint.UNDERLINE_TEXT_FLAG
+        MA_tv_reportIssue.paintFlags +=  + Paint.UNDERLINE_TEXT_FLAG
     }
 
     override fun onStart() {
         super.onStart()
         debug("MainActivity state: onStart")
-
         checkPermissionState()
 
         TedPermission(this) // Use after checkPermissionState
@@ -92,7 +84,8 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
                 return true
             }
             R.id.action_simulateSMS -> {
-                startService(intentFor<SimulateSmsService>())// Simulate receiving a SMS
+                val msg = SimulateSmsHelper.getFakeContent()
+                startService(intentFor<MsgHandlerService>("msg" to msg))
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -105,7 +98,9 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
      * If the circle is yellow, it can be clicked and user can allow system permission to app.
      */
     fun checkPermissionState() {
+        var isOK = true //State of permissions. - true means that all permissions (except overlaying) are granted.
         val PERM_SHOW_WINDOWS = 4
+
 
         if (ContextCompat.checkSelfPermission(ctx,
                 Manifest.permission.SYSTEM_ALERT_WINDOW) != PackageManager.PERMISSION_GRANTED) {
@@ -118,25 +113,25 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
             iv_state.setColorFilter(Color.YELLOW)
             tv_state.setText(R.string.MA_text_state_needperm)
             iv_state.setOnClickListener {
-                val myAppSettings = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + packageName)) // TODO: I guess this kind of intent can't be simplified with Kotlin/Anko...
+                val myAppSettings = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package: $packageName")) // TODO: I guess this kind of intent can't be simplified with Kotlin/Anko...
                 myAppSettings.addCategory(Intent.CATEGORY_DEFAULT)
                 myAppSettings.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(myAppSettings)
             }
         }
         // Marshmallow+ device with denied overlay-permission
-        if (Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(ctx)) {
+        if (App.atleastMarshmallow() && !Settings.canDrawOverlays(ctx)) {
             iv_state.setColorFilter(Color.YELLOW)
             tv_state.setText(R.string.MA_text_state_needperm)
             iv_state.setOnClickListener {
-                val myAppSettings = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + packageName))
+                val myAppSettings = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package: $packageName"))
                 myAppSettings.addCategory(Intent.CATEGORY_DEFAULT)
                 myAppSettings.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivityForResult(myAppSettings, 1234)
             }
         }
         // Device with granted overlay permission
-        if (isOK === true && ((Build.VERSION.SDK_INT < 23) || (Build.VERSION.SDK_INT >= 23 && Settings.canDrawOverlays(ctx)))) {
+        if (isOK === true && ((!App.atleastMarshmallow()) || (App.atleastMarshmallow() && Settings.canDrawOverlays(ctx)))) {
             iv_state.setColorFilter(getColor(R.color.color_state))
             tv_state.setText(R.string.MA_text_state)
             iv_state.setOnClickListener { toast(R.string.MA_toast_permission_state_OK) }
@@ -146,7 +141,7 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
             override fun onPermissionGranted() {
             }
             override fun onPermissionDenied(deniedPermissions: ArrayList<String>) {
-                toast("Permission Denied\n" + deniedPermissions.toString())
+                toast("Permission Denied\n $deniedPermissions")
                 isOK = false
             }
         }
@@ -162,6 +157,6 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
             R.id.MA_tv_sourceCode -> url = getString(R.string.URL_GitHub)
             R.id.MA_tv_author -> url = getString(R.string.URL_LinkedIn)
         }
-        browse(url as String)
+        browse(url as String) // All buttons have appropriate string url, it cant be null.
     }
 }

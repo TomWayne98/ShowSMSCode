@@ -3,8 +3,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'android-apt'
-apply plugin: 'me.tatarka.retrolambda'
+
+
 
 
 android {
@@ -16,8 +16,8 @@ android {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 17
-        versionName "0.17"
+        versionCode 18
+        versionName "0.18"
     }
     buildTypes {
         release {
@@ -27,8 +27,8 @@ android {
     }
 
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_7
     }
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

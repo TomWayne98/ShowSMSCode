@@ -2,8 +2,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'android-apt'
-apply plugin: 'me.tatarka.retrolambda'
+
 
 buildscript {
 
@@ -29,8 +28,8 @@ android {
         applicationId "cz.johrusk.showsmscode"
         minSdkVersion 18
         targetSdkVersion 24
-        versionCode 17
-        versionName "0.17"
+        versionCode 18
+        versionName "0.18"
 
 
     }
@@ -47,8 +46,8 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_7
     }
 }
 
@@ -76,8 +75,6 @@ dependencies {
     compile "org.jetbrains.anko:anko-design:0.9"
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
-
-    apply plugin: 'com.google.gms.google-services'
     wearApp project(':wear')
-
 }
+apply plugin: 'com.google.gms.google-services'

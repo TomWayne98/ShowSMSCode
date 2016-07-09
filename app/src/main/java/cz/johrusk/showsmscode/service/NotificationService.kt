@@ -22,9 +22,8 @@ class NotificationService : IntentService("NotificationService"), AnkoLogger {
 
 
     override fun onHandleIntent(intent: Intent) {
-//        var dataArray = arrayOfNulls<String>(4)
         val bundle = intent.getBundleExtra("bundle")
-        val  dataArray = bundle.getStringArray("key")
+        val dataArray = bundle.getStringArray("key")
         val notifType = dataArray[3]
 
         var smsContent: String? = null
@@ -42,7 +41,7 @@ class NotificationService : IntentService("NotificationService"), AnkoLogger {
                 smsSender = dataArray[2]
                 nID = 1
             }
-            else -> warn("Switch statement didn't catch the case:" + notifType)
+            else -> warn("Switch statement didn't catch the case: $notifType")
         }
         val startAppIntent = PendingIntent.getActivity(this, 0, appIntent, 0)
         val notifBuilder = NotificationCompat.Builder(this).setSmallIcon(R.drawable.ic_sms).setContentTitle(smsContent).setContentText(smsSender).setAutoCancel(true) as NotificationCompat.Builder

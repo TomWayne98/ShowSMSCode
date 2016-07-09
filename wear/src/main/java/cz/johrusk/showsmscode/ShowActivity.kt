@@ -27,7 +27,7 @@ class ShowActivity : Activity(), AnkoLogger {
         val sArray = intent.getStringExtra("code")
         val parts = sArray.split("/".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
 
-        warn("Code / Sender: " + parts[0] + " / " + parts[1])
+        warn("Code / Sender: ${parts[0]}   /   ${parts[1]}")
         setContentView(R.layout.activity_main)
         window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
 

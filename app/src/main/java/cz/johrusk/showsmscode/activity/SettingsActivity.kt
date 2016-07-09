@@ -19,18 +19,17 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
-//        ActionBar
+        // ActionBar
         setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true) //Toolbar is already added. It cant be null
         supportActionBar!!.setDisplayShowHomeEnabled(true)
         supportActionBar!!.setHomeButtonEnabled(true)
-
         // Display the fragment as the main content.
         fragmentManager.beginTransaction().replace(R.id.frame_content, SettingsFragment()).commit()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // handle arrow click here
+
         if (item.itemId == android.R.id.home) {
             finish() // close this activity and return to preview activity (if there is any)
         }

@@ -21,12 +21,10 @@ import org.jetbrains.anko.*
  */
 
 class OverlayService : Service(), AnkoLogger{
+    var layout: View? = null
+
     override fun onBind(p0: Intent?): IBinder? {
         return null //Not used
-    }
-
-    companion object {
-      var layout: View? = null
     }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
@@ -36,7 +34,7 @@ class OverlayService : Service(), AnkoLogger{
         layout =  layoutInflater.inflate(R.layout.overlay_service,null)
         val dataArray: Array<String>
         dataArray = bundle.getStringArray("key")
-        debug("Overlay Service - onStartCommand with" + dataArray[0] + " " + dataArray[2])
+        debug("Overlay Service - onStartCommand with ${dataArray[0]}  ${dataArray[2]}")
         val code = dataArray[0]
         val sender = dataArray[2]
         val params = WindowManager.LayoutParams(
@@ -49,8 +47,8 @@ class OverlayService : Service(), AnkoLogger{
         params.gravity = Gravity.CENTER or Gravity.TOP
         params.x = 0
         params.y = 0
-        val tv_sender = layout!!.find<TextView>(R.id.tv_OS_sender)
-        val tv_code = layout!!.find<TextView>(R.id.tv_OS_code)
+        val tv_sender = layout!!.find<TextView>(R.id.tv_OS_sender) // layout is always inflated in this situation
+        val tv_code = layout!!.find<TextView>(R.id.tv_OS_code) // layout is always inflated in this situation
         tv_sender.text = sender
         tv_code.text = code
         windowManager.addView(layout, params)
@@ -63,7 +61,7 @@ class OverlayService : Service(), AnkoLogger{
         super.onCreate()
         val sharedPref = PreferenceManager.getDefaultSharedPreferences(ctx)
         val i = sharedPref.getString(SettingsFragment.KEY_PREF_OVERLAY_DELAY, "")
-        val overlayDelay = Integer.valueOf(i)!! * 1000
+        val overlayDelay = Integer.valueOf(i)!! * 1000 // this cant be null - it has default value
         debug("Handler started")
         Handler().postDelayed({ stopSelf() }, overlayDelay.toLong())
     }

@@ -16,11 +16,11 @@ import org.jetbrains.anko.debug
  */
 class SmsReceiver : BroadcastReceiver(), AnkoLogger {
     override fun onReceive(context: Context, intent: Intent) {
-        debug { "SMS Received" }
+        debug("SMS Received")
         val messages = getMessages(intent)
         for (message in messages) {
             try {
-                debug("receiving sms from " + message!!.displayOriginatingAddress)
+                debug("receiving sms from  ${message!!.displayOriginatingAddress}") //message always have this property - it cant be null
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -44,7 +44,7 @@ class SmsReceiver : BroadcastReceiver(), AnkoLogger {
         val bundle = intent.extras
         val format = bundle.getString("format") //From API 23+ it is necessary to get format to choose between 3GPP/3GPP2 formatting
 
-        val messages: Array<Any>? = bundle.get("pdus") as Array<Any>
+        val messages: Array<Any>? = bundle.get("pdus") as Array<Any> // It cant be empty
         if (messages != null) {
             try {
                 val smsMessages = arrayOfNulls<SmsMessage>(messages.size)
