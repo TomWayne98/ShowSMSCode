@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.provider.Settings
-import cz.johrusk.showsmscode.helpers.WearHelper
 import cz.johrusk.showsmscode.core.App
+import cz.johrusk.showsmscode.helpers.WearHelper
 import org.jetbrains.anko.*
 import org.json.JSONArray
 import org.json.JSONException
@@ -258,7 +258,7 @@ class MsgHandlerService : IntentService("MsgHandlerService"), AnkoLogger {
                 }
                 if (jo_inside.has("alt_numbers")) {
                     alt_numbers = jo_inside.getJSONArray("alt_numbers")
-                    for (x in 0..alt_numbers!!.length() - 1) { // According to condition above it it contains alt_numbers array
+                    for (x in 0..alt_numbers!!.length() - 1) { // According to condition above it contains alt_numbers array
                         altnumbers_value[x] = alt_numbers.getString(x)
                         if (number == java.lang.Long.valueOf(altnumbers_value[x]) && msg_content.containUnique(results)) {
                             return results

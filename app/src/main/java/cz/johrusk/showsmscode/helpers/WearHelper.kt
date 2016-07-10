@@ -20,7 +20,11 @@ object WearHelper : AnkoLogger {
         val codePlusSender = Arr[0] + "/" + Arr[2]
         debug("Post remote sent ( $codePlusSender )")
         RxWear.init(contx)
-        RxWear.Message.SendDataMap.toAllRemoteNodes("/dataMap").putString("message", codePlusSender).toObservable().subscribe({ requestId -> }) { throwable ->
+        RxWear.Message.SendDataMap
+                .toAllRemoteNodes("/dataMap")
+                .putString("message", codePlusSender)
+                .toObservable()
+                .subscribe({ requestId -> }) { throwable ->
             if (throwable is GoogleAPIConnectionException) {
                 debug("Android wear is not installed")
             } else {

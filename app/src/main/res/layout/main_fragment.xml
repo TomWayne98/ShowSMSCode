@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="7">
+
+    <TextView
+
+        android:id="@+id/MA_tv_reportIssue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="openBrowser"
+        android:paddingBottom="12dp"
+        android:text="@string/MA_text_reportIssue"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/MA_tv_author" />
+
+    <TextView
+
+        android:id="@+id/MA_tv_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="openBrowser"
+        android:paddingBottom="12dp"
+        android:text="@string/MA_text_Aboutauthor"
+        app:layout_constraintBottom_toTopOf="@+id/MA_tv_notRecognized"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.82" />
+
+    <TextView
+        android:id="@+id/MA_tv_addToGit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:onClick="openBrowser"
+        android:text="@string/MA_text_addToGithub"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintTop_toBottomOf="@+id/MA_tv_notRecognized" />
+
+    <TextView
+        android:id="@+id/MA_tv_notRecognized"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:paddingBottom="12dp"
+        android:text="@string/MA_text_notRecognized"
+        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout" />
+
+    <TextView
+        android:id="@+id/MA_tv_sourceCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:clickable="true"
+        android:onClick="openBrowser"
+        android:paddingBottom="12dp"
+        android:text="@string/MA_text_openSourceCode"
+        app:layout_constraintBottom_toTopOf="@+id/MA_tv_author"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout" />
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:maxLines="3"
+        android:minLines="3"
+        android:text="@string/MA_text_state"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_state"
+        app:layout_constraintLeft_toRightOf="@+id/iv_state"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/iv_state" />
+
+    <ImageView
+        android:id="@+id/iv_state"
+        android:layout_width="111dp"
+        android:layout_height="117dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="112dp"
+        android:layout_weight="1.11"
+        android:contentDescription="@null"
+        android:gravity="center"
+        android:src="@drawable/ic_check_circle"
+        android:tint="@color/green"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintLeft_toLeftOf="@+id/constraintLayout"
+        app:layout_constraintRight_toRightOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
+
+
+</android.support.constraint.ConstraintLayout>
